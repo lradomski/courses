@@ -47,5 +47,28 @@ object Main {
   /**
    * Exercise 3
    */
-    def countChange(money: Int, coins: List[Int]): Int = -1
+  def countChange(money: Int, coins: List[Int]): Int =
+  {
+    var indent = 0;
+    def count(money: Int, coins: List[Int]): Int =
+    {
+      def countCore(money: Int, coins: List[Int]): Int =
+      {
+        if (coins.isEmpty) 0
+        else if (money > coins.head) count(money-coins.head, coins)+count(money,coins.tail)
+        else if (money == coins.head) 1+count(money,coins.tail)
+        else count(money, coins.tail)
+      }
+
+      indent = indent + 1;
+      val r = countCore(money, coins)
+      indent = indent - 1;
+      r
+    }
+
+    if (coins.isEmpty) 0
+    else if (money==0) 0
+    else count(money, coins)
+  }
+
   }
