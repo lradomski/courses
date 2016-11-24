@@ -1,5 +1,7 @@
 package recfun
 
+import java.util.Scanner
+
 object Main {
   def main(args: Array[String]) {
     println("Pascal's Triangle")
@@ -9,6 +11,7 @@ object Main {
       println()
     }
   }
+
 
   /**
    * Exercise 1
