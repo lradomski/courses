@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4d2ccfb-cc8e-4a84-91ea-816017416aea" name="Default" comment="maxpairwise">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/description.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/project-template.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/algtbox.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MaxPairwiseProduct.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/lradomski/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../scala/algtbox/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../scala/algtbox/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../scala/recfun/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../scala/recfun/.idea/workspace.xml" />
     </list>
@@ -439,7 +432,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479959725147</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="maxpairwise">
+      <created>1479961001201</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1479961001201</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
