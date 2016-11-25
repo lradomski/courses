@@ -1,3 +1,5 @@
+"ABC".toCharArray().length
+
 def checkBrackets(text : String) : String =
 {
   val emptyChar = '\0'
