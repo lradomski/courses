@@ -2,7 +2,7 @@ import java.util.Scanner
 
 
 object MaxPairwiseProduct {
-  def main(args: Array[String]) {
+  def main(args: Array[String]) = {
     val s = new Scanner(System.in);
 
     val n = s.nextInt();
