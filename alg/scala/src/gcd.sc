@@ -1,4 +1,5 @@
-gcd(28851538, 1183019)
+lcm(6,9)
+
 
 def gcd(a: Long, b:Long) : Long =
 {
@@ -13,3 +14,5 @@ def gcd(a: Long, b:Long) : Long =
   else if (a > b) gcd(b, a % b)
   else gcd(a, b % a)
 }
+
+def lcm(a: Long, b: Long) : Long = a*b/gcd(a,b)
