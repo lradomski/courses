@@ -1,6 +1,15 @@
-fiboHugeMod(239, 1000)
+//fiboHugeMod(239, 1000)
+//fiboHugeMod(100, 100000)
 //fiboHugeMod(2816213588L, 30524)
 //fiboHugeMod(10, 2)
+fiboMod(0, 100000)
+fiboMod(1, 100000)
+println("----")
+fiboMod(74999L, 100000)
+fiboMod(75000L, 100000)
+fiboMod(75001L, 100000)
+fiboMod(75002L, 100000)
+fiboMod(75003L, 100000)
 
 
 def fiboHugeMod(n: Long, mod: Int) : Int =
@@ -19,6 +28,7 @@ def fiboHugeMod(n: Long, mod: Int) : Int =
   {
     while(0 != fibo(i) && 1 != fibo(i+1)) i+=1
     period = i
+    println("Period: " + period)
 
     i+=2
 
