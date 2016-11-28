@@ -27,8 +27,8 @@ object FiboHugeMod {
     {
       while(0 != fibo(i) && 1 != fibo(i+1)) i+=1
 
-      i+=2
       period = i
+      i+=2
 
       while (i < 3*period && fibo(i-period) == fibo(i)) i+=1
     } while (! (i == 3*period))

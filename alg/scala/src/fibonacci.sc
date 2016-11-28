@@ -1,4 +1,7 @@
-fiboHugeMod(2816213588L, 30524)
+fiboHugeMod(239, 1000)
+//fiboHugeMod(2816213588L, 30524)
+//fiboHugeMod(10, 2)
+
 
 def fiboHugeMod(n: Long, mod: Int) : Int =
 {
@@ -15,9 +18,9 @@ def fiboHugeMod(n: Long, mod: Int) : Int =
   do
   {
     while(0 != fibo(i) && 1 != fibo(i+1)) i+=1
+    period = i
 
     i+=2
-    period = i
 
     while (i < 3*period && fibo(i-period) == fibo(i)) i+=1
   } while (! (i == 3*period))
