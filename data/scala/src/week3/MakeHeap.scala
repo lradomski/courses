@@ -2,7 +2,6 @@ import java.io.File
 import java.util.Scanner
 
 import scala.annotation.tailrec
-import scala.collection.mutable
 
 
 object MakeHeap {
@@ -29,7 +28,7 @@ object MakeHeap {
 
     //val vertices : Array[Int] = List(5, 4, 3, 2, 1).toArray
 
-    val swaps = new mutable.Queue[(Int, Int)]()
+    val swaps = new scala.collection.mutable.Queue[(Int, Int)]()
     makeHeap(vertices, swaps)
 
     println(swaps.length)
@@ -85,7 +84,7 @@ object MakeHeap {
     tree
   }
 
-  def makeHeap(a : Array[Int], swaps: mutable.Queue[(Int,Int)]) =
+  def makeHeap(a : Array[Int], swaps: scala.collection.mutable.Queue[(Int,Int)]) =
   {
     def hasParent(i: Int) = i > 0
     def hasLeft(i: Int) = left(i) < a.length
