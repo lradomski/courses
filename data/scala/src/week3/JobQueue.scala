@@ -1,9 +1,6 @@
 import java.io.File
 import java.util.Scanner
 
-import scala.collection.mutable
-
-
 object JobQueue
 {
 
@@ -82,7 +79,7 @@ object JobQueue
 
     val threads = new Array[Int](jobs.length) // record of which thread processed which job
 
-    val jobsPending = new mutable.PriorityQueue[Pending]() //(Ordering.by(p => -1*(p.start+jobs(p.job))))
+    val jobsPending = new scala.collection.mutable.PriorityQueue[Pending]() //(Ordering.by(p => -1*(p.start+jobs(p.job))))
 
     var time : Long = 0
 

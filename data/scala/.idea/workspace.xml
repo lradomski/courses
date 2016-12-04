@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c849d5c9-3f4a-4c3d-a7ef-35c5014a6918" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/week3/JobQueue.scala" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/JobQueue.scala" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/JobQueue.sc" afterPath="$PROJECT_DIR$/src/week3/JobQueue.sc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JobQueue.scala" afterPath="$PROJECT_DIR$/src/JobQueue.scala" />
     </list>
     <ignored path="ds.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,11 +26,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="JobQueue.scala" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/JobQueue.scala">
+      <file leaf-file-name="JobQueue.sc" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/week3/JobQueue.sc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="59" column="46" selection-start-line="59" selection-start-column="46" selection-end-line="59" selection-end-column="46" />
+            <state relative-caret-position="289">
+              <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JobQueue.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/week3/JobQueue.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -36,12 +48,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JobQueue.sc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/JobQueue.sc">
+      <file leaf-file-name="MakeHeap.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/week3/MakeHeap.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
-              <folding />
+            <state relative-caret-position="680">
+              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="71" selection-end-column="7" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#2164#3439#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -82,8 +97,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Scala Script" />
-        <option value="Class" />
         <option value="Scala Worksheet" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -110,9 +125,10 @@
         <option value="$PROJECT_DIR$/src/ArrToHeap.scala" />
         <option value="$PROJECT_DIR$/src/MakeHeap.sc" />
         <option value="$PROJECT_DIR$/src/MakeHeap.scala" />
-        <option value="$PROJECT_DIR$/src/JobQueue.sc" />
         <option value="$PROJECT_DIR$/src/week3/MakeHeap.scala" />
         <option value="$PROJECT_DIR$/src/JobQueue.scala" />
+        <option value="$PROJECT_DIR$/src/JobQueue.sc" />
+        <option value="$PROJECT_DIR$/src/week3/JobQueue.scala" />
       </list>
     </option>
   </component>
@@ -179,6 +195,10 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="week3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -191,10 +211,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="week3" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -615,7 +631,14 @@
       <option name="project" value="LOCAL" />
       <updated>1480808311401</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="data / JobQueue">
+      <created>1480810711826</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1480810711826</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -693,12 +716,6 @@
           <line>97</line>
           <properties />
           <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="scala-line">
-          <url>file://$PROJECT_DIR$/src/JobQueue.scala</url>
-          <line>28</line>
-          <properties />
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="10" />
@@ -923,17 +940,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/week3/MakeHeap.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="71" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#2164#3439#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/week3/MakeHeap.sc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
@@ -942,18 +948,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JobQueue.sc">
+    <entry file="file://$PROJECT_DIR$/src/JobQueue.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+        <state relative-caret-position="153">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="79" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JobQueue.scala">
+    <entry file="file://$PROJECT_DIR$/src/week3/JobQueue.sc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="59" column="46" selection-start-line="59" selection-start-column="46" selection-end-line="59" selection-end-column="46" />
+        <state relative-caret-position="289">
+          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/week3/MakeHeap.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="71" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#2164#3439#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/week3/JobQueue.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>

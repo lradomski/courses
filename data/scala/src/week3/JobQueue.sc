@@ -9,12 +9,20 @@ for (i <- 0 to j.length-1) println(t(i) + " " + j(i))
 
 def jobQueue(n : Int, jobs: Array[Long]) : Array[Int] =
 {
-  case class Pending(thread : Int, job : Int, start : Long)
+  case class Pending(thread : Int, job : Int, start : Long) extends Ordered[Pending]
+  {
+    override def compare(that: Pending): Int =
+    {
+      if (this.end == that.end) -1*this.thread.compare(that.thread)
+      else -1*this.end.compare(that.end)
+    }
 
+    def end = start+jobs(job)
+  }
 
   val threads = new Array[Int](jobs.length) // record of which thread processed which job
 
-  val jobsPending = new mutable.PriorityQueue[Pending]()(Ordering.by(p => -1*(p.start+jobs(p.job))))
+  val jobsPending = new mutable.PriorityQueue[Pending]()//(Ordering.by(p => -1*(p.start+jobs(p.job))))
 
   var time : Long = 0
 
