@@ -1,6 +1,5 @@
 import java.util.Scanner
 
-
 object FiboHugeMod {
   def main(args: Array[String]) = {
     val s = new Scanner(System.in);
