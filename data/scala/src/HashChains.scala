@@ -25,7 +25,9 @@ object HashChains
       for (c <- s)
       {
         h += c*xPower
+        h = h % p
         xPower *= x
+        xPower = xPower % p
       }
 
       ((h % p) % m).toInt
