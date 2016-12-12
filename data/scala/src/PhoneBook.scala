@@ -57,7 +57,7 @@ object PhoneBook
         chain.find(c => c.number == number).getOrElse(null)
       }
     }
-
+  
     def del(number: Long): Unit =
     {
       val i = hash(number)
