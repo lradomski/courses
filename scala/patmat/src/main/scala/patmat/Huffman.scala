@@ -126,6 +126,7 @@ object Huffman
     )
   }
 
+
   /**
     * Checks whether the list `trees` contains only one single code tree.
     */
