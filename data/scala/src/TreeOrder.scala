@@ -10,9 +10,6 @@ class Node[T <% Ordered[T]](var left: Node[T], var right: Node[T], var parent: N
 
 }
 
-object Node
-{
-}
 
 object TreeOrder
 {

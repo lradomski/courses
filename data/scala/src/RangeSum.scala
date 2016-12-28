@@ -1,12 +1,14 @@
 import java.io.File
 import java.util.Scanner
 
-class Node[T <% Ordered[T]](var left: Node[T], var right: Node[T], var parent: Node[T], var key: T)
 
-type Tree = Node[Int]
 
 class Set
 {
+  class Node[T <% Ordered[T]](var left: Node[T], var right: Node[T], var parent: Node[T], var key: T)
+
+  type Tree = Node[Int]
+
   var root: Tree = null
   var sum: Int = 0
 
