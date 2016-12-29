@@ -1,7 +1,8 @@
 var s = new Set
 
-s + 40 + 30 + 20 + 25 + 15 + 13
+s + 40 + 10 + 50 + 20 + 15 + 17 + 30 + 25 + 26 + 27 + 35
 s.isBalanced
+//s + 40 + 30 + 20 + 25 + 15 + 13
 //((new Set) + 2 + 1 + 3).isBalanced
 //s.height
 //s - 13

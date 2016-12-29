@@ -214,5 +214,56 @@ class SetSuite extends FunSuite
     assert(s.isBinarySearch)
   }
 
+  test("split/merge/simple")
+  {
+    val s = makeFrom(List(1,2,3))
 
+    val (sL, sR) = s.split(2)
+    verify(sL, List(1,2), List(3))
+    verify(sR, List(3), List(1,2))
+    verify(s, List(), List(1,2,3))
+
+
+    s.merge(sL, sR)
+    verify(s, List(1,2,3), List())
+    verify(sL, List(), List(1,2,3))
+    verify(sR, List(), List(1,2,3))
+
+    verify(makeFrom(List()).merge(makeFrom(List()), makeFrom(List(1,2,3))), List(1,2,3), List())
+
+  }
+
+  test("split/merge/2")
+  {
+    val keys = List(26,20,40,15,25,30, 50,10,17,29,35)
+    val s = makeFrom(keys)
+    val (sl, sr) = s.split(30)
+    verify(sl, keys.filter(key => key <= 30), keys.filter(key => key > 30))
+    verify(sr, keys.filter(key => key > 30), keys.filter(key => key <= 30))
+    verify(s, List(), keys)
+
+    s.merge(sl,sr)
+    verify(s, keys, List())
+
+    val (sl2, sr2) = s.split(23)
+    verify(sl2, keys.filter(key => key <= 23), keys.filter(key => key > 23))
+    verify(sr2, keys.filter(key => key > 23), keys.filter(key => key <= 23))
+    verify(s, List(), keys)
+    s.merge(sl2,sr2)
+    
+    val min = keys.foldLeft(keys.head)((min, key)=> if (key < min) key else min)
+    val (sl3,sr3) = s.split(min-1)
+    verify(sl3, List(), keys)
+    verify(sr3, keys, List())
+    verify(s, List(), keys)
+    s.merge(sl3,sr3)
+
+    val max = keys.foldLeft(keys.head)((max, key)=> if (key > max) key else max)
+    val (sl4,sr4) = s.split(max+1)
+    verify(sl4, keys, List())
+    verify(sr4, List(), keys)
+    verify(s, List(), keys)
+    s.merge(sl4,sr4)
+
+  }
 }

@@ -5,14 +5,14 @@ import scala.annotation.tailrec
 
 case class Vertex(key: Long, left: Int, right: Int)
 
-class Node[T <% Ordered[T]](var left: Node[T], var right: Node[T], var parent: Node[T], var key: T)
-{
-
-}
-
 
 object TreeOrder
 {
+  class Node[T <% Ordered[T]](var left: Node[T], var right: Node[T], var parent: Node[T], var key: T)
+  {
+
+  }
+
   type Tree = Node[Long]
 
   def buildFrom(vs: Array[Vertex]): Tree =

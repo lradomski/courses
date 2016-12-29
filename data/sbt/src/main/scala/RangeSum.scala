@@ -3,118 +3,76 @@ import java.util.Scanner
 
 import scala.annotation.tailrec
 
-
-class Set
+class Node[T <% Ordered[T]](var left: Node[T], var right: Node[T], var parent: Node[T], var key: T)
 {
+  var height: Int = 0
 
-  class Node[T <% Ordered[T]](var left: Node[T], var right: Node[T], var parent: Node[T], var key: T)
+  def reset(): Unit =
   {
-    var height: Int = 0
-
-    def reset(): Unit =
-    {
-      left = null
-      right = null
-      parent = null
-    }
-
-    def isLeaf = left == null && right == null
-
-    def isRoot = parent == null
-
-    def adjustHeight: Unit =
-    {
-      val old = height
-      val lh = if (left != null) left.height else 0
-      val rh = if (right != null) right.height else 0
-      height = 1 + math.max(lh, rh)
-      if (old != height && null != parent) parent.adjustHeight
-    }
-
-    def isBalanced: Boolean =
-    {
-      def height(node: Node[T]): Int =
-      {
-        if (null == node) 0
-        else math.max(height(node.left), height(node.right)) + 1
-      }
-
-      def core(node: Node[T]): Boolean =
-      {
-        if (null == node) true
-        else core(this.left) && core(this.right) && math.abs(height(node.left) - height(node.right)) <= 1
-      }
-
-      def core2(node: Node[T]): (Boolean, Int) = // isBalanced,height
-      {
-        if (node == null) (true, 0)
-        else
-        {
-          val l = core2(node.left)
-          if (l._1)
-          {
-            val r = core2(node.right)
-            val isBalanced = (r._1 && math.abs(l._2 - r._2) <= 1)
-            val height = math.max(l._2, r._2) + 1
-            (isBalanced, height)
-          }
-          else (false, -1) // height doesn't matter here
-        }
-      }
-
-      //core(this)
-      core2(this)._1
-    }
-
-
-    override def toString: String =
-    {
-      def toString(t: Node[T], indent: Int): String =
-      {
-        if (null == t) "[]"
-        else
-        {
-          val s = " " * indent
-
-          val ok = "" //if (isBinarySearch) "" else " (?)"
-
-          val ret = "\n" + s + "[ " + t.key + ok + "\n" +
-            s + "  <<<" + toString(t.left, indent + 5) + "\n" +
-            s + "  >>>" + toString(t.right, indent + 5) + "\n" +
-            s + "]\n"
-
-          ret
-        }
-      }
-
-      toString(this, 0)
-    }
+    left = null
+    right = null
+    parent = null
   }
 
-  type Tree = Node[Int]
+  def isLeaf = left == null && right == null
 
-  var root: Tree = null
-  var lastSum: Long = 0
+  def isRoot = parent == null
 
-  def get = root
+  def adjustHeight: Unit =
+  {
+    val old = height
+    val lh = if (left != null) left.height else 0
+    val rh = if (right != null) right.height else 0
+    height = 1 + math.max(lh, rh)
+    if (old != height && null != parent) parent.adjustHeight
+  }
 
-  def x = lastSum
-  def debug = false
+  def isBalanced: Boolean =
+  {
+    def height(node: Node[T]): Int =
+    {
+      if (null == node) 0
+      else math.max(height(node.left), height(node.right)) + 1
+    }
 
-  val M = (1e9 + 1).toInt
+    def core(node: Node[T]): Boolean =
+    {
+      if (null == node) true
+      else core(this.left) && core(this.right) && math.abs(height(node.left) - height(node.right)) <= 1
+    }
 
-  var check = List[Int]()
+    def core2(node: Node[T]): (Boolean, Int) = // isBalanced,height
+    {
+      if (node == null) (true, 0)
+      else
+      {
+        val l = core2(node.left)
+        if (l._1)
+        {
+          val r = core2(node.right)
+          val isBalanced = (r._1 && math.abs(l._2 - r._2) <= 1)
+          val height = math.max(l._2, r._2) + 1
+          (isBalanced, height)
+        }
+        else (false, -1) // height doesn't matter here
+      }
+    }
+
+    //core(this)
+    core2(this)._1
+  }
+
 
   override def toString: String =
   {
-    def toString(t: Tree, indent: Int): String =
+    def toString(t: Node[T], indent: Int): String =
     {
       if (null == t) "[]"
       else
       {
         val s = " " * indent
 
-        val ok = if (isBinarySearch) "" else " (?)"
+        val ok = "" //if (isBinarySearch) "" else " (?)"
 
         val ret = "\n" + s + "[ " + t.key + ok + "\n" +
           s + "  <<<" + toString(t.left, indent + 5) + "\n" +
@@ -125,11 +83,35 @@ class Set
       }
     }
 
-    toString(root, 0)
+    toString(this, 0)
+  }
+}
+
+class Set
+{
+  type Tree = Node[Int]
+
+  var root: Tree = null
+  var lastSum: Long = 0
+
+  def get = root
+
+
+  def debug = false
+
+  val M = (1e9 + 1).toInt
+
+  var check = List[Int]()
+
+  override def toString: String =
+  {
+    if (null == root) "[]" else root.toString
   }
 
   def hash(i: Int): Int =
   {
+    def x = lastSum
+
     val ret: Long = (i + x) % M
     //println("// " + i + " --[" + x + "]--> " + ret)
     assert(ret < Int.MaxValue)
@@ -300,17 +282,26 @@ class Set
     ret
   }
 
-  def del(i: Int): Unit =
+  def del(i: Int): Boolean =
   {
     assert(i < M, "del: hash")
+    val node = find(i)
+    if (null != node && node.key == i)
+    {
+      del(node)
+      true
+    }
+    else false
+  }
 
-    def dbgDel: Unit =
+  def del(node: Tree): Unit =
+  {
+
+    def dbgDel(i: Int): Unit =
     {
       println("// s - " + format(i))
       check = check.filter(key => key != i)
     }
-
-    if (debug) dbgDel
 
     def promote(toPromote: Tree, toSkip: Tree): Tree =
     {
@@ -342,9 +333,10 @@ class Set
       // TODO: actually re-attach the node, not just transfer key
     }
 
-    val node = find(i)
-    if (node != null && node.key == i)
+    if (node != null)
     {
+      if (debug) dbgDel(node.key)
+
       val nextNode = next(node)
       if (nextNode == null)
       {
@@ -370,6 +362,98 @@ class Set
       }
     }
   }
+
+  def mergeWithRoot(l: Tree, r: Tree, parent: Tree): Tree =
+  {
+    assert(parent != null)
+    assert(if (l != null) l.key < parent.key else true)
+    assert(if (r != null) parent.key < r.key else true)
+    parent.left = l
+    parent.right = r
+    if (l != null) l.parent = parent
+    if (r != null) r.parent = parent
+    parent.parent = null
+    parent
+  }
+
+  def split(x: Int): (Set, Set) =
+  {
+
+    def splitCore(node: Tree, x: Int): (Tree, Tree) = // l.key <= x , x < r.key
+    {
+      if (node == null) (null, null)
+      else
+      {
+        if (node.key <= x)
+        {
+          // node.left tree already meets condition entirely
+          // node.right may still have some nodes which we need on the left
+          val (splitL, outR) = splitCore(node.right, x)
+
+          // merge "left" nodes retrived from right side with node.left under node
+          val outL = mergeWithRoot(node.left, splitL, node)
+          (outL, outR)
+        }
+        else // x < node.key
+        {
+          // symmetrical to above
+          // node.right tree already meets condition entirely
+          // node.left may still have some nodes which we need on the right
+          val (outL, splitR) = splitCore(node.left, x)
+
+          // merge "right" nodes retrived from left side with node.right under node
+          val outR = mergeWithRoot(splitR, node.right, node)
+          (outL, outR)
+        }
+      }
+    }
+
+    val (left, right) = splitCore(root, x)
+    if (left != null) left.parent = null
+    if (right != null) right.parent = null
+
+    root = null
+    val setLeft = new Set;
+    setLeft.root = left
+    val setRight = new Set;
+    setRight.root = right
+    (setLeft, setRight)
+  }
+
+  def max: Tree =
+  {
+    def findMax(node: Tree): Tree =
+    {
+      assert(node != null)
+      if (null != node.right) findMax(node.right)
+      else node
+    }
+
+    if (null != root) findMax(root) else null
+  }
+
+  def merge(left: Set, right: Set): Set =
+  {
+    assert(root == null)
+    assert(left != null)
+    assert(right != null)
+
+    if (left.root != null)
+    {
+      val parent = left.max
+      left.del(parent)
+      root = mergeWithRoot(left.root, right.root, parent)
+    }
+    else
+    {
+      root = right.root
+    }
+
+    left.root = null
+    right.root = null
+    this
+  }
+
 
   def sum(l: Int, r: Int): Long =
   {
