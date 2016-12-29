@@ -5,9 +5,15 @@ import org.scalatest.junit.JUnitRunner
 @RunWith(classOf[JUnitRunner])
 class SetSuite extends FunSuite
 {
-  def a(b:Boolean) = assert(b)
+  def a(b: Boolean) = assert(b)
 
-  def makeFrom(keys: List[Int]) = keys.foldLeft(new Set)((set, key) => set + key)
+  def makeFrom(keys: List[Int]) =
+  {
+    val set = keys.foldLeft(new Set)((set, key) => set + key)
+    assert(set.isBinarySearch)
+    assert(set.isBalanced)
+    set
+  }
 
 
   test("add")
@@ -15,7 +21,6 @@ class SetSuite extends FunSuite
     val keys = List(40, 10, 20, 15, 17, 30, 25, 26, 27)
 
     val s = makeFrom(keys)
-    assert(s.isBinarySearch)
     keys.foreach(key => assert(s.exists(key)))
 
     // next
@@ -100,49 +105,49 @@ class SetSuite extends FunSuite
 
   test("delete/simple")
   {
-    verify(makeFrom(List(2, 3, 1))-2, List(3,1), List(2))
-    verify(makeFrom(List(2, 3, 1))-1, List(2,3), List(1))
-    verify(makeFrom(List(2, 3, 1))-3, List(2,1), List(3))
+    verify(makeFrom(List(2, 3, 1)) - 2, List(3, 1), List(2))
+    verify(makeFrom(List(2, 3, 1)) - 1, List(2, 3), List(1))
+    verify(makeFrom(List(2, 3, 1)) - 3, List(2, 1), List(3))
 
-    (new Set)-10
+    assert(((new Set) - 10).get == null)
   }
 
   test("delete/next/left-descendent/1")
   {
-    val keys = List(20,10,30,25,40,35,50,37,36,38)
+    val keys = List(20, 10, 30, 25, 40, 35, 50, 37, 36, 38)
     val deleted = 30
     val has = keys.filter(key => key != deleted)
     val hasNot = List(deleted)
-    verify(makeFrom(keys)-deleted, has, hasNot)
+    verify(makeFrom(keys) - deleted, has, hasNot)
   }
 
   test("delete/next/left-descendent/2")
   {
-    val keys = List(20,10,30,40,35,50,37,36,38)
+    val keys = List(20, 10, 30, 40, 35, 50, 37, 36, 38)
     val deleted = 30
     val has = keys.filter(key => key != deleted)
     val hasNot = List(deleted)
-    verify(makeFrom(keys)-deleted, has, hasNot)
+    verify(makeFrom(keys) - deleted, has, hasNot)
   }
 
   test("delete/next/right-ancestor/1")
   {
-    val keys = List(40,10,20,15,17,30,25,26,27)
+    val keys = List(40, 10, 20, 15, 17, 30, 25, 26, 27)
     val deleted = 30
     val has = keys.filter(key => key != deleted)
     val hasNot = List(deleted)
-    verify(makeFrom(keys)-deleted, has, hasNot)
+    verify(makeFrom(keys) - deleted, has, hasNot)
   }
 
   test("delete/next/right-ancestor/2")
   {
-    val keys = List(10,20,30,25,23)
+    val keys = List(10, 20, 30, 25, 23)
     val deleted = 30
     val has = keys.filter(key => key != deleted)
     val hasNot = List(deleted)
-    verify(makeFrom(keys)-deleted, has, hasNot)
+    verify(makeFrom(keys) - deleted, has, hasNot)
   }
-  
+
   test("case20")
   {
     val s = new Set
@@ -205,9 +210,9 @@ class SetSuite extends FunSuite
     s.s(31190791, 871353531) // = 4200113661 // 4200113661 // List(601030115, 755077338, 579842587, 680116571, 31190791, 248399406, 433103322, 871353531)
     s + 118055263
     s.s(533468479, 690718988) // = 0 // 1860989273 // List(601030115, 579842587, 680116571)
-    
+    assert(s.isBalanced)
+    assert(s.isBinarySearch)
   }
-
 
 
 }

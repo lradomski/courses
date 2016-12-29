@@ -1,8 +1,15 @@
 var s = new Set
 
 s + 40 + 30 + 20 + 25 + 15 + 13
-s.sum(13,40)
-40 + 30 + 20 + 25 + 15 + 13
+s.isBalanced
+//((new Set) + 2 + 1 + 3).isBalanced
+//s.height
+//s - 13
+//s. height
+//(new Set).height
+//((new Set) + 1 - 1).height
+//s.sum(13,40)
+//40 + 30 + 20 + 25 + 15 + 13
 
 // test 3
 //s + 491572259

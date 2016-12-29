@@ -9,6 +9,8 @@ class Set
 
   class Node[T <% Ordered[T]](var left: Node[T], var right: Node[T], var parent: Node[T], var key: T)
   {
+    var height: Int = 0
+
     def reset(): Unit =
     {
       left = null
@@ -19,6 +21,51 @@ class Set
     def isLeaf = left == null && right == null
 
     def isRoot = parent == null
+
+    def adjustHeight: Unit =
+    {
+      val old = height
+      val lh = if (left != null) left.height else 0
+      val rh = if (right != null) right.height else 0
+      height = 1 + math.max(lh, rh)
+      if (old != height && null != parent) parent.adjustHeight
+    }
+
+    def isBalanced: Boolean =
+    {
+      def height(node: Node[T]): Int =
+      {
+        if (null == node) 0
+        else math.max(height(node.left), height(node.right)) + 1
+      }
+
+      def core(node: Node[T]): Boolean =
+      {
+        if (null == node) true
+        else core(this.left) && core(this.right) && math.abs(height(node.left) - height(node.right)) <= 1
+      }
+
+      def core2(node: Node[T]): (Boolean, Int) = // isBalanced,height
+      {
+        if (node == null) (true, 0)
+        else
+        {
+          val l = core2(node.left)
+          if (l._1)
+          {
+            val r = core2(node.right)
+            val isBalanced = (r._1 && math.abs(l._2 - r._2) <= 1)
+            val height = math.max(l._2, r._2) + 1
+            (isBalanced, height)
+          }
+          else (false, -1) // height doesn't matter here
+        }
+      }
+
+      //core(this)
+      core2(this)._1
+    }
+
 
     override def toString: String =
     {
@@ -52,6 +99,7 @@ class Set
   def get = root
 
   def x = lastSum
+  def debug = false
 
   val M = (1e9 + 1).toInt
 
@@ -82,14 +130,19 @@ class Set
 
   def hash(i: Int): Int =
   {
-    val ret : Long = (i + x) % M
+    val ret: Long = (i + x) % M
     //println("// " + i + " --[" + x + "]--> " + ret)
     assert(ret < Int.MaxValue)
     ret.toInt
   }
 
   def format(i: Long): String = i.toString
-    //java.text.NumberFormat.getIntegerInstance.format(i) // i.toString
+
+  //java.text.NumberFormat.getIntegerInstance.format(i) // i.toString
+
+  def height = if (root != null) root.height else 0
+
+  def isBalanced = if (root != null) root.isBalanced else true
 
   def find(i: Int): Tree =
   {
@@ -114,49 +167,152 @@ class Set
     if (null != root) find(i).key == i else false
   }
 
-  def add(i: Int): Tree =
-  {
-    assert(i < M, "add: hash")
-    //println("// s + " + format(i) )
-    if (!check.exists(key => key == i)) check = check ::: List(i)
-    // TODO: splay
 
-    if (null == root)
+  def rebalance(node: Tree): Unit =
+  {
+    def updateParent(in: Tree, out: Tree, parent: Tree): Unit =
     {
-      root = new Tree(null, null, null, i)
-      root
-    }
-    else
-    {
-      val parent = find(i)
-      if (i < parent.key)
+      if (null != parent)
       {
-        assert(parent.left == null, "add: parent.left")
-        parent.left = new Tree(null, null, parent, i)
-        parent.left
-      }
-      else if (parent.key < i)
-      {
-        assert(parent.right == null, "add: parent.right")
-        parent.right = new Tree(null, null, parent, i)
-        parent.right
+        if (parent.left == out) parent.left = in
+        else if (parent.right == out) parent.right = in
+        else assert(false, "reparent: parent -> in")
       }
       else
       {
-        assert(parent.key == i, "add: parent.key")
-        parent
+        root = in
       }
     }
+
+
+    def rotateRight(out: Tree): Unit = // A <- *B -> C   ==>   A -> *B -> C
+    {
+      assert(out != null)
+      assert(out.left != null)
+      val parent = out.parent
+      val in = out.left
+
+
+      if (in.right != null) in.right.parent = out
+      out.left = in.right
+
+      out.parent = in
+      in.right = out
+
+      in.parent = parent
+      updateParent(in, out, parent)
+      out.adjustHeight
+    }
+
+    def rotateLeft(out: Tree): Unit = // A <- *B -> C   ==>   A <- *B <- C
+    {
+      assert(out != null)
+      assert(out.right != null)
+      val parent = out.parent
+      val in = out.right
+
+
+      if (in.left != null) in.left.parent = out
+      out.right = in.left
+
+      out.parent = in
+      in.left = out
+
+      in.parent = parent
+      updateParent(in, out, parent)
+      out.adjustHeight
+    }
+
+    def h(node: Tree) = if (node != null) node.height else 0
+
+    def rebalanceRight(node: Tree): Unit =
+    {
+      assert(node != null)
+      assert(node.left != null)
+
+      if (h(node.left.right) > h(node.left.left)) rotateLeft(node.left)
+      rotateRight(node)
+    }
+
+    def rebalanceLeft(node: Tree): Unit =
+    {
+      assert(node != null)
+      assert(node.right != null)
+
+      if (h(node.right.left) > h(node.right.right)) rotateRight(node.right)
+      rotateLeft(node)
+    }
+
+
+    if (null != node)
+    {
+      val parent = node.parent
+      if (h(node.left) > h(node.right) + 1) rebalanceRight(node)
+      else if (h(node.left) + 1 < h(node.right)) rebalanceLeft(node)
+      rebalance(parent)
+    }
+  }
+
+
+  def add(i: Int): Tree =
+  {
+    assert(i < M, "add: hash")
+
+    def dbgAdd: Unit =
+    {
+      println("// s + " + format(i))
+      if (!check.exists(key => key == i)) check = check ::: List(i)
+    }
+
+    if (debug) dbgAdd
+    // TODO: splay
+
+    val ret =
+      if (null == root)
+      {
+        root = new Tree(null, null, null, i)
+        root
+      }
+      else
+      {
+        val parent = find(i)
+        if (i < parent.key)
+        {
+          assert(parent.left == null, "add: parent.left")
+          parent.left = new Tree(null, null, parent, i)
+          parent.left
+        }
+        else if (parent.key < i)
+        {
+          assert(parent.right == null, "add: parent.right")
+          parent.right = new Tree(null, null, parent, i)
+          parent.right
+        }
+        else
+        {
+          assert(parent.key == i, "add: parent.key")
+          parent
+        }
+      }
+
+    ret.adjustHeight
+    rebalance(ret)
+    ret
   }
 
   def del(i: Int): Unit =
   {
-    check = check.filter(key => key != i)
-
     assert(i < M, "del: hash")
-    //println("// s - " + format(i) )
 
-    def promote(toPromote: Tree, toSkip: Tree): Unit =
+    def dbgDel: Unit =
+    {
+      println("// s - " + format(i))
+      check = check.filter(key => key != i)
+    }
+
+    if (debug) dbgDel
+
+    def promote(toPromote: Tree, toSkip: Tree): Tree =
     {
       assert(toSkip != null, "promote: toSkip")
       assert(if (toPromote != null) toPromote.parent == toSkip else true, "promote: toPromote")
@@ -168,6 +324,7 @@ class Set
         if (toSkip == newParent.left) newParent.left = toPromote
         else if (toSkip == newParent.right) newParent.right = toPromote
         else assert(false, "promote: newParent->toSkip")
+        newParent.adjustHeight
       }
       else
       {
@@ -175,6 +332,7 @@ class Set
       }
 
       if (toPromote != null) toPromote.parent = newParent
+      newParent
     }
 
     def replaceWith(old: Tree, newNode: Tree): Unit =
@@ -185,25 +343,29 @@ class Set
     }
 
     val node = find(i)
-    if (node != null  &&  node.key == i)
+    if (node != null && node.key == i)
     {
       val nextNode = next(node)
       if (nextNode == null)
       {
         assert(node.right == null)
-        promote(node.left, node)
+        val parent = promote(node.left, node)
+        rebalance(parent)
       }
       else
       {
         if (nextNode.left == null)
         {
-          promote(nextNode.right, nextNode)
+          val parent = promote(nextNode.right, nextNode)
           replaceWith(node, nextNode)
+          rebalance(parent)
+
         }
         else
         {
           assert(node.right == null)
-          promote(node.left, node)
+          val parent = promote(node.left, node)
+          rebalance(parent)
         }
       }
     }
@@ -215,7 +377,7 @@ class Set
     assert(r < M, "sum: hash")
     assert(l <= r, "sum: " + l + " > " + r)
 
-    var sum : Long = 0
+    var sum: Long = 0
     var node = find(l)
 
     while (null != node && node.key <= r)
@@ -224,16 +386,17 @@ class Set
       node = next(node)
     }
 
-//    println(
-//      "// s.s(" + format(l) + ", " + format(r) + ") // = " + format(sum) +
-//        " // " + format(check.foldLeft(0L)((sum, key) => if (l <= key && key <= r) sum + key else sum)) +
-//        " // " + check.filter(key => (l <= key && key <= r)))
-
+    if (debug)
+    {
+      println(
+        "// s.s(" + format(l) + ", " + format(r) + ") // = " + format(sum) +
+          " // " + format(check.foldLeft(0L)((sum, key) => if (l <= key && key <= r) sum + key else sum)) +
+          " // " + check.filter(key => (l <= key && key <= r)))
+    }
 
     lastSum = sum
     lastSum
   }
-
 
 
   def next(node: Tree): Tree =
@@ -337,7 +500,7 @@ object RangeSum
       if (null != sa)
       {
         val out = sa.nextLine()
-        assert(out == s, "op:" + (opCount+2) + "/line:" + (outCount+1) + "> [" + s + "] != [" + out + "]")
+        assert(out == s, "op:" + (opCount + 2) + "/line:" + (outCount + 1) + "> [" + s + "] != [" + out + "]")
         outCount += 1
       }
       s
