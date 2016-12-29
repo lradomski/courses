@@ -264,6 +264,16 @@ class SetSuite extends FunSuite
     verify(sr4, List(), keys)
     verify(s, List(), keys)
     s.merge(sl4,sr4)
+  }
 
+  test("sum/1")
+  {
+    val keys = List(26,20,40,15,25,30, 50,10,17,29,35)
+    val s = makeFrom(keys)
+    assert(s.sum(40,50) == 90)
+    assert(s.sum(0,0) == 0)
+    assert(s.sum(0,10) == 10)
+    assert(s.sum(23,23) == 0)
+    assert(s.sum(23,45) == keys.foldLeft(0)((sum,key) => if (23 <= key && key <= 45) sum+key else sum))
   }
 }

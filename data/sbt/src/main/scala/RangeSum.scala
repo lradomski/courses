@@ -455,7 +455,30 @@ class Set
   }
 
 
+
   def sum(l: Int, r: Int): Long =
+  {
+    def addUp(node: Tree): Long =
+    {
+      if (null == node) 0
+      else addUp(node.left) + addUp(node.right) + node.key
+    }
+
+    assert(l < M, "sum: hash")
+    assert(r < M, "sum: hash")
+    assert(l <= r, "sum: " + l + " > " + r)
+
+    val s = split(l-1)
+    val (range,ignore) = s._2.split(r)
+
+    val sum = addUp(range.root)
+
+
+    merge(s._1, (new Set).merge(range,ignore))
+    sum
+  }
+
+  def sum2(l: Int, r: Int): Long =
   {
     assert(l < M, "sum: hash")
     assert(r < M, "sum: hash")
@@ -478,8 +501,7 @@ class Set
           " // " + check.filter(key => (l <= key && key <= r)))
     }
 
-    lastSum = sum
-    lastSum
+    sum
   }
 
 
@@ -563,6 +585,7 @@ class Set
     val l = hash(larg)
     val r = hash(rarg)
     val ret = if (l <= r) sum(l, r) else sum(r, l)
+    lastSum = ret
     ret
   }
 
