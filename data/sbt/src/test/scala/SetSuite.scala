@@ -103,11 +103,17 @@ class SetSuite extends FunSuite
 
   def verify(s: Set, has: List[Int], hasNot: List[Int]): Set = verify(s, has, hasNot, has.sorted)
 
+  def verifyB(s: Set, has: List[Int], hasNot: List[Int]): Set =
+    {
+      assert(s.isBalanced)
+      verify(s, has, hasNot, has.sorted)
+    }
+
   test("delete/simple")
   {
-    verify(makeFrom(List(2, 3, 1)) - 2, List(3, 1), List(2))
-    verify(makeFrom(List(2, 3, 1)) - 1, List(2, 3), List(1))
-    verify(makeFrom(List(2, 3, 1)) - 3, List(2, 1), List(3))
+    verifyB(makeFrom(List(2, 3, 1)) - 2, List(3, 1), List(2))
+    verifyB(makeFrom(List(2, 3, 1)) - 1, List(2, 3), List(1))
+    verifyB(makeFrom(List(2, 3, 1)) - 3, List(2, 1), List(3))
 
     assert(((new Set) - 10).get == null)
   }
@@ -118,7 +124,7 @@ class SetSuite extends FunSuite
     val deleted = 30
     val has = keys.filter(key => key != deleted)
     val hasNot = List(deleted)
-    verify(makeFrom(keys) - deleted, has, hasNot)
+    verifyB(makeFrom(keys) - deleted, has, hasNot)
   }
 
   test("delete/next/left-descendent/2")
@@ -127,7 +133,7 @@ class SetSuite extends FunSuite
     val deleted = 30
     val has = keys.filter(key => key != deleted)
     val hasNot = List(deleted)
-    verify(makeFrom(keys) - deleted, has, hasNot)
+    verifyB(makeFrom(keys) - deleted, has, hasNot)
   }
 
   test("delete/next/right-ancestor/1")
@@ -136,7 +142,7 @@ class SetSuite extends FunSuite
     val deleted = 30
     val has = keys.filter(key => key != deleted)
     val hasNot = List(deleted)
-    verify(makeFrom(keys) - deleted, has, hasNot)
+    verifyB(makeFrom(keys) - deleted, has, hasNot)
   }
 
   test("delete/next/right-ancestor/2")
@@ -145,7 +151,7 @@ class SetSuite extends FunSuite
     val deleted = 30
     val has = keys.filter(key => key != deleted)
     val hasNot = List(deleted)
-    verify(makeFrom(keys) - deleted, has, hasNot)
+    verifyB(makeFrom(keys) - deleted, has, hasNot)
   }
 
   test("case20")
@@ -225,7 +231,7 @@ class SetSuite extends FunSuite
 
 
     s.merge(sL, sR)
-    verify(s, List(1,2,3), List())
+    verifyB(s, List(1,2,3), List())
     verify(sL, List(), List(1,2,3))
     verify(sR, List(), List(1,2,3))
 
@@ -243,7 +249,7 @@ class SetSuite extends FunSuite
     verify(s, List(), keys)
 
     s.merge(sl,sr)
-    verify(s, keys, List())
+    verifyB(s, keys, List())
 
     val (sl2, sr2) = s.split(23)
     verify(sl2, keys.filter(key => key <= 23), keys.filter(key => key > 23))
@@ -270,10 +276,21 @@ class SetSuite extends FunSuite
   {
     val keys = List(26,20,40,15,25,30, 50,10,17,29,35)
     val s = makeFrom(keys)
+    assert(s.isBalanced)
+
     assert(s.sum(40,50) == 90)
+    assert(s.isBalanced)
+
     assert(s.sum(0,0) == 0)
+    assert(s.isBalanced)
+
     assert(s.sum(0,10) == 10)
+    assert(s.isBalanced)
+
     assert(s.sum(23,23) == 0)
+    assert(s.isBalanced)
+
     assert(s.sum(23,45) == keys.foldLeft(0)((sum,key) => if (23 <= key && key <= 45) sum+key else sum))
+    assert(s.isBalanced)
   }
 }

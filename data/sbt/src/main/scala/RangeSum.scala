@@ -365,16 +365,62 @@ class Set
 
   def mergeWithRoot(l: Tree, r: Tree, parent: Tree): Tree =
   {
+    def h(n: Tree) = if (n != null) n.height else 0
+
     assert(parent != null)
     assert(if (l != null) l.key < parent.key else true)
     assert(if (r != null) parent.key < r.key else true)
+
     parent.left = l
     parent.right = r
     if (l != null) l.parent = parent
     if (r != null) r.parent = parent
     parent.parent = null
+    parent.adjustHeight
+
     parent
   }
+
+  def mergeWithRootAVL(l: Tree, r: Tree, parent: Tree): Tree =
+  {
+    def h(n: Tree) = if (n != null) n.height else 0
+
+    assert(parent != null)
+    assert(if (l != null) l.key < parent.key else true)
+    assert(if (r != null) parent.key < r.key else true)
+
+    if (math.abs(h(l) - h(r)) <= 1)
+    {
+      mergeWithRoot(l, r, parent)
+    }
+    else if (h(l) > h(r))
+    {
+      assert(l != null)
+      val newRight = mergeWithRootAVL(l.right, r, parent)
+      l.right = newRight
+      if (newRight != null) newRight.parent = l
+      l.parent = null
+      rebalance(l.right)
+      l.adjustHeight
+      l
+    }
+    else
+    {
+      assert(h(l) < h(r))
+      assert(r != null)
+
+      val newLeft = mergeWithRootAVL(l, r.left, parent)
+      r.left = newLeft
+      if (newLeft != null) newLeft.parent = r
+      r.parent = null
+      rebalance(r.left)
+      r.adjustHeight
+      r
+    }
+
+
+  }
+
 
   def split(x: Int): (Set, Set) =
   {
@@ -442,7 +488,7 @@ class Set
     {
       val parent = left.max
       left.del(parent)
-      root = mergeWithRoot(left.root, right.root, parent)
+      root = mergeWithRootAVL(left.root, right.root, parent)
     }
     else
     {

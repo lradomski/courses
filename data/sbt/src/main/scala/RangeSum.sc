@@ -1,7 +1,22 @@
-var s = new Set
+def makeFrom(keys: List[Int]) =
+{
+  val set = keys.foldLeft(new Set)((set, key) => set + key)
+  assert(set.isBinarySearch)
+  assert(set.isBalanced)
+  set
+}
 
-s + 40 + 10 + 50 + 20 + 15 + 17 + 30 + 25 + 26 + 27 + 35
-s.isBalanced
+val keys = List(26,20,40,15,25,30, 50,10,17,29,35)
+val s = makeFrom(keys)
+
+
+
+//var s = new Set
+
+
+
+//s + 40 + 10 + 50 + 20 + 15 + 17 + 30 + 25 + 26 + 27 + 35
+//s.isBalanced
 //s + 40 + 30 + 20 + 25 + 15 + 13
 //((new Set) + 2 + 1 + 3).isBalanced
 //s.height
