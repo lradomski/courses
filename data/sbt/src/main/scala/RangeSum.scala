@@ -1,0 +1,364 @@
+import java.io.File
+import java.util.Scanner
+
+import scala.annotation.tailrec
+
+
+class Set
+{
+
+  class Node[T <% Ordered[T]](var left: Node[T], var right: Node[T], var parent: Node[T], var key: T)
+  {
+    def reset(): Unit =
+    {
+      left = null
+      right = null
+      parent = null
+    }
+
+    def isLeaf = left == null && right == null
+
+    def isRoot = parent == null
+
+    override def toString: String =
+    {
+      def toString(t: Node[T], indent: Int): String =
+      {
+        if (null == t) "[]"
+        else
+        {
+          val s = " " * indent
+
+          val ok = "" //if (isBinarySearch) "" else " (?)"
+
+          val ret = "\n" + s + "[ " + t.key + ok + "\n" +
+            s + "  <<<" + toString(t.left, indent + 5) + "\n" +
+            s + "  >>>" + toString(t.right, indent + 5) + "\n" +
+            s + "]\n"
+
+          ret
+        }
+      }
+
+      toString(this, 0)
+    }
+  }
+
+  type Tree = Node[Int]
+
+  var root: Tree = null
+  var lastSum: Long = 0
+
+  def get = root
+
+  def x = lastSum
+
+  val M = (1e9 + 1).toInt
+
+  var check = List[Int]()
+
+  override def toString: String =
+  {
+    def toString(t: Tree, indent: Int): String =
+    {
+      if (null == t) "[]"
+      else
+      {
+        val s = " " * indent
+
+        val ok = if (isBinarySearch) "" else " (?)"
+
+        val ret = "\n" + s + "[ " + t.key + ok + "\n" +
+          s + "  <<<" + toString(t.left, indent + 5) + "\n" +
+          s + "  >>>" + toString(t.right, indent + 5) + "\n" +
+          s + "]\n"
+
+        ret
+      }
+    }
+
+    toString(root, 0)
+  }
+
+  def hash(i: Int): Int =
+  {
+    val ret : Long = (i + x) % M
+    //println("// " + i + " --[" + x + "]--> " + ret)
+    assert(ret < Int.MaxValue)
+    ret.toInt
+  }
+
+  def format(i: Long): String = i.toString
+    //java.text.NumberFormat.getIntegerInstance.format(i) // i.toString
+
+  def find(i: Int): Tree =
+  {
+    assert(i < M, "find: hash")
+    var n = root
+    var done = false
+
+    while (n != null && !done)
+    {
+      if (n.key == i) done = true
+      else if (i < n.key) if (n.left == null) done = true else n = n.left
+      else if (n.key < i) if (n.right == null) done = true else n = n.right
+      else assert(false, "find: impossible")
+    }
+
+    n
+  }
+
+  def exists(i: Int): Boolean =
+  {
+    assert(i < M, "exists: hash")
+    if (null != root) find(i).key == i else false
+  }
+
+  def add(i: Int): Tree =
+  {
+    assert(i < M, "add: hash")
+    //println("// s + " + format(i) )
+    if (!check.exists(key => key == i)) check = check ::: List(i)
+    // TODO: splay
+
+    if (null == root)
+    {
+      root = new Tree(null, null, null, i)
+      root
+    }
+    else
+    {
+      val parent = find(i)
+      if (i < parent.key)
+      {
+        assert(parent.left == null, "add: parent.left")
+        parent.left = new Tree(null, null, parent, i)
+        parent.left
+      }
+      else if (parent.key < i)
+      {
+        assert(parent.right == null, "add: parent.right")
+        parent.right = new Tree(null, null, parent, i)
+        parent.right
+      }
+      else
+      {
+        assert(parent.key == i, "add: parent.key")
+        parent
+      }
+    }
+  }
+
+  def del(i: Int): Unit =
+  {
+    check = check.filter(key => key != i)
+
+    assert(i < M, "del: hash")
+    //println("// s - " + format(i) )
+
+    def promote(toPromote: Tree, toSkip: Tree): Unit =
+    {
+      assert(toSkip != null, "promote: toSkip")
+      assert(if (toPromote != null) toPromote.parent == toSkip else true, "promote: toPromote")
+
+      val newParent = toSkip.parent
+
+      if (newParent != null)
+      {
+        if (toSkip == newParent.left) newParent.left = toPromote
+        else if (toSkip == newParent.right) newParent.right = toPromote
+        else assert(false, "promote: newParent->toSkip")
+      }
+      else
+      {
+        root = toPromote
+      }
+
+      if (toPromote != null) toPromote.parent = newParent
+    }
+
+    def replaceWith(old: Tree, newNode: Tree): Unit =
+    {
+      old.key = newNode.key
+      newNode.reset
+      // TODO: actually re-attach the node, not just transfer key
+    }
+
+    val node = find(i)
+    if (node != null  &&  node.key == i)
+    {
+      val nextNode = next(node)
+      if (nextNode == null)
+      {
+        assert(node.right == null)
+        promote(node.left, node)
+      }
+      else
+      {
+        if (nextNode.left == null)
+        {
+          promote(nextNode.right, nextNode)
+          replaceWith(node, nextNode)
+        }
+        else
+        {
+          assert(node.right == null)
+          promote(node.left, node)
+        }
+      }
+    }
+  }
+
+  def sum(l: Int, r: Int): Long =
+  {
+    assert(l < M, "sum: hash")
+    assert(r < M, "sum: hash")
+    assert(l <= r, "sum: " + l + " > " + r)
+
+    var sum : Long = 0
+    var node = find(l)
+
+    while (null != node && node.key <= r)
+    {
+      if (l <= node.key && node.key <= r) sum += node.key
+      node = next(node)
+    }
+
+//    println(
+//      "// s.s(" + format(l) + ", " + format(r) + ") // = " + format(sum) +
+//        " // " + format(check.foldLeft(0L)((sum, key) => if (l <= key && key <= r) sum + key else sum)) +
+//        " // " + check.filter(key => (l <= key && key <= r)))
+
+
+    lastSum = sum
+    lastSum
+  }
+
+
+
+  def next(node: Tree): Tree =
+  {
+    @tailrec
+    def leftDescendent(node: Tree): Tree =
+    {
+      if (node.left == null) node
+      else leftDescendent(node.left)
+    }
+
+    @tailrec
+    def rightAncestor(node: Tree): Tree =
+    {
+      if (node.parent == null) null
+      else
+      {
+        if (node.parent.key > node.key) node.parent else rightAncestor(node.parent)
+
+      }
+    }
+
+    if (node == null) null
+    else
+    {
+      if (node.right != null) leftDescendent(node.right)
+      else rightAncestor(node)
+    }
+
+  }
+
+  def findNext(i: Int): Tree = next(find(i))
+
+  def isBinarySearch: Boolean =
+  {
+    def core(node: Tree, min: Tree, max: Tree): Boolean =
+    {
+      def checkMin(min: Tree, node: Tree): Boolean =
+      {
+        if (null == node || null == min) true
+        else min.key < node.key
+      }
+
+      def checkMax(node: Tree, max: Tree): Boolean =
+      {
+        if (null == max || null == node) true
+        else node.key < max.key
+      }
+
+      if (node == null) true
+      else checkMin(min, node) && checkMax(node, max) && core(node.left, min, node) && core(node.right, node, max)
+    }
+
+    core(root, null, null)
+  }
+
+  ////////////////////////////////
+  def +(arg: Int): Set =
+  {
+    val i = hash(arg)
+    add(i)
+    this
+  }
+
+  def -(arg: Int): Set =
+  {
+    val i = hash(arg)
+    del(i)
+    this
+  }
+
+  def ?(arg: Int): String =
+  {
+    val i = hash(arg)
+    if (exists(i)) "Found" else "Not found"
+  }
+
+  def s(larg: Int, rarg: Int) =
+  {
+    val l = hash(larg)
+    val r = hash(rarg)
+    val ret = if (l <= r) sum(l, r) else sum(r, l)
+    ret
+  }
+
+}
+
+object RangeSum
+{
+  def main(args: Array[String]): Unit =
+  {
+    case class Op(op: String, left: Int, right: Int)
+
+    val s: Scanner = if (args.isEmpty) new Scanner(System.in) else new Scanner(new File(args(0)))
+    val sa = if (args.isEmpty) null else new Scanner(new File(args(0) + ".a"))
+    var opCount = 0
+    var outCount = 0
+
+    def verify(s: String): String =
+    {
+      if (null != sa)
+      {
+        val out = sa.nextLine()
+        assert(out == s, "op:" + (opCount+2) + "/line:" + (outCount+1) + "> [" + s + "] != [" + out + "]")
+        outCount += 1
+      }
+      s
+    }
+
+    val n = s.nextInt()
+
+    val set = new Set
+    for (i <- 0 to n - 1)
+    {
+      opCount = i
+      val op = s.next()
+      if (op == "+") set + s.nextInt
+      else if (op == "-") set - s.nextInt
+      else if (op == "?") println(verify(set ? s.nextInt)) //verify(set ? s.nextInt) //
+      else if (op == "s") println(verify(set.s(s.nextInt, s.nextInt).toString)) // verify(set.s(s.nextInt, s.nextInt).toString) //
+    }
+
+    if (!args.isEmpty)
+    {
+      val sa = new Scanner(new File(args(0)))
+    }
+  }
+}
