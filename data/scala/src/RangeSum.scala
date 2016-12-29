@@ -165,6 +165,16 @@ class Set
 
     def replaceWith(old: Tree, newNode: Tree): Unit =
     {
+//      if (null != old.parent)
+//      {
+//
+//      }
+//      else
+//      {
+//
+//      }
+
+
       old.key = newNode.key
       newNode.reset
       // TODO: actually re-attach the node, not just transfer key
@@ -303,7 +313,8 @@ object RangeSum
     val s = new Set
     s + 1
     s + 2
-    s.s(1, 2)
+    //s.s(1, 2)
+    s - 1
   }
 
   def main2(args: Array[String]): Unit =
