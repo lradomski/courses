@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="64c9de5a-9204-46d8-bed2-5032ea4dae28" name="Default" comment="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge/AVL)">
+    <list default="true" id="64c9de5a-9204-46d8-bed2-5032ea4dae28" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/RangeSum.sc" afterPath="$PROJECT_DIR$/src/main/scala/RangeSum.sc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/RangeSum.scala" afterPath="$PROJECT_DIR$/src/main/scala/RangeSum.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/SetSuite.scala" afterPath="$PROJECT_DIR$/src/test/scala/SetSuite.scala" />
     </list>
     <ignored path="data.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,14 +61,30 @@
       <file leaf-file-name="RangeSum.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/RangeSum.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9087">
-              <caret line="133" column="28" selection-start-line="133" selection-start-column="28" selection-end-line="133" selection-end-column="28" />
+            <state relative-caret-position="-2260">
+              <caret line="498" column="2" selection-start-line="498" selection-start-column="2" selection-end-line="498" selection-end-column="2" />
               <folding>
-                <element signature="e#3778#4094#0" expanded="false" />
-                <element signature="e#4101#4511#0" expanded="false" />
-                <element signature="e#4517#4925#0" expanded="false" />
-                <element signature="e#4993#5199#0" expanded="false" />
-                <element signature="e#5205#5414#0" expanded="false" />
+                <element signature="e#866#1697#0" expanded="false" />
+                <element signature="e#3269#3651#0" expanded="false" />
+                <element signature="e#3781#5809#0" expanded="false" />
+                <element signature="e#3823#4139#0" expanded="false" />
+                <element signature="e#4146#4556#0" expanded="false" />
+                <element signature="e#5250#5459#0" expanded="false" />
+                <element signature="e#5814#6725#0" expanded="false" />
+                <element signature="e#6729#6910#0" expanded="false" />
+                <element signature="e#6914#8420#0" expanded="false" />
+                <element signature="e#7084#7694#0" expanded="false" />
+                <element signature="e#7700#7809#0" expanded="false" />
+                <element signature="e#7837#8416#0" expanded="false" />
+                <element signature="e#8424#8858#0" expanded="false" />
+                <element signature="e#8862#9719#0" expanded="false" />
+                <element signature="e#9724#11048#0" expanded="false" />
+                <element signature="e#11052#11276#0" expanded="false" />
+                <element signature="e#11736#12546#0" expanded="false" />
+                <element signature="e#13192#13721#0" expanded="false" />
+                <element signature="e#13229#13363#0" expanded="false" />
+                <element signature="e#13369#13579#0" expanded="false" />
+                <element signature="e#13771#14346#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -293,7 +307,7 @@
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.scala.compiler.ScalaCompileServerForm" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="ScalaTest.SetSuite">
+  <component name="RunManager" selected="Application.RangeSumTest">
     <configuration default="false" name="RangeSum" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="RangeSum" />
@@ -621,8 +635,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="ScalaTest.SetSuite" />
-        <item index="1" class="java.lang.String" itemvalue="Application.RangeSumTest" />
+        <item index="0" class="java.lang.String" itemvalue="Application.RangeSumTest" />
+        <item index="1" class="java.lang.String" itemvalue="ScalaTest.SetSuite" />
         <item index="2" class="java.lang.String" itemvalue="Application.RangeSum" />
         <item index="3" class="java.lang.String" itemvalue="ScalaTest.SetSuite.case36/3" />
         <item index="4" class="java.lang.String" itemvalue="ScalaTest.SetSuite.case36/2" />
@@ -753,7 +767,14 @@
       <option name="project" value="LOCAL" />
       <updated>1483063901415</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge/AVL + treeSum)">
+      <created>1483072352794</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1483072352794</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -766,20 +787,20 @@
     <history-entry file="SetSuite - 2016.12.29 at 23h 31m 22s.xml">
       <configuration name="SetSuite" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="SetSuite_case36_2 - 2016.12.29 at 22h 52m 08s.xml">
-      <configuration name="SetSuite.case36/2" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="SetSuite - 2016.12.29 at 23h 46m 12s.xml">
+      <configuration name="SetSuite" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="SetSuite_case36_3 - 2016.12.29 at 22h 54m 31s.xml">
-      <configuration name="SetSuite.case36/3" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="SetSuite - 2016.12.29 at 23h 51m 31s.xml">
+      <configuration name="SetSuite" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="SetSuite_case36_3 - 2016.12.29 at 23h 00m 53s.xml">
-      <configuration name="SetSuite.case36/3" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="SetSuite - 2016.12.29 at 23h 57m 42s.xml">
+      <configuration name="SetSuite" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="SetSuite_case36_3 - 2016.12.29 at 23h 04m 38s.xml">
-      <configuration name="SetSuite.case36/3" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="SetSuite - 2016.12.30 at 00h 04m 04s.xml">
+      <configuration name="SetSuite" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="SetSuite_case36_3 - 2016.12.29 at 23h 09m 55s.xml">
-      <configuration name="SetSuite.case36/3" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="SetSuite - 2016.12.30 at 00h 09m 39s.xml">
+      <configuration name="SetSuite" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
     <history-entry file="SetSuite_case36_3 - 2016.12.29 at 23h 20m 03s.xml">
       <configuration name="SetSuite.case36/3" configurationId="ScalaTestRunConfiguration" />
@@ -834,7 +855,8 @@
     <MESSAGE value="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL)" />
     <MESSAGE value="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge)" />
     <MESSAGE value="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge/AVL)" />
-    <option name="LAST_COMMIT_MESSAGE" value="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge/AVL)" />
+    <MESSAGE value="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge/AVL + treeSum)" />
+    <option name="LAST_COMMIT_MESSAGE" value="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge/AVL + treeSum)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -870,7 +892,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="scala-line">
           <url>file://$PROJECT_DIR$/src/main/scala/RangeSum.scala</url>
-          <line>447</line>
+          <line>445</line>
           <properties />
           <option name="timeStamp" value="13" />
         </line-breakpoint>
@@ -890,7 +912,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="19" />
+      <option name="time" value="20" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="ScalaTestRunConfiguration">
@@ -926,11 +948,27 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#3778#4094#0" expanded="false" />
-            <element signature="e#4101#4511#0" expanded="false" />
-            <element signature="e#4517#4925#0" expanded="false" />
-            <element signature="e#4993#5199#0" expanded="false" />
-            <element signature="e#5205#5414#0" expanded="false" />
+            <element signature="e#866#1697#0" expanded="false" />
+            <element signature="e#3269#3651#0" expanded="false" />
+            <element signature="e#3781#5809#0" expanded="false" />
+            <element signature="e#3823#4139#0" expanded="false" />
+            <element signature="e#4146#4556#0" expanded="false" />
+            <element signature="e#5250#5459#0" expanded="false" />
+            <element signature="e#5814#6725#0" expanded="false" />
+            <element signature="e#6729#6910#0" expanded="false" />
+            <element signature="e#6914#8420#0" expanded="false" />
+            <element signature="e#7084#7694#0" expanded="false" />
+            <element signature="e#7700#7809#0" expanded="false" />
+            <element signature="e#7837#8416#0" expanded="false" />
+            <element signature="e#8424#8858#0" expanded="false" />
+            <element signature="e#8862#9719#0" expanded="false" />
+            <element signature="e#9724#11048#0" expanded="false" />
+            <element signature="e#11052#11276#0" expanded="false" />
+            <element signature="e#11736#12546#0" expanded="false" />
+            <element signature="e#13192#13721#0" expanded="false" />
+            <element signature="e#13229#13363#0" expanded="false" />
+            <element signature="e#13369#13579#0" expanded="false" />
+            <element signature="e#13771#14346#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1086,14 +1124,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/RangeSum.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9087">
-          <caret line="133" column="28" selection-start-line="133" selection-start-column="28" selection-end-line="133" selection-end-column="28" />
+        <state relative-caret-position="-2260">
+          <caret line="498" column="2" selection-start-line="498" selection-start-column="2" selection-end-line="498" selection-end-column="2" />
           <folding>
-            <element signature="e#3778#4094#0" expanded="false" />
-            <element signature="e#4101#4511#0" expanded="false" />
-            <element signature="e#4517#4925#0" expanded="false" />
-            <element signature="e#4993#5199#0" expanded="false" />
-            <element signature="e#5205#5414#0" expanded="false" />
+            <element signature="e#866#1697#0" expanded="false" />
+            <element signature="e#3269#3651#0" expanded="false" />
+            <element signature="e#3781#5809#0" expanded="false" />
+            <element signature="e#3823#4139#0" expanded="false" />
+            <element signature="e#4146#4556#0" expanded="false" />
+            <element signature="e#5250#5459#0" expanded="false" />
+            <element signature="e#5814#6725#0" expanded="false" />
+            <element signature="e#6729#6910#0" expanded="false" />
+            <element signature="e#6914#8420#0" expanded="false" />
+            <element signature="e#7084#7694#0" expanded="false" />
+            <element signature="e#7700#7809#0" expanded="false" />
+            <element signature="e#7837#8416#0" expanded="false" />
+            <element signature="e#8424#8858#0" expanded="false" />
+            <element signature="e#8862#9719#0" expanded="false" />
+            <element signature="e#9724#11048#0" expanded="false" />
+            <element signature="e#11052#11276#0" expanded="false" />
+            <element signature="e#11736#12546#0" expanded="false" />
+            <element signature="e#13192#13721#0" expanded="false" />
+            <element signature="e#13229#13363#0" expanded="false" />
+            <element signature="e#13369#13579#0" expanded="false" />
+            <element signature="e#13771#14346#0" expanded="false" />
           </folding>
         </state>
       </provider>

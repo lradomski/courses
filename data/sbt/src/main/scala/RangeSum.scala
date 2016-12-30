@@ -7,14 +7,16 @@ import scala.annotation.tailrec
 
 class Tree(var left: Tree, var right: Tree, var parent: Tree, var key: Int)
 {
-  var height: Int = 0
-  var treeSum: Long = 0
+  var height: Int = 1
+  var treeSum: Long = key
 
   def reset(): Unit =
   {
     left = null
     right = null
     parent = null
+    height = 1
+    treeSum = key
   }
 
   def isLeaf = left == null && right == null
@@ -23,14 +25,13 @@ class Tree(var left: Tree, var right: Tree, var parent: Tree, var key: Int)
 
   def adjustHeight: Unit =
   {
-    val old = height
+    val old = (height, treeSum)
     val (lh, ls) = if (left != null) (left.height, left.treeSum) else (0, 0L)
     val (rh, rs) = if (right != null) (right.height, right.treeSum) else (0, 0L)
     height = 1 + math.max(lh, rh)
-    treeSum = ls + rs
-    treeSum += key
+    treeSum = (ls + rs + key)
 
-    if (old != height && null != parent) parent.adjustHeight
+    if (old != (height,treeSum) && null != parent) parent.adjustHeight
   }
 
   def isBalanced: Boolean =
@@ -345,7 +346,6 @@ class Set
         if (toSkip == newParent.left) newParent.left = toPromote
         else if (toSkip == newParent.right) newParent.right = toPromote
         else assert(false, "promote: newParent->toSkip")
-        newParent.adjustHeight
       }
       else
       {
@@ -390,7 +390,7 @@ class Set
         }
       }
 
-      //node.reset
+
     }
   }
 
@@ -432,8 +432,6 @@ class Set
       if (newRight != null) newRight.parent = l
       l.parent = null
       val out = rebalance(l)
-      l.adjustHeight
-      out.adjustHeight //?
       out
     }
     else
@@ -446,8 +444,6 @@ class Set
       if (newLeft != null) newLeft.parent = r
       r.parent = null
       val out = rebalance(r)
-      r.adjustHeight
-      out.adjustHeight //?
       out
     }
 
@@ -501,6 +497,7 @@ class Set
 
   def max: Tree =
   {
+    @tailrec
     def findMax(node: Tree): Tree =
     {
       assert(node != null)
@@ -538,11 +535,11 @@ class Set
 
   def sumSplitMerge(l: Int, r: Int): Long =
   {
-    def addUp(node: Tree): Long =
-    {
-      if (null == node) 0
-      else addUp(node.left) + addUp(node.right) + node.key
-    }
+//    def addUp(node: Tree): Long =
+//    {
+//      if (null == node) 0
+//      else addUp(node.left) + addUp(node.right) + node.key
+//    }
 
     assert(l < M, "sum: hash")
     assert(r < M, "sum: hash")
