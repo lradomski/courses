@@ -1,12 +1,11 @@
 import java.text.DecimalFormat
 
-case class Item(value: Int, weight: Int) //extends Ordered[Item]
-{
-  def valuePerUnit: Double = value.toDouble / weight
-}
+import Loot.{Item, loot}
 
 val formatter = new DecimalFormat("#.####")
-var items = Array( Item(60,20), Item (100,50), Item(120,30) )
-items = items.sortWith((l, r) => l.valuePerUnit > r.valuePerUnit)
-items.foreach(i => println(i.toString))
+def sort(l: Item, r: Item) = l.valuePerUnit > r.valuePerUnit
+//items.foreach(i => println(i.toString))
 
+formatter.format(loot(50, Array( Item(60,20), Item (100,50), Item(120,30) ).sortWith(sort)))
+
+formatter.format(loot(10, Array(Item(500,30)).sortWith(sort)))
