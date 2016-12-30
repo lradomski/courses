@@ -2,17 +2,6 @@ import java.util.Scanner
 
 object Change
 {
-
-  def main(args: Array[String]) =
-  {
-    val s = new Scanner(System.in);
-
-    val m = s.nextInt();
-    //val m = 100
-    println(change(m));
-  }
-
-
   def change(m: Int): Int =
   {
     assert(1 <= m)
@@ -37,4 +26,16 @@ object Change
 
     count
   }
+
+
+  def main(args: Array[String]) =
+  {
+    val s = new Scanner(System.in);
+
+    val m = s.nextInt();
+    //val m = 100
+    println(change(m));
+  }
+
+
 }
