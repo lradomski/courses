@@ -1,4 +1,5 @@
 change(94)
+change(194)
 
 
 def change(m: Int): Int =
