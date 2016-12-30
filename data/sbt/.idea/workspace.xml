@@ -21,6 +21,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/data$SetSuite_split_merge_case20.coverage" NAME="SetSuite.split/merge/case20 Coverage Results" MODIFIED="1483060947987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -45,69 +48,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RangeSum.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RangeSum.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/RangeSum.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="492" column="8" selection-start-line="492" selection-start-column="8" selection-end-line="492" selection-end-column="8" />
+            <state relative-caret-position="128">
+              <caret line="658" column="8" selection-start-line="658" selection-start-column="8" selection-end-line="658" selection-end-column="8" />
               <folding>
-                <marker date="1483052097000" expanded="false" signature="7:77" ph="..." />
+                <marker date="1483063841000" expanded="false" signature="7:77" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RangeSum.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Documents/RangeSum.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="410" column="0" selection-start-line="365" selection-start-column="0" selection-end-line="410" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bintree.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../scala/src/tree/bintree.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6239">
-              <caret line="376" column="0" selection-start-line="342" selection-start-column="0" selection-end-line="376" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SetSuite.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SetSuite.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/SetSuite.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="293" column="10" selection-start-line="293" selection-start-column="10" selection-end-line="293" selection-end-column="10" />
+            <state relative-caret-position="-119">
+              <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="List.scala" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.11.2-sources.jar!/scala/collection/immutable/List.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="396" column="4" selection-start-line="396" selection-start-column="4" selection-end-line="396" selection-end-column="4" />
-              <folding>
-                <element signature="n#!!doc" expanded="false" />
-                <element signature="e#578#594#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TreeOrder.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/TreeOrder.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1292">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -116,7 +76,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/scala/RangeSum.sc">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -137,16 +97,16 @@
       <list>
         <option value="$PROJECT_DIR$/build.sbt" />
         <option value="$PROJECT_DIR$/src/main/scala/TreeOrder.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/RangeSum.sc" />
         <option value="$USER_HOME$/Documents/RangeSum.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/RangeSum.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/RangeSum.sc" />
         <option value="$PROJECT_DIR$/src/test/scala/SetSuite.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/RangeSum.scala" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="73" />
-    <option name="y" value="52" />
+    <option name="x" value="57" />
+    <option name="y" value="53" />
     <option name="width" value="1155" />
     <option name="height" value="811" />
   </component>
@@ -320,7 +280,7 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="SetSuite.split" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+    <configuration default="false" name="SetSuite.case20/2" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="sbt" />
       <setting name="path" value="SetSuite" />
@@ -329,13 +289,13 @@
       <setting name="params" value="" />
       <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
       <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="split" />
+      <setting name="testName" value="case20/2" />
       <setting name="testKind" value="Test name" />
       <setting name="showProgressMessages" value="true" />
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="SetSuite.split/merge/2" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+    <configuration default="false" name="SetSuite.split/merge/case20" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="sbt" />
       <setting name="path" value="SetSuite" />
@@ -344,24 +304,24 @@
       <setting name="params" value="" />
       <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
       <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="split/merge/2" />
+      <setting name="testName" value="split/merge/case20" />
       <setting name="testKind" value="Test name" />
       <setting name="showProgressMessages" value="true" />
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="SetSuite.sum/1" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+    <configuration default="false" name="RangeSumTest" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="RangeSumTest" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
       <module name="sbt" />
-      <setting name="path" value="SetSuite" />
-      <setting name="package" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="sum/1" />
-      <setting name="testKind" value="Test name" />
-      <setting name="showProgressMessages" value="true" />
       <envs />
       <method />
     </configuration>
@@ -592,20 +552,36 @@
       <envs />
       <method />
     </configuration>
-    <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.RangeSum" />
-      <item index="1" class="java.lang.String" itemvalue="ScalaTest.SetSuite" />
-      <item index="2" class="java.lang.String" itemvalue="ScalaTest.SetSuite.split" />
-      <item index="3" class="java.lang.String" itemvalue="ScalaTest.SetSuite.split/merge/2" />
-      <item index="4" class="java.lang.String" itemvalue="ScalaTest.SetSuite.sum/1" />
+    <configuration default="false" name="RangeSum-console" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="RangeSum" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="sbt" />
+      <envs />
+      <method />
+    </configuration>
+    <list size="6">
+      <item index="0" class="java.lang.String" itemvalue="Application.RangeSum-console" />
+      <item index="1" class="java.lang.String" itemvalue="Application.RangeSum" />
+      <item index="2" class="java.lang.String" itemvalue="ScalaTest.SetSuite" />
+      <item index="3" class="java.lang.String" itemvalue="ScalaTest.SetSuite.case20/2" />
+      <item index="4" class="java.lang.String" itemvalue="ScalaTest.SetSuite.split/merge/case20" />
+      <item index="5" class="java.lang.String" itemvalue="Application.RangeSumTest" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="ScalaTest.SetSuite" />
-        <item index="1" class="java.lang.String" itemvalue="Application.RangeSum" />
-        <item index="2" class="java.lang.String" itemvalue="ScalaTest.SetSuite.sum/1" />
-        <item index="3" class="java.lang.String" itemvalue="ScalaTest.SetSuite.split/merge/2" />
-        <item index="4" class="java.lang.String" itemvalue="ScalaTest.SetSuite.split" />
+        <item index="1" class="java.lang.String" itemvalue="Application.RangeSumTest" />
+        <item index="2" class="java.lang.String" itemvalue="Application.RangeSum" />
+        <item index="3" class="java.lang.String" itemvalue="ScalaTest.SetSuite.split/merge/case20" />
+        <item index="4" class="java.lang.String" itemvalue="ScalaTest.SetSuite.case20/2" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
@@ -719,43 +695,50 @@
       <option name="project" value="LOCAL" />
       <updated>1483049636009</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge/AVL)">
+      <created>1483052529752</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1483052529752</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SetSuite - 2016.12.29 at 17h 34m 23s.xml">
+    <history-entry file="SetSuite - 2016.12.29 at 20h 55m 04s.xml">
       <configuration name="SetSuite" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="SetSuite - 2016.12.29 at 17h 35m 24s.xml">
+    <history-entry file="SetSuite - 2016.12.29 at 20h 56m 49s.xml">
       <configuration name="SetSuite" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="SetSuite - 2016.12.29 at 17h 35m 59s.xml">
+    <history-entry file="SetSuite - 2016.12.29 at 20h 58m 50s.xml">
       <configuration name="SetSuite" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="SetSuite - 2016.12.29 at 17h 37m 04s.xml">
+    <history-entry file="SetSuite - 2016.12.29 at 21h 09m 00s.xml">
       <configuration name="SetSuite" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="SetSuite - 2016.12.29 at 17h 51m 01s.xml">
+    <history-entry file="SetSuite - 2016.12.29 at 21h 11m 04s.xml">
       <configuration name="SetSuite" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="SetSuite - 2016.12.29 at 17h 55m 11s.xml">
-      <configuration name="SetSuite" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="SetSuite_split_merge_case20 - 2016.12.29 at 20h 29m 38s.xml">
+      <configuration name="SetSuite.split/merge/case20" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="SetSuite - 2016.12.29 at 17h 55m 48s.xml">
-      <configuration name="SetSuite" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="SetSuite_split_merge_case20 - 2016.12.29 at 20h 31m 45s.xml">
+      <configuration name="SetSuite.split/merge/case20" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="SetSuite - 2016.12.29 at 17h 58m 16s.xml">
-      <configuration name="SetSuite" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="SetSuite_split_merge_case20 - 2016.12.29 at 20h 34m 48s.xml">
+      <configuration name="SetSuite.split/merge/case20" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="SetSuite - 2016.12.29 at 18h 01m 44s.xml">
-      <configuration name="SetSuite" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="SetSuite_split_merge_case20 - 2016.12.29 at 20h 35m 01s.xml">
+      <configuration name="SetSuite.split/merge/case20" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="SetSuite_sum_1 - 2016.12.29 at 17h 12m 50s.xml">
-      <configuration name="SetSuite.sum/1" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="SetSuite_split_merge_case20 - 2016.12.29 at 20h 54m 35s.xml">
+      <configuration name="SetSuite.split/merge/case20" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="73" y="52" width="1155" height="811" extended-state="0" />
+    <frame x="57" y="53" width="1155" height="811" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -765,8 +748,9 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2735849" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2735849" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32987013" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -798,35 +782,58 @@
     <MESSAGE value="data / week 5,6 - new sbt project - TreeOrder, RangeSum (not finished)" />
     <MESSAGE value="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL)" />
     <MESSAGE value="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge)" />
-    <option name="LAST_COMMIT_MESSAGE" value="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge)" />
+    <MESSAGE value="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge/AVL)" />
+    <option name="LAST_COMMIT_MESSAGE" value="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge/AVL)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="scala-line">
           <url>file://$PROJECT_DIR$/src/test/scala/SetSuite.scala</url>
-          <line>76</line>
+          <line>80</line>
           <properties />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="scala-line">
           <url>file://$PROJECT_DIR$/src/test/scala/SetSuite.scala</url>
-          <line>32</line>
+          <line>36</line>
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="scala-line">
           <url>file://$PROJECT_DIR$/src/test/scala/SetSuite.scala</url>
-          <line>260</line>
+          <line>285</line>
           <properties />
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/test/scala/SetSuite.scala</url>
+          <line>204</line>
+          <properties />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/test/scala/SetSuite.scala</url>
+          <line>203</line>
+          <properties />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/main/scala/RangeSum.scala</url>
+          <line>423</line>
+          <properties />
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="8" />
+      <option name="time" value="16" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="ScalaTestRunConfiguration">
+        <watch expression="check" language="Scala" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -856,7 +863,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1483052097000" expanded="false" signature="7:77" ph="..." />
+            <marker date="1483063841000" expanded="false" signature="7:77" ph="..." />
           </folding>
         </state>
       </provider>
@@ -883,14 +890,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scalatest/scalatest_2.11/srcs/scalatest_2.11-2.2.1-sources.jar!/org/scalatest/OutcomeOf.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="73" column="9" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -952,22 +951,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../scala/src/tree/bintree.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6239">
-          <caret line="376" column="0" selection-start-line="342" selection-start-column="0" selection-end-line="376" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/RangeSum.sc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Documents/RangeSum.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="451">
@@ -976,22 +959,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/RangeSum.scala">
+    <entry file="file://$PROJECT_DIR$/../scala/src/tree/bintree.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="492" column="8" selection-start-line="492" selection-start-column="8" selection-end-line="492" selection-end-column="8" />
-          <folding>
-            <marker date="1483052097000" expanded="false" signature="7:77" ph="..." />
-          </folding>
+        <state relative-caret-position="1274">
+          <caret line="376" column="0" selection-start-line="342" selection-start-column="0" selection-end-line="376" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/RangeSum.sc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scalatest/scalatest_2.11/srcs/scalatest_2.11-2.2.1-sources.jar!/org/scalatest/OutcomeOf.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="83" column="4" selection-start-line="83" selection-start-column="4" selection-end-line="83" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scalatest/scalatest_2.11/srcs/scalatest_2.11-2.2.1-sources.jar!/org/scalatest/Suite.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="1121" column="4" selection-start-line="1121" selection-start-column="4" selection-end-line="1121" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scalatest/scalatest_2.11/srcs/scalatest_2.11-2.2.1-sources.jar!/org/scalatest/FunSuiteLike.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="174" column="49" selection-start-line="174" selection-start-column="49" selection-end-line="174" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scalatest/scalatest_2.11/srcs/scalatest_2.11-2.2.1-sources.jar!/org/scalatest/Engine.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="305" column="6" selection-start-line="305" selection-start-column="6" selection-end-line="305" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/SetSuite.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="293" column="10" selection-start-line="293" selection-start-column="10" selection-end-line="293" selection-end-column="10" />
+        <state relative-caret-position="-119">
+          <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/RangeSum.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="658" column="8" selection-start-line="658" selection-start-column="8" selection-end-line="658" selection-end-column="8" />
+          <folding>
+            <marker date="1483063841000" expanded="false" signature="7:77" ph="..." />
           </folding>
         </state>
       </provider>

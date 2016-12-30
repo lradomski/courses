@@ -97,7 +97,7 @@ class Set
   def get = root
 
 
-  def debug = false
+  var debug = false
 
   val M = (1e9 + 1).toInt
 
@@ -150,7 +150,7 @@ class Set
   }
 
 
-  def rebalance(node: Tree): Unit =
+  def rebalance(node: Tree): Tree =
   {
     def updateParent(in: Tree, out: Tree, parent: Tree): Unit =
     {
@@ -167,7 +167,7 @@ class Set
     }
 
 
-    def rotateRight(out: Tree): Unit = // A <- *B -> C   ==>   A -> *B -> C
+    def rotateRight(out: Tree): Tree = // A <- *B -> C   ==>   A -> *B -> C
     {
       assert(out != null)
       assert(out.left != null)
@@ -184,9 +184,10 @@ class Set
       in.parent = parent
       updateParent(in, out, parent)
       out.adjustHeight
+      in
     }
 
-    def rotateLeft(out: Tree): Unit = // A <- *B -> C   ==>   A <- *B <- C
+    def rotateLeft(out: Tree): Tree = // A <- *B -> C   ==>   A <- *B <- C
     {
       assert(out != null)
       assert(out.right != null)
@@ -203,11 +204,12 @@ class Set
       in.parent = parent
       updateParent(in, out, parent)
       out.adjustHeight
+      in
     }
 
     def h(node: Tree) = if (node != null) node.height else 0
 
-    def rebalanceRight(node: Tree): Unit =
+    def rebalanceRight(node: Tree): Tree =
     {
       assert(node != null)
       assert(node.left != null)
@@ -216,7 +218,7 @@ class Set
       rotateRight(node)
     }
 
-    def rebalanceLeft(node: Tree): Unit =
+    def rebalanceLeft(node: Tree): Tree =
     {
       assert(node != null)
       assert(node.right != null)
@@ -229,10 +231,14 @@ class Set
     if (null != node)
     {
       val parent = node.parent
-      if (h(node.left) > h(node.right) + 1) rebalanceRight(node)
-      else if (h(node.left) + 1 < h(node.right)) rebalanceLeft(node)
+      val out =
+        if (h(node.left) > h(node.right) + 1) rebalanceRight(node)
+        else if (h(node.left) + 1 < h(node.right)) rebalanceLeft(node)
+        else node
       rebalance(parent)
+      out
     }
+    else null
   }
 
 
@@ -242,7 +248,7 @@ class Set
 
     def dbgAdd: Unit =
     {
-      println("// s + " + format(i))
+      println("// s.add(" + format(i) + ")")
       if (!check.exists(key => key == i)) check = check ::: List(i)
     }
 
@@ -299,7 +305,7 @@ class Set
 
     def dbgDel(i: Int): Unit =
     {
-      println("// s - " + format(i))
+      println("// s.del(" + format(i) +")")
       check = check.filter(key => key != i)
     }
 
@@ -360,6 +366,8 @@ class Set
           rebalance(parent)
         }
       }
+
+      //node.reset
     }
   }
 
@@ -400,9 +408,9 @@ class Set
       l.right = newRight
       if (newRight != null) newRight.parent = l
       l.parent = null
-      rebalance(l.right)
+      val out = rebalance(l)
       l.adjustHeight
-      l
+      out
     }
     else
     {
@@ -413,9 +421,9 @@ class Set
       r.left = newLeft
       if (newLeft != null) newLeft.parent = r
       r.parent = null
-      rebalance(r.left)
+      val out = rebalance(r)
       r.adjustHeight
-      r
+      out
     }
 
 
@@ -501,8 +509,9 @@ class Set
   }
 
 
+  def sum(l: Int, r: Int): Long = sumNextLoop(l,r)
 
-  def sum(l: Int, r: Int): Long =
+  def sumSplitMerge(l: Int, r: Int): Long =
   {
     def addUp(node: Tree): Long =
     {
@@ -517,14 +526,22 @@ class Set
     val s = split(l-1)
     val (range,ignore) = s._2.split(r)
 
-    val sum = addUp(range.root)
+    val total = addUp(range.root)
 
+    if (debug)
+    {
+      println(
+        "// s.sum(" + format(l) + ", " + format(r) + ") // = " + format(total) +
+          " // " + format(check.foldLeft(0L)((sum, key) => if (l <= key && key <= r) sum + key else sum)) +
+          " // " + check.filter(key => (l <= key && key <= r)))
+    }
 
     merge(s._1, (new Set).merge(range,ignore))
-    sum
+
+    total
   }
 
-  def sum2(l: Int, r: Int): Long =
+  def sumNextLoop(l: Int, r: Int): Long =
   {
     assert(l < M, "sum: hash")
     assert(r < M, "sum: hash")
@@ -637,9 +654,28 @@ class Set
 
 }
 
+object RangeSumTest
+{
+  def main(args: Array[String]): Unit = RangeSum.mainAll(args)
+}
+
 object RangeSum
 {
-  def main(args: Array[String]): Unit =
+  def mainAll(args: Array[String]): Unit =
+  {
+    val path = "/Users/luke/git/courses/data/download/Programming-Assignment-4/set_range_sum/tests/"
+    val files = List("01", "04", "05", "20", "36", "83")
+
+    files.foreach(file =>
+    {
+      println(" =======> " + file)
+      mainCore(List(path+file).toArray)
+    })
+  }
+
+  def main(args: Array[String]): Unit = mainCore(args)
+
+  def mainCore(args: Array[String]): Unit =
   {
     case class Op(op: String, left: Int, right: Int)
 
@@ -662,14 +698,15 @@ object RangeSum
     val n = s.nextInt()
 
     val set = new Set
+    //set.debug = true
     for (i <- 0 to n - 1)
     {
       opCount = i
       val op = s.next()
       if (op == "+") set + s.nextInt
       else if (op == "-") set - s.nextInt
-      else if (op == "?") println(verify(set ? s.nextInt)) //verify(set ? s.nextInt) //
-      else if (op == "s") println(verify(set.s(s.nextInt, s.nextInt).toString)) // verify(set.s(s.nextInt, s.nextInt).toString) //
+      else if (op == "?") if (set.debug) verify(set ? s.nextInt) else println(verify(set ? s.nextInt)) //
+      else if (op == "s") if (set.debug) verify(set.s(s.nextInt, s.nextInt).toString) else println(verify(set.s(s.nextInt, s.nextInt).toString)) //
     }
 
     if (!args.isEmpty)
