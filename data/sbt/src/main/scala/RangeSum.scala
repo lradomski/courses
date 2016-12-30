@@ -3,9 +3,12 @@ import java.util.Scanner
 
 import scala.annotation.tailrec
 
-class Node[T <% Ordered[T]](var left: Node[T], var right: Node[T], var parent: Node[T], var key: T)
+//class Node[T <% Ordered[T]](var left: Node[T], var right: Node[T], var parent: Node[T], var key: T)
+
+class Tree(var left: Tree, var right: Tree, var parent: Tree, var key: Int)
 {
   var height: Int = 0
+  var treeSum: Long = 0
 
   def reset(): Unit =
   {
@@ -21,27 +24,30 @@ class Node[T <% Ordered[T]](var left: Node[T], var right: Node[T], var parent: N
   def adjustHeight: Unit =
   {
     val old = height
-    val lh = if (left != null) left.height else 0
-    val rh = if (right != null) right.height else 0
+    val (lh, ls) = if (left != null) (left.height, left.treeSum) else (0, 0L)
+    val (rh, rs) = if (right != null) (right.height, right.treeSum) else (0, 0L)
     height = 1 + math.max(lh, rh)
+    treeSum = ls + rs
+    treeSum += key
+
     if (old != height && null != parent) parent.adjustHeight
   }
 
   def isBalanced: Boolean =
   {
-    def height(node: Node[T]): Int =
+    def height(node: Tree): Int =
     {
       if (null == node) 0
       else math.max(height(node.left), height(node.right)) + 1
     }
 
-    def core(node: Node[T]): Boolean =
+    def core(node: Tree): Boolean =
     {
       if (null == node) true
       else core(this.left) && core(this.right) && math.abs(height(node.left) - height(node.right)) <= 1
     }
 
-    def core2(node: Node[T]): (Boolean, Int) = // isBalanced,height
+    def core2(node: Tree): (Boolean, Int) = // isBalanced,height
     {
       if (node == null) (true, 0)
       else
@@ -65,7 +71,7 @@ class Node[T <% Ordered[T]](var left: Node[T], var right: Node[T], var parent: N
 
   override def toString: String =
   {
-    def toString(t: Node[T], indent: Int): String =
+    def toString(t: Tree, indent: Int): String =
     {
       if (null == t) "[]"
       else
@@ -73,8 +79,9 @@ class Node[T <% Ordered[T]](var left: Node[T], var right: Node[T], var parent: N
         val s = " " * indent
 
         val ok = "" //if (isBinarySearch) "" else " (?)"
+      val sum = " (" + t.treeSum + ") "
 
-        val ret = "\n" + s + "[ " + t.key + ok + "\n" +
+        val ret = "\n" + s + "[ " + t.key + sum + ok + "\n" +
           s + "  <<<" + toString(t.left, indent + 5) + "\n" +
           s + "  >>>" + toString(t.right, indent + 5) + "\n" +
           s + "]\n"
@@ -89,7 +96,11 @@ class Node[T <% Ordered[T]](var left: Node[T], var right: Node[T], var parent: N
 
 class Set
 {
-  type Tree = Node[Int]
+  //  class Tree(left: Node[Int], right: Node[Int], parent: Node[Int], key: Int) extends Node[Int](left, right, parent, key)
+  //  {
+  //    override def ownSum: Int = key
+  //  }
+  //  type Tree = Node[Int]
 
   var root: Tree = null
   var lastSum: Long = 0
@@ -125,6 +136,16 @@ class Set
   def height = if (root != null) root.height else 0
 
   def isBalanced = if (root != null) root.isBalanced else true
+
+//  @tailrec
+//  final def adjustSumToTop(n: Tree): Unit =
+//  {
+//    if (n != null)
+//    {
+//      n.adjustHeight
+//      adjustSumToTop(n.parent)
+//    }
+//  }
 
   def find(i: Int): Tree =
   {
@@ -234,7 +255,12 @@ class Set
       val out =
         if (h(node.left) > h(node.right) + 1) rebalanceRight(node)
         else if (h(node.left) + 1 < h(node.right)) rebalanceLeft(node)
-        else node
+        else
+        {
+          node.adjustHeight
+          node
+
+        }
       rebalance(parent)
       out
     }
@@ -253,7 +279,6 @@ class Set
     }
 
     if (debug) dbgAdd
-    // TODO: splay
 
     val ret =
       if (null == root)
@@ -283,7 +308,6 @@ class Set
         }
       }
 
-    ret.adjustHeight
     rebalance(ret)
     ret
   }
@@ -305,7 +329,7 @@ class Set
 
     def dbgDel(i: Int): Unit =
     {
-      println("// s.del(" + format(i) +")")
+      println("// s.del(" + format(i) + ")")
       check = check.filter(key => key != i)
     }
 
@@ -336,7 +360,6 @@ class Set
     {
       old.key = newNode.key
       newNode.reset
-      // TODO: actually re-attach the node, not just transfer key
     }
 
     if (node != null)
@@ -410,6 +433,7 @@ class Set
       l.parent = null
       val out = rebalance(l)
       l.adjustHeight
+      out.adjustHeight //?
       out
     }
     else
@@ -423,6 +447,7 @@ class Set
       r.parent = null
       val out = rebalance(r)
       r.adjustHeight
+      out.adjustHeight //?
       out
     }
 
@@ -444,7 +469,7 @@ class Set
           // node.right may still have some nodes which we need on the left
           val (splitL, outR) = splitCore(node.right, x)
 
-          // merge "left" nodes retrived from right side with node.left under node
+          // merge "left" nodes retrieved from right side with node.left under node
           val outL = mergeWithRoot(node.left, splitL, node)
           (outL, outR)
         }
@@ -455,7 +480,7 @@ class Set
           // node.left may still have some nodes which we need on the right
           val (outL, splitR) = splitCore(node.left, x)
 
-          // merge "right" nodes retrived from left side with node.right under node
+          // merge "right" nodes retrieved from left side with node.right under node
           val outR = mergeWithRoot(splitR, node.right, node)
           (outL, outR)
         }
@@ -509,7 +534,7 @@ class Set
   }
 
 
-  def sum(l: Int, r: Int): Long = sumNextLoop(l,r)
+  def sum(l: Int, r: Int): Long = sumSplitMerge(l, r) // sumNextLoop(l,r) //
 
   def sumSplitMerge(l: Int, r: Int): Long =
   {
@@ -523,10 +548,11 @@ class Set
     assert(r < M, "sum: hash")
     assert(l <= r, "sum: " + l + " > " + r)
 
-    val s = split(l-1)
-    val (range,ignore) = s._2.split(r)
+    val s = split(l - 1)
+    val (range, ignore) = s._2.split(r)
 
-    val total = addUp(range.root)
+    val total = if (range.root != null) range.root.treeSum else 0
+    //addUp(range.root)
 
     if (debug)
     {
@@ -536,7 +562,7 @@ class Set
           " // " + check.filter(key => (l <= key && key <= r)))
     }
 
-    merge(s._1, (new Set).merge(range,ignore))
+    merge(s._1, (new Set).merge(range, ignore))
 
     total
   }
@@ -669,7 +695,7 @@ object RangeSum
     files.foreach(file =>
     {
       println(" =======> " + file)
-      mainCore(List(path+file).toArray)
+      mainCore(List(path + file).toArray)
     })
   }
 
