@@ -7,6 +7,25 @@ extends FunSuite
 {
   def sort(a: Array[Int]): Array[Int] = inversions(a).items
 
+  def verify2(a: Array[Int]): Unit =
+    {
+      val orig = a.clone()
+      val invs = invSimple(a)
+      val r = inversions(a)
+      assert(r.invs == invs, Utils.toStr(orig))
+      verify(r.items)
+    }
+
+  def invSimple(a: Array[Int]): Int =
+  {
+    var c = 0
+    for (i <- 0 to a.length-1)
+      for (j <- i to a.length-1)
+        if (a(i) > a(j)) c += 1
+
+    c
+  }
+
   test("merge-list")
   {
 //    val r1 = merge(Result(List(1),0), Result(List(2),0), EmptyResult)
@@ -76,13 +95,13 @@ extends FunSuite
     val a = List(5,4,3,2,1).toArray
     verify(sort(a))
 
-    verify(sort(List(1).toArray))
-    verify(sort(List(2,1).toArray))
-    verify(sort(List(3,2,1).toArray))
+    verify2(Array(1))
+    verify2(Array(2,1))
+    verify2(Array(3,2,1))
 
-    verify(sort(List(1,2).toArray))
-    verify(sort(List(1,2,3).toArray))
-    verify(sort(List(1,2,3,4,5).toArray))
+    verify2(Array(1,2))
+    verify2(Array(1,2,3))
+    verify2(Array(1,2,3,4,5))
   }
 
   test("simple/2")
@@ -92,17 +111,28 @@ extends FunSuite
     verify(l.items.toArray)
   }
 
+  test("simple/3")
+  {
+//    {
+//      val a = Array(1,2,1,2)
+//      verify2(a)
+//    }
+
+    {
+      val a = Array(158, 337, 663, 337, 358, 337, 568, 562)
+      verify2(a)
+    }
+  }
+
   test("randomized")
   {
     val r = scala.util.Random
-    for (c <- 1 to 1000)
+    for (c <- 1 to 100000)
     {
-      val a = new Array[Int](r.nextInt(100))
+      val a = new Array[Int](r.nextInt(10))
       for (i <- 0 to a.length-1) a(i) = r.nextInt(1000)
 
-
-
-      verify(sort(a))
+      verify2(a)
     }
   }
 

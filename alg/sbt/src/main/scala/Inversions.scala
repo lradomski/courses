@@ -5,7 +5,9 @@ import scala.annotation.tailrec
 object Inversions
 {
   case class Result(items: Array[Int], invs: Int)
-  {}
+  {
+    override def toString: String = "[ (" + items.foldLeft("")((s,i) => s + i + ",") + "), " + invs + "]"
+  }
 
   def merge(l: Result, r: Result): Result =
   {
@@ -30,16 +32,17 @@ object Inversions
           {
             val lv = l.items(li)
             val rv = r.items(ri)
-            if (lv == rv)
-              {
-                out(i) = lv
-                out(i+1) = rv
-                li += 1
-                invs += lend - li
-                ri += 1
-                i += 2
-              }
-            else if (lv > rv)
+//            if (lv == rv)
+//              {
+//                out(i) = lv
+//                out(i+1) = rv
+//                li += 1
+//                invs += lend - li
+//                ri += 1
+//                i += 2
+//              }
+//            else
+            if (lv > rv)
               {
                 out(i) = rv
                 ri += 1
@@ -48,7 +51,7 @@ object Inversions
               }
             else
               {
-                assert(lv < rv)
+                assert(lv <= rv)
                 out(i) = lv
                 li += 1
                 i += 1
