@@ -8,6 +8,7 @@ object Majority
   {
     case class Winner(index: Int, count: Int)
     {
+      override def toString: String = "[v="+value+" (" + index + "): +" + count + "]"
       def exists = -1 != index
 
       def addCount(delta: Int): Winner = Winner(index, count + delta)
@@ -16,6 +17,10 @@ object Majority
     }
 
     object NoWinner extends Winner(-1, -1)
+    {
+      override def toString: String = "[]"
+
+    }
 
 
 
@@ -23,7 +28,7 @@ object Majority
     def count(key: Int, start: Int, end: Int): Int =
     {
       var count = 0
-      for (i <- start to end - 1) if (key == a(i)) count += 1
+      for (i <- start to end) if (key == a(i)) count += 1
       count
     }
 
@@ -33,27 +38,27 @@ object Majority
       else
       {
         val mid = start + (end - start) / 2
-        val majority = (end - start) / 2 + 1
+        val size = (end+1 - start)
+        val majority = size / 2 + 1
 
-        var leftWinner = core(start, mid)
-        leftWinner =
-          if (leftWinner.exists)
+        var winner = core(start, mid)
+        winner =
+          if (winner.exists)
           {
-            val rightCount = count(leftWinner.value, mid + 1, end)
-            if (leftWinner.count + rightCount >= majority) leftWinner.addCount(rightCount)
+            val otherCount = count(winner.value, mid + 1, end)
+            if (winner.count + otherCount >= majority) winner.addCount(otherCount)
             else NoWinner
           }
-
           else NoWinner
 
-        if (leftWinner.exists) leftWinner
+        if (winner.exists) winner
         else
         {
-          val rightWinner = core(mid + 1, end)
-          if (rightWinner.exists)
+          winner = core(mid + 1, end)
+          if (winner.exists)
           {
-            val leftCount = count(rightWinner.value, start, mid)
-            if (rightWinner.count + leftCount >= majority) rightWinner.addCount(leftCount)
+            val otherCount = count(winner.value, start, mid)
+            if (winner.count + otherCount >= majority) winner.addCount(otherCount)
             else NoWinner
           }
           else NoWinner
