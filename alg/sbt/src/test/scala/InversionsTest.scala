@@ -9,25 +9,31 @@ extends FunSuite
 
   test("merge")
   {
-    val r1 = merge(Result(List(1),0), Result(List(2),0), EmptyResult)
-    assert(r1.invs == 0)
-    verify(r1.items, List(1,2))
+//    val r1 = merge(Result(List(1),0), Result(List(2),0), EmptyResult)
+//    assert(r1.invs == 0)
+//    verify(r1.items, List(1,2))
+//
+//    val r2 = merge(Result(List(2),0), Result(List(1),0), EmptyResult)
+//    assert(r2.invs == 1)
+//    verify(r2.items, List(1,2))
+//
+//    val r3 = merge(Result(List(2,3,4),0), Result(List(1),0), EmptyResult)
+//    assert(r3.invs == 3)
+//    verify(r3.items, List(1,2,3,4))
+//
+//    val r4 = merge(Result(List(2,3,4),0), Result(List(1,2),0), EmptyResult)
+//    assert(r4.invs == 5)
+//    verify(r4.items, List(1,2,2,3,4))
+//
+//    val r5 = merge(Result(List(2,3,9),0), Result(List(2,9),0), EmptyResult)
+//    assert(r5.invs == 2)
+//    verify(r5.items, List(2,2,3,9,9))
+    {
+      val r = merge(Result(List(7,8,9),3), Result(List(1,2,3),3), EmptyResult)
+        assert(r.invs == 15)
+        verify(r.items, List(1,2,3,7,8,9))
 
-    val r2 = merge(Result(List(2),0), Result(List(1),0), EmptyResult)
-    assert(r2.invs == 1)
-    verify(r2.items, List(1,2))
-
-    val r3 = merge(Result(List(2,3,4),0), Result(List(1),0), EmptyResult)
-    assert(r3.invs == 3)
-    verify(r3.items, List(1,2,3,4))
-
-    val r4 = merge(Result(List(2,3,4),0), Result(List(1,2),0), EmptyResult)
-    assert(r4.invs == 5)
-    verify(r4.items, List(1,2,2,3,4))
-
-    val r5 = merge(Result(List(2,3,9),0), Result(List(2,9),0), EmptyResult)
-    assert(r5.invs == 2)
-    verify(r5.items, List(2,2,3,9,9))
+    }
 
 
   }

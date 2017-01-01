@@ -16,7 +16,7 @@ object Inversions
   @tailrec
   final def merge(l: Result, r: Result, out: Result): Result =
   {
-    if (l.items.isEmpty && r.items.isEmpty) out
+    if (l.items.isEmpty && r.items.isEmpty) out.merge(l).merge(r)
     else if (!l.items.isEmpty  && !r.items.isEmpty)
     {
       if (l.items.head == r.items.head) merge(l.tail, r.tail, out.append(l.items.head, 0).append(r.items.head, l.items.length-1))
@@ -29,12 +29,12 @@ object Inversions
     }
     else if (!l.items.isEmpty)
       {
-        out.merge(l) //, true)
+        out.merge(l).merge(r)
       }
     else
     {
       assert(!r.items.isEmpty)
-      out.merge(r) //, false)
+      out.merge(r).merge(l)
     }
   }
 
