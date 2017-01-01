@@ -16,9 +16,9 @@ extends FunSuite
       verify(r.items)
     }
 
-  def invSimple(a: Array[Int]): Int =
+  def invSimple(a: Array[Int]): Long =
   {
-    var c = 0
+    var c: Long = 0L
     for (i <- 0 to a.length-1)
       for (j <- i to a.length-1)
         if (a(i) > a(j)) c += 1
@@ -26,6 +26,7 @@ extends FunSuite
     c
   }
 
+/*
   test("merge-list")
   {
 //    val r1 = merge(Result(List(1),0), Result(List(2),0), EmptyResult)
@@ -54,9 +55,15 @@ extends FunSuite
         verify(r.items, List(1,2,3,7,8,9))
 
     }
-
-
   }
+
+  test("simple/2")
+  {
+    //verify(sort(List(60,118,118,166,60,209,289,118,209,747,821,289).toArray))
+    val l = inversionsList(List(284,534,950,312).toArray)
+    verify(l.items.toArray)
+  }
+*/
 
   test("merge")
   {
@@ -104,19 +111,12 @@ extends FunSuite
     verify2(Array(1,2,3,4,5))
   }
 
-  test("simple/2")
-  {
-    //verify(sort(List(60,118,118,166,60,209,289,118,209,747,821,289).toArray))
-    val l = inversionsList(List(284,534,950,312).toArray)
-    verify(l.items.toArray)
-  }
-
   test("simple/3")
   {
-//    {
-//      val a = Array(1,2,1,2)
-//      verify2(a)
-//    }
+    {
+      val a = Array(60,118,118,166,60,209,289,118,209,747,821,289)
+      verify2(a)
+    }
 
     {
       val a = Array(158, 337, 663, 337, 358, 337, 568, 562)
@@ -127,12 +127,67 @@ extends FunSuite
   test("randomized")
   {
     val r = scala.util.Random
-    for (c <- 1 to 100000)
-    {
-      val a = new Array[Int](r.nextInt(10))
-      for (i <- 0 to a.length-1) a(i) = r.nextInt(1000)
+//    for (c <- 1 to 1000000)
+//    {
+//      val a = new Array[Int](r.nextInt(2))
+//      for (i <- 0 to a.length-1) a(i) = r.nextInt(3)
+//
+//      verify2(a)
+//    }
+//
+//    for (c <- 1 to 100000)
+//    {
+//      val a = new Array[Int](r.nextInt(10))
+//      for (i <- 0 to a.length-1) a(i) = r.nextInt(10)
+//
+//      verify2(a)
+//    }
+//
+//
+//    for (c <- 1 to 100000)
+//    {
+//      val a = new Array[Int](r.nextInt(10))
+//      for (i <- 0 to a.length-1) a(i) = r.nextInt(100)
+//
+//      verify2(a)
+//    }
+//
+//
+//    for (c <- 1 to 1000)
+//    {
+//      val a = new Array[Int](r.nextInt(100))
+//      for (i <- 0 to a.length-1) a(i) = r.nextInt(100)
+//
+//      verify2(a)
+//    }
+//
+//
+//    for (c <- 1 to 1000)
+//    {
+//      val a = new Array[Int](r.nextInt(1000))
+//      for (i <- 0 to a.length-1) a(i) = r.nextInt(100)
+//
+//      verify2(a)
+//    }
 
+
+    for (c <- 1 to 1)
+    {
+      val a = new Array[Int](1e5.toInt)
+      for (i <- 0 to a.length-1) a(i) = a.length-i
       verify2(a)
+
+      //      for (i <- 0 to a.length-1) a(i) = r.nextInt(1e9.toInt)
+//      verify2(a)
+
+//      for (i <- 0 to a.length-1) a(i) = r.nextInt(1000)
+//      verify2(a)
+//
+//      for (i <- 0 to a.length-1) a(i) = r.nextInt(100)
+//      verify2(a)
+//
+//      for (i <- 0 to a.length-1) a(i) = r.nextInt(3)
+//      verify2(a)
     }
   }
 

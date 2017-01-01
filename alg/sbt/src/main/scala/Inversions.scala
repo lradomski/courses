@@ -4,7 +4,7 @@ import scala.annotation.tailrec
 
 object Inversions
 {
-  case class Result(items: Array[Int], invs: Int)
+  case class Result(items: Array[Int], invs: Long)
   {
     override def toString: String = "[ (" + items.foldLeft("")((s,i) => s + i + ",") + "), " + invs + "]"
   }
@@ -21,7 +21,7 @@ object Inversions
     var ri = 0
     val rend = r.items.length
 
-    var invs = 0
+    var invs: Long = 0L
 
     var done = false
 
@@ -32,16 +32,7 @@ object Inversions
           {
             val lv = l.items(li)
             val rv = r.items(ri)
-//            if (lv == rv)
-//              {
-//                out(i) = lv
-//                out(i+1) = rv
-//                li += 1
-//                invs += lend - li
-//                ri += 1
-//                i += 2
-//              }
-//            else
+
             if (lv > rv)
               {
                 out(i) = rv
@@ -117,62 +108,64 @@ object Inversions
   }
 
 
-  case class ResultList(items: List[Int], invs: Int)
-  {
-    def append(i: Int, moreInvs: Int) = ResultList(items ::: List(i), invs+moreInvs)
-    def tail = ResultList(items.tail, invs)
-    def merge(that: ResultList) = ResultList(items ::: that.items, invs + that.invs)
-  }
-
-  object EmptyResultList extends ResultList(List[Int](), 0)
-
-  @tailrec
-  final def mergeList(l: ResultList, r: ResultList, out: ResultList): ResultList =
-  {
-    if (l.items.isEmpty && r.items.isEmpty) out.merge(l).merge(r)
-    else if (!l.items.isEmpty  && !r.items.isEmpty)
+  /*
+    case class ResultList(items: List[Int], invs: Int)
     {
-      if (l.items.head == r.items.head) mergeList(l.tail, r.tail, out.append(l.items.head, 0).append(r.items.head, l.items.length-1))
-      else if (l.items.head < r.items.head) mergeList(l.tail, r, out.append(l.items.head, 0))
+      def append(i: Int, moreInvs: Int) = ResultList(items ::: List(i), invs+moreInvs)
+      def tail = ResultList(items.tail, invs)
+      def merge(that: ResultList) = ResultList(items ::: that.items, invs + that.invs)
+    }
+
+    object EmptyResultList extends ResultList(List[Int](), 0)
+
+    @tailrec
+    final def mergeList(l: ResultList, r: ResultList, out: ResultList): ResultList =
+    {
+      if (l.items.isEmpty && r.items.isEmpty) out.merge(l).merge(r)
+      else if (!l.items.isEmpty  && !r.items.isEmpty)
+      {
+        if (l.items.head == r.items.head) mergeList(l.tail, r.tail, out.append(l.items.head, 0).append(r.items.head, l.items.length-1))
+        else if (l.items.head < r.items.head) mergeList(l.tail, r, out.append(l.items.head, 0))
+        else
+        {
+          assert(l.items.head > r.items.head)
+          mergeList(l, r.tail, out.append(r.items.head, l.items.length))
+        }
+      }
+      else if (!l.items.isEmpty)
+        {
+          out.merge(l).merge(r)
+        }
       else
       {
-        assert(l.items.head > r.items.head)
-        mergeList(l, r.tail, out.append(r.items.head, l.items.length))
+        assert(!r.items.isEmpty)
+        out.merge(r).merge(l)
       }
     }
-    else if (!l.items.isEmpty)
-      {
-        out.merge(l).merge(r)
-      }
-    else
+
+    def inversionsList(a: Array[Int]): ResultList =
     {
-      assert(!r.items.isEmpty)
-      out.merge(r).merge(l)
-    }
-  }
 
-  def inversionsList(a: Array[Int]): ResultList =
-  {
-
-    def core(start: Int, end: Int): ResultList =
-    {
-      if (start < end)
+      def core(start: Int, end: Int): ResultList =
       {
-        val mid = start + (end - start) / 2
+        if (start < end)
+        {
+          val mid = start + (end - start) / 2
 
-        val l = core(start, mid)
-        val r = core(mid+1, end)
-        val out = mergeList(l, r, EmptyResultList)
-        out
+          val l = core(start, mid)
+          val r = core(mid+1, end)
+          val out = mergeList(l, r, EmptyResultList)
+          out
+        }
+        else if (start == end) EmptyResultList.append(a(start), 0)
+        else EmptyResultList
+
       }
-      else if (start == end) EmptyResultList.append(a(start), 0)
-      else EmptyResultList
 
+      val out = core(0, a.length-1)
+      out
     }
-
-    val out = core(0, a.length-1)
-    out
-  }
+  */
 
   def main(args: Array[String]): Unit =
   {
