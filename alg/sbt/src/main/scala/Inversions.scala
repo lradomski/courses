@@ -179,6 +179,6 @@ object Inversions
     val a = new Array[Int](n)
     for (i <- 0 to n - 1) a(i) = s.nextInt
 
-    println(inversionsList(a).invs)
+    println(inversions(a).invs)
   }
 }
