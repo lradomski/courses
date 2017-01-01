@@ -16,8 +16,8 @@ object BinSearch
         val test = a(mid)
         if (test == key) mid
         else if (key < test) core(start, mid - 1)
-        else if (test > key) core(mid + 1, end)
-        else -1
+        else if (test < key) core(mid + 1, end)
+        else { assert(false); -1 }
       }
     }
 
