@@ -23,7 +23,7 @@ object Majority
     def count(key: Int, start: Int, end: Int): Int =
     {
       var count = 0
-      for (i <- start to end - 1) if (key == a(i)) count += a(i)
+      for (i <- start to end - 1) if (key == a(i)) count += 1
       count
     }
 
@@ -39,7 +39,7 @@ object Majority
         leftWinner =
           if (leftWinner.exists)
           {
-            val rightCount = count(a(leftWinner.index), mid + 1, end)
+            val rightCount = count(leftWinner.value, mid + 1, end)
             if (leftWinner.count + rightCount >= majority) leftWinner.addCount(rightCount)
             else NoWinner
           }
@@ -52,7 +52,7 @@ object Majority
           val rightWinner = core(mid + 1, end)
           if (rightWinner.exists)
           {
-            val leftCount = count(a(rightWinner.index), start, mid)
+            val leftCount = count(rightWinner.value, start, mid)
             if (rightWinner.count + leftCount >= majority) rightWinner.addCount(leftCount)
             else NoWinner
           }
