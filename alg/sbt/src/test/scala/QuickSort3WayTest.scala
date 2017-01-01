@@ -1,5 +1,6 @@
 import org.scalatest.FunSuite
 import QuickSort3Way.qsort3way
+import Utils._
 
 class QuickSort3WayTest
 extends FunSuite
@@ -37,12 +38,4 @@ extends FunSuite
       }
   }
 
-  def toStr(a: Array[Int]): String = a.foldLeft("")((s,i) => s + i + ",")
-
-
-  def verify(a: Array[Int]): Unit =
-  {
-    val as = a.sorted
-    for (i <- 0 to a.length - 1) assert(a(i) == as(i), "/ [" + i + "]: " + a(i) + "!=" + as(i) + " // {" + toStr(a) + "}")
-  }
 }
