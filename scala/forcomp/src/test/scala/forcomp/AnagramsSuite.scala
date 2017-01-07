@@ -14,7 +14,7 @@ class AnagramsSuite extends FunSuite  {
     assert(wordOccurrences("abcd") === List(('a', 1), ('b', 1), ('c', 1), ('d', 1)))
   }
 
-  test("wordOccurrences: Robert") {
+  test("word.groupBy(_.toUpper).mapValues(_.length).toListOccurrences: Robert") {
     assert(wordOccurrences("Robert") === List(('b', 1), ('e', 1), ('o', 1), ('r', 2), ('t', 1)))
   }
 
@@ -98,6 +98,13 @@ class AnagramsSuite extends FunSuite  {
       List("Linux", "rulez")
     )
     assert(sentenceAnagrams(sentence).toSet === anas.toSet)
+  }
+
+  test("LR1")
+  {
+    //def combs(o: Occurrences) = combinations(o)
+    val occ = wordOccurrences("ab")
+    val sets = occSets(occ)
   }
 
 }

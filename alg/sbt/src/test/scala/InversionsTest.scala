@@ -14,6 +14,10 @@ extends FunSuite
       val r = inversions(a)
       assert(r.invs == invs, Utils.toStr(orig))
       verify(r.items)
+
+      val r2 = inversionsList2(a)
+      assert(r2._2 == invs, Utils.toStr(orig))
+      verify(r2._1.toArray)
     }
 
   def invSimple(a: Array[Int]): Long =
@@ -135,14 +139,14 @@ extends FunSuite
 //      verify2(a)
 //    }
 //
-//    for (c <- 1 to 100000)
-//    {
-//      val a = new Array[Int](r.nextInt(10))
-//      for (i <- 0 to a.length-1) a(i) = r.nextInt(10)
-//
-//      verify2(a)
-//    }
-//
+    for (c <- 1 to 100000)
+    {
+      val a = new Array[Int](r.nextInt(10))
+      for (i <- 0 to a.length-1) a(i) = r.nextInt(10)
+
+      verify2(a)
+    }
+
 //
 //    for (c <- 1 to 100000)
 //    {
@@ -152,14 +156,14 @@ extends FunSuite
 //      verify2(a)
 //    }
 //
-//
-//    for (c <- 1 to 1000)
-//    {
-//      val a = new Array[Int](r.nextInt(100))
-//      for (i <- 0 to a.length-1) a(i) = r.nextInt(100)
-//
-//      verify2(a)
-//    }
+
+    for (c <- 1 to 1000)
+    {
+      val a = new Array[Int](r.nextInt(100))
+      for (i <- 0 to a.length-1) a(i) = r.nextInt(100)
+
+      verify2(a)
+    }
 //
 //
 //    for (c <- 1 to 1000)
