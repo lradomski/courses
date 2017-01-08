@@ -231,10 +231,18 @@ object Anagrams
   def sentenceAnagrams(sentence: Sentence): List[Sentence] =
   {
     val occs = sentenceOccurrences(sentence)
-    val combs = combinations(occs)
     val occurrenceSets = occSets(occs)
     val unassembledWordSets: List[List[List[Word]]] = occurrenceSets.map(_.map(dictionaryByOccurrences(_)))
     val sentences = unassembledWordSets.map(assemble(_))
     sentences.flatten
   }
+
+  def sentenceAnagrams(sentence: String): List[String] =
+  {
+    occSets(wordOccurrences(sentence.filter(_.isLetter)))
+      .map(_.map(dictionaryByOccurrences(_)))
+      .map(assemble(_)).flatten
+      .map(_.reduceLeft(_+" "+_))
+  }
+
 }
