@@ -191,7 +191,7 @@ object Anagrams
         (for
         {
           comb <- combs
-          if (!comb.isEmpty && !used.contains(comb))
+          if (!comb.isEmpty && !used.contains(comb) && dictionaryByOccurrences.contains(comb))
         } yield core(used + comb, subtract(occs, comb))).flatten
       }
     }
@@ -214,7 +214,6 @@ object Anagrams
     core(wordLists, List())
   }
 
-  //def wordSets(occSets: List[ List[Occurrences] ]):
 
   def permute(words: List[Word]): List[Sentence] =
   {
@@ -237,8 +236,6 @@ object Anagrams
     val combs = combinations(occs)
     val occurrenceSets = occSets(occs)
     val unassembledWordSets: List[List[List[Word]]] = occurrenceSets.map(_.map(dictionaryByOccurrences(_)))
-    //val unpermutedSentenceWordSets: List[List[Word]] = unassembledWordSets.map(assemble(_))
-    //val sentences: List[List[Sentence]] = unpermutedSentenceWordSets.map(permute(_))
     val sentences = unassembledWordSets.map(assemble(_))
     sentences.flatten
   }
