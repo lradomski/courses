@@ -1,7 +1,5 @@
 package forcomp
 
-import org.scalatest.WordSpec
-
 
 object Anagrams
 {
