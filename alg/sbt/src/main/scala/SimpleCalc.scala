@@ -4,12 +4,11 @@ import scala.annotation.tailrec
 
 object SimpleCalc
 {
-
   case class OpsNums(ops: Int, nums: List[Int])
 
   def calc(n: Int): (Int, List[Int]) =
   {
-    def minus1(i: Int) = Some(-1)
+    def minus1(i: Int) = Some(i-1)
     def div2(i: Int) = if (i % 2 == 0) Some(i / 2) else None
     def div3(i: Int) = if (i % 3 == 0) Some(i / 3) else None
 
@@ -32,20 +31,23 @@ object SimpleCalc
       if (i > 1)
       {
         val prev = ops(i).withFilter(_ != None).map(r => (a(r.get), r.get)).minBy(_._1)._2
-        seq(prev, prev :: acc)
+        seq(prev, i :: acc)
       }
-      else List(1)
+      else 1 :: acc
     }
 
-    (n, seq(n, List()))
+    (a(n), seq(n, List()))
   }
 
-  def main(args: Array[String]) =
+  def main(args: Array[String]): Unit =
   {
     val s = new Scanner(System.in)
 
     val n = s.nextInt
-    calc(n)
+    val r = calc(n)
+    println(r._1)
+    r._2.foreach(i => print(i + " ")); println
   }
+
 
 }
