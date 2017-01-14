@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="64c9de5a-9204-46d8-bed2-5032ea4dae28" name="Default" comment="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge/AVL + treeSum + cleanup)">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/drill/Tree.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/sbt.iml" afterPath="$PROJECT_DIR$/.idea/modules/sbt.iml" />
+    <list default="true" id="64c9de5a-9204-46d8-bed2-5032ea4dae28" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/TreeOrder.sc" afterPath="$PROJECT_DIR$/src/main/scala/TreeOrder.sc" />
     </list>
     <ignored path="data.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -14,6 +11,24 @@
     <ignored path="$PROJECT_DIR$/project/target/" />
     <ignored path="../../alg/download/" />
     <ignored path="../../alg/scala/out/production/algtbox/" />
+    <ignored path="../../alg/scala/lib/" />
+    <ignored path="../download/" />
+    <ignored path="../../mlearn/download/" />
+    <ignored path="../../neural/download/" />
+    <ignored path="../../scala/download/" />
+    <ignored path="../../scala/forcomp/project/" />
+    <ignored path="../../scala/forcomp/project/target/" />
+    <ignored path="../../scala/funsets/project/" />
+    <ignored path="../../scala/funsets/target/" />
+    <ignored path="../../scala/objsets/project/" />
+    <ignored path="../../scala/objsets/target/" />
+    <ignored path="../../scala/patmat/project/" />
+    <ignored path="../../scala/patmat/target/" />
+    <ignored path="../../scala/recfun/project/" />
+    <ignored path="../../scala/recfun/target/" />
+    <ignored path="../../scala/forcomp/target/" />
+    <ignored path="../scala/out/production/ds/" />
+    <ignored path="../scala/temp/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -779,7 +794,14 @@
       <option name="project" value="LOCAL" />
       <updated>1483074735923</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge/AVL + treeSum + cleanup)&#10;Print tree leaves left to right drill">
+      <created>1484108253864</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1484108253864</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -825,7 +847,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3301887" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3301887" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -862,7 +884,8 @@
     <MESSAGE value="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge/AVL)" />
     <MESSAGE value="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge/AVL + treeSum)" />
     <MESSAGE value="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge/AVL + treeSum + cleanup)" />
-    <option name="LAST_COMMIT_MESSAGE" value="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge/AVL + treeSum + cleanup)" />
+    <MESSAGE value="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge/AVL + treeSum + cleanup)&#10;Print tree leaves left to right drill" />
+    <option name="LAST_COMMIT_MESSAGE" value="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge/AVL + treeSum + cleanup)&#10;Print tree leaves left to right drill" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
