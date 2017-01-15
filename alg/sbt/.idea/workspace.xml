@@ -4,7 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/test/scala/InversionsTest.scala" line="120" mnemonic="0" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d8a3d955-2148-40a5-8e08-f12dd237fb2b" name="Default" comment="">
+    <list default="true" id="d8a3d955-2148-40a5-8e08-f12dd237fb2b" name="Default" comment="week5 - stubs+calc+TakeGold+EditDistance+MaxExpr+LCS3">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/LCS.scala" afterPath="$PROJECT_DIR$/src/main/scala/LCS.scala" />
     </list>
@@ -65,8 +65,8 @@
       <file leaf-file-name="LCS.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/LCS.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+            <state relative-caret-position="269">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -933,7 +933,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484454808432</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="week5 - stubs+calc+TakeGold+EditDistance+MaxExpr+LCS3">
+      <created>1484515372045</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1484515372045</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1035,7 +1042,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="week3 - change" />
     <MESSAGE value="week3 - change+loot" />
     <MESSAGE value="week3 - change+loot+ad/dotproduct+visit/segments" />
     <MESSAGE value="week3 - change+loot+ad/dotproduct+visit/segments+prizes" />
@@ -1060,7 +1066,8 @@
     <MESSAGE value="week5 - stubs+calc+TakeGold+EditDistance" />
     <MESSAGE value="week5 - stubs+calc+TakeGold+EditDistance+MaxExprt" />
     <MESSAGE value="week5 - stubs+calc+TakeGold+EditDistance+MaxExpr" />
-    <option name="LAST_COMMIT_MESSAGE" value="week5 - stubs+calc+TakeGold+EditDistance+MaxExpr" />
+    <MESSAGE value="week5 - stubs+calc+TakeGold+EditDistance+MaxExpr+LCS3" />
+    <option name="LAST_COMMIT_MESSAGE" value="week5 - stubs+calc+TakeGold+EditDistance+MaxExpr+LCS3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1339,8 +1346,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/LCS.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+        <state relative-caret-position="269">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding />
         </state>
       </provider>

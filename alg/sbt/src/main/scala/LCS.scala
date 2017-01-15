@@ -31,6 +31,15 @@ object LCS
     for (j <- 1 to r.length) a(0)(j)(0) = 0
     for (k <- 1 to t.length) a(0)(0)(k) = 0
 
+    val dijk = for
+    {
+      di <- List(-1,0)
+      dj <- List(-1,0)
+      dk <- List(-1,0)
+      if (!(di == 0 && dj == 0 && dk == 0)  && !(di != 0 && dj != 0 && dk != 0)) // not (0,0,0) and not (-1,-1,-1)
+    } yield (di,dj,dk)
+
+
     for
     {
       i <- 1 to l.length
@@ -38,19 +47,17 @@ object LCS
       k <- 1 to t.length
     }
     {
-      val prev = for
-        {
-          di <- List(-1,0)
-          dj <- List(-1,0)
-          dk <- List(-1,0)
-          //if (di + dj + dk != 0  && di * dj * dk == 0)
-          if (!(di == 0 && dj == 0 && dk == 0)  && !(di != 0 && dj != 0 && dk != 0)) // not (0,0,0) and not (-1,-1,-1)
-        } yield a(i+di)(j+dj)(k+dk)
+      val prev = dijk.map(d => a(i+d._1)(j+d._2)(k+d._3))
+//      val prev = for
+//        {
+//          di <- List(-1,0)
+//          dj <- List(-1,0)
+//          dk <- List(-1,0)
+//          //if (di + dj + dk != 0  && di * dj * dk == 0)
+//          if (!(di == 0 && dj == 0 && dk == 0)  && !(di != 0 && dj != 0 && dk != 0)) // not (0,0,0) and not (-1,-1,-1)
+//        } yield a(i+di)(j+dj)(k+dk)
 
       a(i)(j)(k) = Math.max( prev.max,  a(i-1)(j-1)(k-1) + (if (l(i-1) == r(j-1) && r(j-1) == t(k-1)) 1 else 0))
-
-//      a(i)(j) = List( a(i-1)(j), a(i)(j-1), a(i-1)(j-1) + (if (l(i-1) == r(j-1)) 1 else 0)).max
-//        a(i)(j)(k) = List( a(i-1)(j), a(i)(j-1), a(i-1)(j-1)(k-1) + (if (l(i-1) == r(j-1) && r(j-1) == t(k-1)) 1 else 0)).max
     }
 
     a(l.length)(r.length)(t.length)
@@ -65,6 +72,5 @@ object LCS
     val c = (for (i <- 1 to s.nextInt) yield s.nextInt).toArray
     val out = lcs3(a,b,c)
     println(out)
-    //val c = (for (i <- 1 to s.nextInt) yield s.nextInt).toArray
   }
 }
