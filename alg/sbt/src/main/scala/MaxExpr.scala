@@ -2,7 +2,6 @@ import java.util.Scanner
 
 object MaxExpr
 {
-
   case class MinMax(min: Long, max: Long, isSet: Boolean)
 
   val ops = Map(

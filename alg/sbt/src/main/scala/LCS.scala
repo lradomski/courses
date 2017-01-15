@@ -48,15 +48,6 @@ object LCS
     }
     {
       val prev = dijk.map(d => a(i+d._1)(j+d._2)(k+d._3))
-//      val prev = for
-//        {
-//          di <- List(-1,0)
-//          dj <- List(-1,0)
-//          dk <- List(-1,0)
-//          //if (di + dj + dk != 0  && di * dj * dk == 0)
-//          if (!(di == 0 && dj == 0 && dk == 0)  && !(di != 0 && dj != 0 && dk != 0)) // not (0,0,0) and not (-1,-1,-1)
-//        } yield a(i+di)(j+dj)(k+dk)
-
       a(i)(j)(k) = Math.max( prev.max,  a(i-1)(j-1)(k-1) + (if (l(i-1) == r(j-1) && r(j-1) == t(k-1)) 1 else 0))
     }
 
