@@ -22,19 +22,33 @@ object ClosestPoints
     def core(l: Int, r: Int): Double =
     {
       @tailrec
-      def find(x: Int, l: Int, r: Int, sameOnRight: Boolean): Int =
+      def findCore(points: Array[Point], get: Point => Int, v: Int, l: Int, r: Int, sameOnRight: Boolean): Int =
       {
         if (l >= r) l
         else
         {
-//          assert(points(l).x <= x)
-//          assert(x <= points(r).x)
-
           val m = (l + r) / 2
-          if (if (sameOnRight) x <= points(m).x else x < points(m).x) find(x, l, m, sameOnRight)
-          else find(x, m + 1, r, sameOnRight)
+          if (if (sameOnRight) v <= get(points(m)) else v < get(points(m))) findCore(points, get, v, l, m, sameOnRight)
+          else findCore(points, get, v, m + 1, r, sameOnRight)
         }
       }
+
+      def find(x: Int, l: Int, r: Int, sameOnRight: Boolean): Int =
+      {
+        findCore(points, _.x, x, l, r, sameOnRight)
+      }
+
+//      @tailrec
+//      def find(x: Int, l: Int, r: Int, sameOnRight: Boolean): Int =
+//      {
+//        if (l >= r) l
+//        else
+//        {
+//          val m = (l + r) / 2
+//          if (if (sameOnRight) x <= points(m).x else x < points(m).x) find(x, l, m, sameOnRight)
+//          else find(x, m + 1, r, sameOnRight)
+//        }
+//      }
 
       def findRightOf(x: Int, l: Int, r: Int): Int =
       {
@@ -50,6 +64,22 @@ object ClosestPoints
         if (i < r) assert(x < points(i + 1).x, "findLeftOf: " + x + " not < " + points(i + 1).x)
         i
       }
+
+      def findUpOf(points: Array[Point], y: Int, l: Int, r: Int): Int =
+      {
+        val i = findCore(points, _.y, y, l, r, true)
+
+        if (l < i) assert(points(i - 1).y < y, "findUpOf: " + points(i - 1).y + " not < " + y)
+        i
+      }
+
+      def findDownOf(points: Array[Point], y: Int, l: Int, r: Int): Int =
+      {
+        val i = findCore(points, _.y, y, l, r, false)
+        if (i < r) assert(y < points(i + 1).y, "findDownOf: " + y + " not < " + points(i + 1).y)
+        i
+      }
+
 
       val width = r - l + 1
       assert(width > 1, "width==1 ?")
@@ -81,12 +111,21 @@ object ClosestPoints
           if (pr.x <= mx + d)
         } yield pr
 
+        val rpsy = rps.toArray.sortBy(p => p.y)
+
         val ds = for
-          {
-            pl <- lps
-            pr <- rps
-            if (Math.abs(pl.y - pr.y) <= d)
-          } yield dist(pl,pr)
+        {
+          pl <- lps
+          j <- findUpOf(rpsy, pl.y - di, 0, rpsy.length-1) to findDownOf(rpsy, pl.y + di, 0, rpsy.length-1)
+          pr = rpsy(j)
+        } yield dist(pl, pr)
+
+//        val ds = for
+//          {
+//            pl <- lps
+//            pr <- rps
+//            if (Math.abs(pl.y - pr.y) <= d)
+//          } yield dist(pl,pr)
 
 //        val ds = for
 //        {
