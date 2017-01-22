@@ -38,18 +38,6 @@ object ClosestPoints
         findCore(points, _.x, x, l, r, sameOnRight)
       }
 
-//      @tailrec
-//      def find(x: Int, l: Int, r: Int, sameOnRight: Boolean): Int =
-//      {
-//        if (l >= r) l
-//        else
-//        {
-//          val m = (l + r) / 2
-//          if (if (sameOnRight) x <= points(m).x else x < points(m).x) find(x, l, m, sameOnRight)
-//          else find(x, m + 1, r, sameOnRight)
-//        }
-//      }
-
       def findRightOf(x: Int, l: Int, r: Int): Int =
       {
         val i = find(x, l, r, true)
@@ -98,12 +86,14 @@ object ClosestPoints
         val il = findRightOf(mx - di, l, m)
         val jr = findLeftOf(mx + di, m + 1, r)
 
+        // all "left" points within d of mx
         val lps = for {
           i <- il to m
           pl = points(i)
           if (pl.x >= mx - d)
         } yield pl
 
+        // all "right" points within d of mx
         val rps = for
         {
           j <- m + 1 to jr
@@ -114,14 +104,19 @@ object ClosestPoints
         if (rps.isEmpty) d
         else
         {
+          // "right" candidate points sorted by y
           val rpsy = rps.toArray.sortBy(p => p.y)
 
+          // for each "left" candidate find range of points among "right" candidates with (d,2d) rectangle
+          // since "right" points are sorted by y we can find index range by binary search (findUpOf/findDownOf)
+          // we compute distances of lef-right pairs of points this way (left points with right points in their rectangle if any)
+          // (there can be at most 6 points in left point's rectangle see: https://www.cs.ucsb.edu/~suri/cs235/ClosestPair.pdf )
           val ds = for
           {
             pl <- lps
             j <- findUpOf(rpsy, pl.y - di, 0, rpsy.length - 1) to findDownOf(rpsy, pl.y + di, 0, rpsy.length - 1)
             pr = rpsy(j)
-            if (Math.abs(pl.y - pr.y) <= d)
+            //if (Math.abs(pl.y - pr.y) <= d)
           } yield dist(pl, pr)
 
           //        val ds = for
@@ -131,20 +126,9 @@ object ClosestPoints
           //            if (Math.abs(pl.y - pr.y) <= d)
           //          } yield dist(pl,pr)
 
-          //        val ds = for
-          //        {
-          //          i <- il to m
-          //          pl = points(i)
-          //          if (pl.x >= mx - d)
-          //          j <- m + 1 to jr
-          //          pr = points(j)
-          //          if (pr.x <= mx + d)
-          //          if (Math.abs(pl.y - pr.y) <= d)
-          //        } yield dist(pl, pr)
 
-          if (ds.isEmpty) d else Math.min(d, ds.min)
-          //(d +: ds).min
-          //Math.min(d, ds.min)
+          //if (ds.isEmpty) d else Math.min(d, ds.min)
+          (d +: ds).min
         }
       }
 
@@ -164,11 +148,9 @@ object ClosestPoints
     val n = s.nextInt
 
 
-    val rawPoints = (for (i <- 0 to n - 1) yield Point(s.nextInt, s.nextInt)) //.toSet(Ordering[Int].on[Point](_.x))
-    val uniquePoints = Set(rawPoints: _*) //(Ordering.fromLessThan( (l,r) => if (l.x < r.x) true else l.y < r.y))
+    val rawPoints = (for (i <- 0 to n - 1) yield Point(s.nextInt, s.nextInt))
+    val uniquePoints = Set(rawPoints: _*)
     val points = uniquePoints.toArray.sortBy(_.x)
-    //SortedSet(rawPoints: _*)(Ordering[Int].on[Point](_.x)).toArray // unique only
-
 
     if (points.length < n) println("0.0") // repeated point(s)
     else
