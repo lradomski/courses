@@ -4,10 +4,8 @@
     <bookmark url="file://$PROJECT_DIR$/src/test/scala/InversionsTest.scala" line="120" mnemonic="0" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d8a3d955-2148-40a5-8e08-f12dd237fb2b" name="Default" comment="week3 - Lottery + ClosestPoints">
+    <list default="true" id="d8a3d955-2148-40a5-8e08-f12dd237fb2b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/ClosestPoints.scala" afterPath="$PROJECT_DIR$/src/main/scala/ClosestPoints.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/week5/week5.sc" afterPath="$PROJECT_DIR$/src/main/scala/week5/week5.sc" />
     </list>
     <ignored path="alg.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,21 +61,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="week5.sc" pinned="false" current-in-tab="false">
+      <file leaf-file-name="week5.sc" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/week5/week5.sc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-110">
+            <state relative-caret-position="-15">
               <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClosestPoints.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ClosestPoints.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/ClosestPoints.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="128" column="19" selection-start-line="128" selection-start-column="19" selection-end-line="128" selection-end-column="19" />
+            <state relative-caret-position="475">
+              <caret line="125" column="0" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -785,13 +783,6 @@
       <option name="presentableId" value="Default" />
       <updated>1483079711726</updated>
     </task>
-    <task id="LOCAL-00004" summary="week3 - change+loot">
-      <created>1483126697637</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1483126697637</updated>
-    </task>
     <task id="LOCAL-00005" summary="week3 - change+loot+ad/dotproduct+visit/segments">
       <created>1483130354084</created>
       <option name="number" value="00005" />
@@ -1128,7 +1119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485123630029</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="week3 - Lottery + ClosestPoints">
+      <created>1485124937501</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1485124937501</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1557,21 +1555,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/week5/week5.sc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-110">
-          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/ClosestPoints.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="128" column="19" selection-start-line="128" selection-start-column="19" selection-end-line="128" selection-end-column="19" />
+        <state relative-caret-position="475">
+          <caret line="125" column="0" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/week5/week5.sc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-15">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
