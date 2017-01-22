@@ -1,24 +1,24 @@
 import scala.collection.SortedSet
+1 to 1
 case class Point(x: Int, y: Int)
 Set( Point(0,0), Point(0,0))
-val points = Array(1,2,3,3,7,9,10)
+val points = Array[Int](1) //1,2,3,3,5,7,9,10)
 def find(x: Int, l: Int, r: Int, sameOnRight: Boolean): Int =
 {
 
   if (l >= r) l
   else
   {
-    //assert(points(l) <= x)
-    //assert(x <= points(r))
-
     val m = (l + r) / 2
     if (if (sameOnRight) x <= points(m) else x < points(m)) find(x, l, m, sameOnRight)
     else find(x, m + 1, r, sameOnRight)
   }
 }
 
-find(5, 0, points.length-1, true)
-find(5, 0, points.length-1, false)
+val l = find(5, 0, points.length-1, true)
+val r = find(5, 0, points.length-1, false)
+points(l)
+points(r)
 
 //val a = Array.ofDim[Boolean](2,2)
 //a(1)(1)

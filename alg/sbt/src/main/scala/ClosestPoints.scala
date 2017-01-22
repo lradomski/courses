@@ -111,36 +111,41 @@ object ClosestPoints
           if (pr.x <= mx + d)
         } yield pr
 
-        val rpsy = rps.toArray.sortBy(p => p.y)
-
-        val ds = for
+        if (rps.isEmpty) d
+        else
         {
-          pl <- lps
-          j <- findUpOf(rpsy, pl.y - di, 0, rpsy.length-1) to findDownOf(rpsy, pl.y + di, 0, rpsy.length-1)
-          pr = rpsy(j)
-        } yield dist(pl, pr)
+          val rpsy = rps.toArray.sortBy(p => p.y)
 
-//        val ds = for
-//          {
-//            pl <- lps
-//            pr <- rps
-//            if (Math.abs(pl.y - pr.y) <= d)
-//          } yield dist(pl,pr)
+          val ds = for
+          {
+            pl <- lps
+            j <- findUpOf(rpsy, pl.y - di, 0, rpsy.length - 1) to findDownOf(rpsy, pl.y + di, 0, rpsy.length - 1)
+            pr = rpsy(j)
+            if (Math.abs(pl.y - pr.y) <= d)
+          } yield dist(pl, pr)
 
-//        val ds = for
-//        {
-//          i <- il to m
-//          pl = points(i)
-//          if (pl.x >= mx - d)
-//          j <- m + 1 to jr
-//          pr = points(j)
-//          if (pr.x <= mx + d)
-//          if (Math.abs(pl.y - pr.y) <= d)
-//        } yield dist(pl, pr)
+          //        val ds = for
+          //          {
+          //            pl <- lps
+          //            pr <- rps
+          //            if (Math.abs(pl.y - pr.y) <= d)
+          //          } yield dist(pl,pr)
 
-        if (ds.isEmpty) d else Math.min(d, ds.min)
-        //(d +: ds).min
-        //Math.min(d, ds.min)
+          //        val ds = for
+          //        {
+          //          i <- il to m
+          //          pl = points(i)
+          //          if (pl.x >= mx - d)
+          //          j <- m + 1 to jr
+          //          pr = points(j)
+          //          if (pr.x <= mx + d)
+          //          if (Math.abs(pl.y - pr.y) <= d)
+          //        } yield dist(pl, pr)
+
+          if (ds.isEmpty) d else Math.min(d, ds.min)
+          //(d +: ds).min
+          //Math.min(d, ds.min)
+        }
       }
 
 
