@@ -78,7 +78,8 @@ object ClosestPoints
           if (Math.abs(pl.y - pr.y) <= d)
         } yield dist(pl, pr)
 
-        (d +: ds).min
+        if (ds.isEmpty) d else Math.min(d, ds.min)
+        //(d +: ds).min
         //Math.min(d, ds.min)
       }
 
