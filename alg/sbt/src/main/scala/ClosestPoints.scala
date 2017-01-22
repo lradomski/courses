@@ -27,9 +27,19 @@ object ClosestPoints
       else
       {
         val m = (l + r) / 2
-        val lr = core(l, m)
-        val rr = core(m + 1, r)
-        val minr = Math.min(lr, rr)
+        val ld = core(l, m)
+        val rd = core(m + 1, r)
+        val d = Math.min(ld, rd)
+
+        val mx = points(m).x
+
+        // find in L p.x >= mx - d  -> LD
+        // find points in P in rectangle = RECT
+        // for each LD and RECT calc dist = D2
+        // return min(d, D2.min)
+
+        0.0
+
 
 
       }
