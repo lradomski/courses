@@ -67,16 +67,37 @@ object ClosestPoints
 
         val il = findRightOf(mx - di, l, m)
         val jr = findLeftOf(mx + di, m + 1, r)
-        val ds = for
-        {
+
+        val lps = for {
           i <- il to m
           pl = points(i)
           if (pl.x >= mx - d)
+        } yield pl
+
+        val rps = for
+        {
           j <- m + 1 to jr
           pr = points(j)
           if (pr.x <= mx + d)
-          if (Math.abs(pl.y - pr.y) <= d)
-        } yield dist(pl, pr)
+        } yield pr
+
+        val ds = for
+          {
+            pl <- lps
+            pr <- rps
+            if (Math.abs(pl.y - pr.y) <= d)
+          } yield dist(pl,pr)
+
+//        val ds = for
+//        {
+//          i <- il to m
+//          pl = points(i)
+//          if (pl.x >= mx - d)
+//          j <- m + 1 to jr
+//          pr = points(j)
+//          if (pr.x <= mx + d)
+//          if (Math.abs(pl.y - pr.y) <= d)
+//        } yield dist(pl, pr)
 
         if (ds.isEmpty) d else Math.min(d, ds.min)
         //(d +: ds).min
