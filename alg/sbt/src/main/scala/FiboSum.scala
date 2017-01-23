@@ -6,7 +6,7 @@ object FiboSum
 {
   def sumLastDigit(n: Long): Int = {
     require(n >= 0, "n >= 0")
-    require(n <= 1e14, "n <= 1e14")
+    //require(n <= 1e14, "n <= 1e14")
 
 
     val f = new Array[Int](3)

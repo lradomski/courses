@@ -99,8 +99,8 @@
       <file leaf-file-name="FiboSum.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/FiboSum.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="238">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -777,13 +777,6 @@
       <option name="presentableId" value="Default" />
       <updated>1483079711726</updated>
     </task>
-    <task id="LOCAL-00011" summary="week4 - BinSearch(stub)+Majority(stub)">
-      <created>1483201420758</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1483201420758</updated>
-    </task>
     <task id="LOCAL-00012" summary="week4 - BinSearch(stub)+Majority(stub)+QuickSort3Way">
       <created>1483201769920</created>
       <option name="number" value="00012" />
@@ -1120,7 +1113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485129273533</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="week2 - FiboSum">
+      <created>1485132293643</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1485132293644</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1557,8 +1557,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/FiboSum.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="238">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
