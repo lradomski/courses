@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8a3d955-2148-40a5-8e08-f12dd237fb2b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/FiboPartSum.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/FiboPartSum.scala" afterPath="$PROJECT_DIR$/src/main/scala/FiboPartSum.scala" />
     </list>
     <ignored path="alg.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -88,10 +88,10 @@
       <file leaf-file-name="FiboPartSum.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/FiboPartSum.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
+            <state relative-caret-position="272">
+              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding>
-                <element signature="e#2046#2775#0" expanded="false" />
+                <element signature="e#255#677#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -402,27 +402,7 @@
       <recent name="org.scalatest.FunSuite" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.FiboSum">
-    <configuration default="false" name="TreeSums" type="Application" factoryName="Application" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="drill.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="drill.TreeSums" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="sbt" />
-      <envs />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Application.FiboPartSum">
     <configuration default="false" name="Lottery" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="Lottery" />
@@ -471,6 +451,21 @@
     <configuration default="false" name="FiboSum" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="FiboSum" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="sbt" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="FiboPartSum" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="FiboPartSum" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -711,19 +706,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.TreeSums" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Lottery" />
-      <item index="2" class="java.lang.String" itemvalue="Application.ClosestPoints" />
-      <item index="3" class="java.lang.String" itemvalue="Application.GCD" />
-      <item index="4" class="java.lang.String" itemvalue="Application.FiboSum" />
+      <item index="0" class="java.lang.String" itemvalue="Application.Lottery" />
+      <item index="1" class="java.lang.String" itemvalue="Application.ClosestPoints" />
+      <item index="2" class="java.lang.String" itemvalue="Application.GCD" />
+      <item index="3" class="java.lang.String" itemvalue="Application.FiboSum" />
+      <item index="4" class="java.lang.String" itemvalue="Application.FiboPartSum" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.FiboSum" />
-        <item index="1" class="java.lang.String" itemvalue="Application.GCD" />
-        <item index="2" class="java.lang.String" itemvalue="Application.ClosestPoints" />
-        <item index="3" class="java.lang.String" itemvalue="Application.Lottery" />
-        <item index="4" class="java.lang.String" itemvalue="Application.TreeSums" />
+        <item index="0" class="java.lang.String" itemvalue="Application.FiboPartSum" />
+        <item index="1" class="java.lang.String" itemvalue="Application.FiboSum" />
+        <item index="2" class="java.lang.String" itemvalue="Application.GCD" />
+        <item index="3" class="java.lang.String" itemvalue="Application.ClosestPoints" />
+        <item index="4" class="java.lang.String" itemvalue="Application.Lottery" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
@@ -787,13 +782,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1483079711726</updated>
-    </task>
-    <task id="LOCAL-00013" summary="week4 - BinSearch(stub)+Majority(stub)+QuickSort3Way(stub)+Inversions(stub)">
-      <created>1483202062818</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1483202062818</updated>
     </task>
     <task id="LOCAL-00014" summary="week4 - BinSearch(stub)+Majority(stub)+QuickSort3Way(stub)+Inversions(stub)+Lottery(stubs)">
       <created>1483203014710</created>
@@ -1131,7 +1119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485132667738</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="week2 - FiboSum+FiboPartSum(in progress)">
+      <created>1485133603371</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1485133603371</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1234,7 +1229,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="week4 - BinSearch(stub)+Majority(stub)+QuickSort3Way(stub)+Inversions(stub)" />
     <MESSAGE value="week4 - BinSearch(stub)+Majority(stub)+QuickSort3Way(stub)+Inversions(stub)+Lottery(stubs)" />
     <MESSAGE value="week4 - BinSearch(stub)+Majority(stub)+QuickSort3Way(stub)+Inversions(stub)+Lottery(stubs)+ClosestPair(stub)" />
     <MESSAGE value="week4 - stubs+BinSearch" />
@@ -1259,7 +1253,8 @@
     <MESSAGE value="week1 - resubmitting" />
     <MESSAGE value="week3 - cleanup" />
     <MESSAGE value="week2 - FiboSum" />
-    <option name="LAST_COMMIT_MESSAGE" value="week2 - FiboSum" />
+    <MESSAGE value="week2 - FiboSum+FiboPartSum(in progress)" />
+    <option name="LAST_COMMIT_MESSAGE" value="week2 - FiboSum+FiboPartSum(in progress)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1572,10 +1567,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/FiboPartSum.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
+        <state relative-caret-position="272">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding>
-            <element signature="e#2046#2775#0" expanded="false" />
+            <element signature="e#255#677#0" expanded="false" />
           </folding>
         </state>
       </provider>
