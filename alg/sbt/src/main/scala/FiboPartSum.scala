@@ -51,6 +51,7 @@ object FiboPartSum
 
   var findingPeriod = true
   var periodFound = false
+  var period : Int = -1
 
   def fiboHugeMod(n: Long, mod: Int) : Int =
   {
@@ -62,7 +63,6 @@ object FiboPartSum
     ensureArray(100*1000)
 
     var i : Int = 2
-    var period : Int = -1
 
     def fibo(n : Int) : Int =
     {
@@ -147,7 +147,7 @@ object FiboPartSum
 
     var i : Long = 0
     f(0) = fiboHugeMod(m, 10); pss(0) = f(0)
-    f(1) = fiboHugeMod(m+1, 10); pss(1) = (pss(0) + f(1)) % 10
+    f(1) = fiboHugeMod(m+1L, 10); pss(1) = (pss(0) + f(1)) % 10
 
     s = pss(1)
     for (i <- 2 to max)
