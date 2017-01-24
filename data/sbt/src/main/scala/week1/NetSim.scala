@@ -29,10 +29,10 @@ object NetSim
       {
         //processing = false
         if (i < packets.length) // advance time to next packet
-          {
-            assert(time <= packets(i).arrival)
-            time = packets(i).arrival
-          }
+        {
+          assert(time <= packets(i).arrival)
+          time = packets(i).arrival
+        }
       }
       else
       {
@@ -45,11 +45,16 @@ object NetSim
 
       while (i < packets.length && packets(i).arrival <= time)
       {
-        if (q.size < bufferSize) q = q.enqueue(packets(i))
-        else packets(i).processed = -1
+        val p = packets(i)
+
+        if (p.duration == 0 && q.isEmpty) p.processed = time
+        else if (q.size < bufferSize) q = q.enqueue(p)
+        else p.processed = -1
 
 //        if (processing)
 //        {
+//          if (q.size < bufferSize) q = q.enqueue(packets(i))
+//          else packets(i).processed = -1
 //        }
 //        else
 //        {

@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="64c9de5a-9204-46d8-bed2-5032ea4dae28" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/week1/NetSim.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../alg/sbt/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../alg/sbt/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/sbt.iml" afterPath="$PROJECT_DIR$/.idea/modules/sbt.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/week1/NetSim.scala" afterPath="$PROJECT_DIR$/src/main/scala/week1/NetSim.scala" />
     </list>
     <ignored path="data.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -113,8 +111,8 @@
       <file leaf-file-name="NetSim.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/week1/NetSim.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+            <state relative-caret-position="233">
+              <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -845,7 +843,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484108253864</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="data / week 1 - NetSim">
+      <created>1485267507743</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1485267507743</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -929,7 +934,8 @@
     <MESSAGE value="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge/AVL + treeSum)" />
     <MESSAGE value="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge/AVL + treeSum + cleanup)" />
     <MESSAGE value="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge/AVL + treeSum + cleanup)&#10;Print tree leaves left to right drill" />
-    <option name="LAST_COMMIT_MESSAGE" value="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge/AVL + treeSum + cleanup)&#10;Print tree leaves left to right drill" />
+    <MESSAGE value="data / week 1 - NetSim" />
+    <option name="LAST_COMMIT_MESSAGE" value="data / week 1 - NetSim" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1420,8 +1426,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/week1/NetSim.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+        <state relative-caret-position="233">
+          <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
