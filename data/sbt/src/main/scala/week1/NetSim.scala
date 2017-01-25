@@ -27,12 +27,12 @@ object NetSim
         val end = (p.started + p.duration)
         if (end == time) q.dequeue // time to finish ?
 
-        times = end :: times // time advance point candidate
+        times = end :: times // for time advancing
       }
 
       if (!in.isEmpty)
       {
-        times = in.head.arrived :: times // time advance point candidate
+        times = in.head.arrived :: times // for time advancing
 
         if (in.head.arrived == time) // did anything arrive ?
         {
@@ -43,12 +43,12 @@ object NetSim
         }
       }
 
-      // advance time - next incoming packet or processing completion point
+      // advance time - next incoming packet or processing completion point, whichever is earlier
       if (!times.isEmpty) time = times.min
     }
   }
 
-  def main(args: Array[String]): Unit =
+  def mainAll(args: Array[String]): Unit =
   {
         for (i <- 1 to 22)
           {
@@ -79,7 +79,7 @@ object NetSim
 
   }
 
-  def main2(args: Array[String]): Unit =
+  def main(args: Array[String]): Unit =
   {
     val s = new Scanner(System.in)
 

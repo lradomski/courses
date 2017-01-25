@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="64c9de5a-9204-46d8-bed2-5032ea4dae28" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../alg/sbt/.idea/modules/sbt.iml" afterPath="$PROJECT_DIR$/../../alg/sbt/.idea/modules/sbt.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../alg/sbt/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../alg/sbt/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/week1/NetSim.scala" afterPath="$PROJECT_DIR$/src/main/scala/week1/NetSim.scala" />
     </list>
@@ -69,10 +67,11 @@
       <file leaf-file-name="NetSim.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/week1/NetSim.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="301">
+              <caret line="45" column="97" selection-start-line="45" selection-start-column="97" selection-end-line="45" selection-end-column="97" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#1283#2301#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -785,7 +784,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485268325953</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="data / week 1 - NetSim">
+      <created>1485306733345</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1485306733345</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1393,10 +1399,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/week1/NetSim.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="301">
+          <caret line="45" column="97" selection-start-line="45" selection-start-column="97" selection-end-line="45" selection-end-column="97" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#1283#2301#0" expanded="false" />
           </folding>
         </state>
       </provider>
