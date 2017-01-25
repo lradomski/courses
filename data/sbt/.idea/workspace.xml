@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="64c9de5a-9204-46d8-bed2-5032ea4dae28" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/RangeSum.sc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/RangeSum.scala" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/Rope.sc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/Rope.scala" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/TreeOrder.sc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/TreeOrder.scala" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/week1/NetSim.scala" afterPath="$PROJECT_DIR$/src/main/scala/week1/NetSim.scala" />
     </list>
     <ignored path="data.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -67,11 +72,22 @@
       <file leaf-file-name="NetSim.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/week1/NetSim.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="119">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding>
+                <element signature="e#0#19#0" expanded="true" />
                 <element signature="e#1243#2261#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/App.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -218,10 +234,6 @@
               <option name="myItemId" value="scala" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TreeOrder.scala" />
-              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -242,6 +254,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="week4" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -804,7 +820,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485307755951</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="data - copying from pure scala project.">
+      <created>1485307793057</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1485307793057</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -925,12 +948,6 @@
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="scala-line">
-          <url>file://$PROJECT_DIR$/src/main/scala/RangeSum.scala</url>
-          <line>445</line>
-          <properties />
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="scala-line">
           <url>file://$PROJECT_DIR$/src/test/scala/SetSuite.scala</url>
           <line>455</line>
           <properties />
@@ -1002,29 +1019,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#866#1697#0" expanded="false" />
-            <element signature="e#3269#3651#0" expanded="false" />
-            <element signature="e#3781#5809#0" expanded="false" />
-            <element signature="e#3823#4139#0" expanded="false" />
-            <element signature="e#4146#4556#0" expanded="false" />
-            <element signature="e#5250#5459#0" expanded="false" />
-            <element signature="e#5814#6725#0" expanded="false" />
-            <element signature="e#6729#6910#0" expanded="false" />
-            <element signature="e#6914#8420#0" expanded="false" />
-            <element signature="e#7084#7694#0" expanded="false" />
-            <element signature="e#7700#7809#0" expanded="false" />
-            <element signature="e#7837#8416#0" expanded="false" />
-            <element signature="e#8424#8858#0" expanded="false" />
-            <element signature="e#8862#9719#0" expanded="false" />
-            <element signature="e#9724#11048#0" expanded="false" />
-            <element signature="e#11052#11276#0" expanded="false" />
-            <element signature="e#11736#12546#0" expanded="false" />
-            <element signature="e#13192#13721#0" expanded="false" />
-            <element signature="e#13229#13363#0" expanded="false" />
-            <element signature="e#13369#13579#0" expanded="false" />
-            <element signature="e#13771#14346#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1104,29 +1099,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#866#1697#0" expanded="false" />
-            <element signature="e#3269#3651#0" expanded="false" />
-            <element signature="e#3781#5809#0" expanded="false" />
-            <element signature="e#3823#4139#0" expanded="false" />
-            <element signature="e#4146#4556#0" expanded="false" />
-            <element signature="e#5250#5459#0" expanded="false" />
-            <element signature="e#5814#6725#0" expanded="false" />
-            <element signature="e#6729#6910#0" expanded="false" />
-            <element signature="e#6914#8420#0" expanded="false" />
-            <element signature="e#7084#7694#0" expanded="false" />
-            <element signature="e#7700#7809#0" expanded="false" />
-            <element signature="e#7837#8416#0" expanded="false" />
-            <element signature="e#8424#8858#0" expanded="false" />
-            <element signature="e#8862#9719#0" expanded="false" />
-            <element signature="e#9724#11048#0" expanded="false" />
-            <element signature="e#11052#11276#0" expanded="false" />
-            <element signature="e#11736#12546#0" expanded="false" />
-            <element signature="e#13192#13721#0" expanded="false" />
-            <element signature="e#13229#13363#0" expanded="false" />
-            <element signature="e#13369#13579#0" expanded="false" />
-            <element signature="e#13771#14346#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1168,29 +1141,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#866#1697#0" expanded="false" />
-            <element signature="e#3269#3651#0" expanded="false" />
-            <element signature="e#3781#5809#0" expanded="false" />
-            <element signature="e#3823#4139#0" expanded="false" />
-            <element signature="e#4146#4556#0" expanded="false" />
-            <element signature="e#5250#5459#0" expanded="false" />
-            <element signature="e#5814#6725#0" expanded="false" />
-            <element signature="e#6729#6910#0" expanded="false" />
-            <element signature="e#6914#8420#0" expanded="false" />
-            <element signature="e#7084#7694#0" expanded="false" />
-            <element signature="e#7700#7809#0" expanded="false" />
-            <element signature="e#7837#8416#0" expanded="false" />
-            <element signature="e#8424#8858#0" expanded="false" />
-            <element signature="e#8862#9719#0" expanded="false" />
-            <element signature="e#9724#11048#0" expanded="false" />
-            <element signature="e#11052#11276#0" expanded="false" />
-            <element signature="e#11736#12546#0" expanded="false" />
-            <element signature="e#13192#13721#0" expanded="false" />
-            <element signature="e#13229#13363#0" expanded="false" />
-            <element signature="e#13369#13579#0" expanded="false" />
-            <element signature="e#13771#14346#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1216,13 +1167,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/App.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1335,36 +1279,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/RangeSum.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="727" column="23" selection-start-line="727" selection-start-column="23" selection-end-line="727" selection-end-column="23" />
-          <folding>
-            <element signature="e#866#1697#0" expanded="false" />
-            <element signature="e#3269#3651#0" expanded="false" />
-            <element signature="e#3781#5809#0" expanded="false" />
-            <element signature="e#3823#4139#0" expanded="false" />
-            <element signature="e#4146#4556#0" expanded="false" />
-            <element signature="e#5250#5459#0" expanded="false" />
-            <element signature="e#5814#6725#0" expanded="false" />
-            <element signature="e#6729#6910#0" expanded="false" />
-            <element signature="e#6914#8420#0" expanded="false" />
-            <element signature="e#7084#7694#0" expanded="false" />
-            <element signature="e#7700#7809#0" expanded="false" />
-            <element signature="e#7837#8416#0" expanded="false" />
-            <element signature="e#8424#8858#0" expanded="false" />
-            <element signature="e#8862#9719#0" expanded="false" />
-            <element signature="e#9724#11048#0" expanded="false" />
-            <element signature="e#11052#11276#0" expanded="false" />
-            <element signature="e#11736#12546#0" expanded="false" />
-            <element signature="e#13192#13721#0" expanded="false" />
-            <element signature="e#13229#13363#0" expanded="false" />
-            <element signature="e#13369#13579#0" expanded="false" />
-            <element signature="e#13771#14346#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/TreeOrder.sc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1405,11 +1319,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/App.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/RangeSum.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="858">
+          <caret line="727" column="23" selection-start-line="727" selection-start-column="23" selection-end-line="727" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/week1/NetSim.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="119">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
+            <element signature="e#0#19#0" expanded="true" />
             <element signature="e#1243#2261#0" expanded="false" />
           </folding>
         </state>
