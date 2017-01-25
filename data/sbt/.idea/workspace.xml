@@ -67,11 +67,10 @@
       <file leaf-file-name="NetSim.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/week1/NetSim.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="51">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
-                <element signature="e#1284#2302#0" expanded="false" />
+                <element signature="e#1243#2261#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -798,7 +797,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485306966613</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="data - copying from pure scala project.">
+      <created>1485307755951</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1485307755951</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -883,7 +889,8 @@
     <MESSAGE value="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge/AVL + treeSum + cleanup)" />
     <MESSAGE value="data / week 5,6 - new sbt project - TreeOrder, RangeSum (+ AVL + split-merge/AVL + treeSum + cleanup)&#10;Print tree leaves left to right drill" />
     <MESSAGE value="data / week 1 - NetSim" />
-    <option name="LAST_COMMIT_MESSAGE" value="data / week 1 - NetSim" />
+    <MESSAGE value="data - copying from pure scala project." />
+    <option name="LAST_COMMIT_MESSAGE" value="data - copying from pure scala project." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -949,7 +956,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="scala-line">
           <url>file://$PROJECT_DIR$/src/main/scala/week1/NetSim.scala</url>
-          <line>56</line>
+          <line>54</line>
           <properties />
           <option name="timeStamp" value="31" />
         </line-breakpoint>
@@ -1400,11 +1407,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/week1/NetSim.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="51">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#1284#2302#0" expanded="false" />
+            <element signature="e#1243#2261#0" expanded="false" />
           </folding>
         </state>
       </provider>

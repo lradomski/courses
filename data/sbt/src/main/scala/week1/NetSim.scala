@@ -1,9 +1,7 @@
 import java.io.File
 import java.util.Scanner
 
-import scala.collection.immutable.Queue
 import scala.collection.mutable
-
 
 object NetSim
 {
