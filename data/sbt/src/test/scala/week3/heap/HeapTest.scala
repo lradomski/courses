@@ -10,7 +10,6 @@ extends FunSuite with Checkers
 {
   test("heap sort - new array")
   {
-    //check((a: List[Int], b: List[Int]) => a.size < (a ::: b).size)
     check((a: Array[Int]) => (Heap.sort(a) zip a.sorted).forall(lr => lr._1 == lr._2))
   }
 }
