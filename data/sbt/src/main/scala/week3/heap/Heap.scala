@@ -2,33 +2,35 @@ package week3
 
 import scala.annotation.tailrec
 
-class Heap(n: Int)
+class Heap(a: Array[Int])(implicit cond: (Int,Int) => Boolean)
 {
-
   private var size = 0
-  private val a = new Array[Int](n + 1) // numbering 1..n (leave 0)
 
+  def this(n: Int)(implicit cond: (Int,Int) => Boolean)
+  {
+    this(new Array[Int](n))(cond)
+  }
 
-  private def parent(i: Int) = i / 2
-
-  private def left(i: Int) = 2 * i
-
-  private def right(i: Int) = 2 * i + 1
+  def parent(i: Int) = (i - 1) / 2
+  def left(i: Int) = 2 * i + 1
+  def right(i: Int) = 2 * i + 2
 
   def top =
   {
-    assert(size > 0, "top: empty")
-    a(1)
+    assert(!isEmpty, "top: empty")
+    a(0)
   }
+
+  def isEmpty = size == 0
 
   def takeTop =
   {
     val t = top
     if (size > 1)
     {
-      a(1) = a(size)
+      a(0) = a(size-1)
       size -= 1
-      siftDown(1)
+      siftDown(0)
     }
     else size -= 1
 
@@ -37,30 +39,28 @@ class Heap(n: Int)
 
   def insert(v: Int) =
   {
-    assert(size < n, "insert: full")
+    assert(size < a.length, "insert: full")
     size += 1
-    a(size) = v
-    siftUp(size)
+    a(size-1) = v
+    siftUp(size-1)
   }
 
   def length = size
 
-  //def toArray = a.clone
+  def toArray =
+  {
+    val out = new Array[Int](size)
+    while(!isEmpty) out(size-1) = takeTop
+    out
+  }
 
-  private def isValid(i: Int) = 1 <= i && i <= size
+  private def isValid(i: Int) = 0 <= i && i < size
 
   private def verify(i: Int): Unit =
   {
-    assert(isValid(i), "invalid index")
+    assert(isValid(i), "invalid index: " + i)
   }
 
-  private def cond(vParent: Int, vChild: Int) = vParent < vChild
-
-  private def isHeapUp(i: Int): Boolean =
-  {
-    verify(i)
-    if (i == 1) true else cond(a(parent(i)), a(i))
-  }
 
   private def swap(i: Int, j: Int): Unit =
   {
@@ -74,7 +74,9 @@ class Heap(n: Int)
   @tailrec
   private def siftUp(i: Int): Int =
   {
-    if (isHeapUp(i)) i
+    verify(i)
+
+    if (i == 0 || cond(a(parent(i)), a(i))) i
     else
     {
       val ip = parent(i)
@@ -110,84 +112,48 @@ class Heap(n: Int)
 
 object Heap
 {
-  def sort(a: Array[Int]): Array[Int] =
+  implicit val cond = (l: Int, r: Int) => l > r
+
+  def sorted(a: Array[Int]): Array[Int] =
   {
     val h = a.foldLeft(new Heap(a.length))((h, v) =>
     {
       h.insert(v); h
     })
-    val hl = h.length
-    val out = for (i <- 1 to hl) yield h.takeTop
-    out.toArray
+
+    h.toArray
+
+//    val hl = h.length
+//    for (i <- hl-1 to 0 by -1) a(i) = h.takeTop
+//    a
   }
 
-  def sortInPlace(a: Array[Int], cond: (Int, Int) => Boolean): Array[Int] =
+  def sort(a: Array[Int]): Array[Int] =
   {
-    //    def parent(i: Int) = (i+1) / 2 - 1
-    //    def left(i: Int) = 2 * (i+1) - 1
-    //    def right(i: Int) = 2 * (i+1) + 1 - 1
+    val h = new Heap(a)
+    h.size = a.length
 
-    def parent(i: Int) = (i - 1) / 2
-    def left(i: Int) = 2 * i + 1
-    def right(i: Int) = 2 * i + 2
-
-    def isValid(i: Int) = 0 <= i && i < a.length
-
-    def verify(i: Int): Unit =
-    {
-      assert(isValid(i))
-    }
-
-    def swap(i: Int, j: Int): Unit =
-    {
-      verify(i)
-      verify(j)
-      val v = a(i)
-      a(i) = a(j)
-      a(j) = v
-    }
-
-
-    def siftDown(i: Int): Int =
-    {
-      verify(i)
-      //println("    " + i)
-
-      val il = left(i)
-      val ir = right(i)
-      val out = if (isValid(il) && !cond(a(i), a(il)))
-      {
-        swap(i, il)
-        siftDown(il)
-      }
-      else i
-
-      if (isValid(ir) && !cond(a(i), a(ir)))
-      {
-        swap(i, ir)
-        siftDown(ir)
-      }
-      else out
-    }
-
-    //val al = (a.length/2)-1
     for (i <- a.length / 2 - 1 to 0 by -1)
     {
-      //println(">>> " + i);
-      siftDown(i)
-      println(a.toList)
+      h.siftDown(i)
     }
 
-    println("----")
-    for (i <- a.length-1 to 0 by -1)
-    {
-      swap(0, i)
-      siftDown(0)
-      println(a.toList)
-    }
+
+    while (!h.isEmpty) a(h.size-1) = h.takeTop
+
+//    for (i <- 1 to a.length-1)
+//    {
+//      a(h.size-1) = h.takeTop
+//    }
+
+//    for (i <- 1 to a.length-1)
+//    {
+//      h.swap(0, h.size-1)
+//      h.size -= 1
+//      h.siftDown(0)
+//    }
 
     a
   }
-
-
 }
+

@@ -10,11 +10,11 @@ extends FunSuite with Checkers
 {
   test("heap sort - new array")
   {
-    check((a: Array[Int]) => (Heap.sort(a) zip a.sorted).forall(lr => lr._1 == lr._2))
+    check((a: Array[Int]) => (Heap.sorted(a) zip a.sorted).forall(lr => lr._1 == lr._2))
   }
 
   test("heap sort - in place")
   {
-    check((a: Array[Int]) => (Heap.sortInPlace(a, _<_) zip a.sorted).forall(lr => lr._1 == lr._2))
+    check((a: Array[Int]) => (Heap.sort(a) zip a.sorted).forall(lr => lr._1 == lr._2))
   }
 }
