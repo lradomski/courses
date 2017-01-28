@@ -4,7 +4,7 @@
     <list default="true" id="64c9de5a-9204-46d8-bed2-5032ea4dae28" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/week3/JobQueue.scala" afterPath="$PROJECT_DIR$/src/main/scala/week3/JobQueue.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/week3/heap/Heap.scala" afterPath="$PROJECT_DIR$/src/main/scala/week3/heap/Heap.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/week3/MakeHeap.scala" afterPath="$PROJECT_DIR$/src/main/scala/week3/MakeHeap.scala" />
     </list>
     <ignored path="data.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,45 +55,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Heap.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/week3/heap/Heap.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="654">
-              <caret line="134" column="3" selection-start-line="134" selection-start-column="3" selection-end-line="134" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JobQueue.scala" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/week3/JobQueue.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="252" column="0" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-                <element signature="e#1453#2110#0" expanded="false" />
-                <element signature="e#2178#2356#0" expanded="false" />
-                <element signature="e#2362#2544#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MakeHeap.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/week3/MakeHeap.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="118" selection-end-column="9" />
-              <folding>
-                <element signature="e#141#167#0" expanded="false" />
-                <element signature="e#1190#1213#0" expanded="false" />
-                <element signature="e#2000#2160#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="HeapTest.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/week3/heap/HeapTest.scala">
           <provider selected="true" editor-type-id="text-editor">
@@ -101,6 +62,28 @@
               <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding>
                 <element signature="e#20#49#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MakeHeap.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/week3/MakeHeap.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="243" column="32" selection-start-line="243" selection-start-column="32" selection-end-line="243" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#792#917#0" expanded="false" />
+                <element signature="e#942#1049#0" expanded="false" />
+                <element signature="e#1105#1193#0" expanded="false" />
+                <element signature="e#1360#1554#0" expanded="false" />
+                <element signature="e#2281#2307#0" expanded="false" />
+                <element signature="e#3330#3353#0" expanded="false" />
+                <element signature="e#4140#4300#0" expanded="false" />
+                <element signature="e#5006#5178#0" expanded="false" />
+                <element signature="e#5184#5217#0" expanded="false" />
+                <element signature="e#5304#5745#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -148,11 +131,11 @@
         <option value="$PROJECT_DIR$/src/main/scala/drill/Tree.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/week1/NetSim.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/week3/heap/heap.sc" />
-        <option value="$PROJECT_DIR$/src/main/scala/week3/MakeHeap.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/week3/heap/IntHeap.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/week3/heap/HeapTest.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/week3/heap/Heap.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/week3/JobQueue.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/week3/MakeHeap.scala" />
       </list>
     </option>
   </component>
@@ -340,6 +323,36 @@
               <option name="myItemId" value="week3" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MakeHeap.scala" />
+              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sbt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="week3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -452,13 +465,13 @@
       <recent name="org.scalatest.FunSuite" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.JobQueue">
-    <configuration default="false" name="NetSim" type="Application" factoryName="Application" temporary="true">
+  <component name="RunManager" selected="Application.MakeHeap">
+    <configuration default="false" name="JobQueue" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="NetSim" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="MAIN_CLASS_NAME" value="JobQueue" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/../download/Programming-Assignment-2/job_queue/tests/08" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
@@ -468,11 +481,11 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="JobQueue" type="Application" factoryName="Application" temporary="true">
+    <configuration default="false" name="MakeHeap" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="JobQueue" />
+      <option name="MAIN_CLASS_NAME" value="MakeHeap" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/../download/Programming-Assignment-2/job_queue/tests/08" />
+      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/../download/Programming-Assignment-2/make_heap/tests/04" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -772,19 +785,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Application.RangeSum-console" />
-      <item index="1" class="java.lang.String" itemvalue="Application.NetSim" />
-      <item index="2" class="java.lang.String" itemvalue="Application.JobQueue" />
+      <item index="1" class="java.lang.String" itemvalue="Application.JobQueue" />
+      <item index="2" class="java.lang.String" itemvalue="Application.MakeHeap" />
       <item index="3" class="java.lang.String" itemvalue="ScalaTest.HeapTest" />
       <item index="4" class="java.lang.String" itemvalue="ScalaTest.HeapTest.heap sort - new array" />
       <item index="5" class="java.lang.String" itemvalue="ScalaTest.HeapTest.heap sort - in place" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.JobQueue" />
-        <item index="1" class="java.lang.String" itemvalue="ScalaTest.HeapTest" />
-        <item index="2" class="java.lang.String" itemvalue="ScalaTest.HeapTest.heap sort - in place" />
-        <item index="3" class="java.lang.String" itemvalue="ScalaTest.HeapTest.heap sort - new array" />
-        <item index="4" class="java.lang.String" itemvalue="Application.NetSim" />
+        <item index="0" class="java.lang.String" itemvalue="Application.MakeHeap" />
+        <item index="1" class="java.lang.String" itemvalue="Application.JobQueue" />
+        <item index="2" class="java.lang.String" itemvalue="ScalaTest.HeapTest" />
+        <item index="3" class="java.lang.String" itemvalue="ScalaTest.HeapTest.heap sort - in place" />
+        <item index="4" class="java.lang.String" itemvalue="ScalaTest.HeapTest.heap sort - new array" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
@@ -1031,7 +1044,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485583103529</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Week3 - JobQueue(own heap)">
+      <created>1485585772430</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1485585772430</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1086,7 +1106,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19407009" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4245283" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1191,11 +1211,25 @@
           <properties />
           <option name="timeStamp" value="35" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/main/scala/week3/MakeHeap.scala</url>
+          <line>83</line>
+          <properties />
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/main/scala/week3/MakeHeap.scala</url>
+          <line>232</line>
+          <properties>
+            <option name="lambda-ordinal" value="0" />
+          </properties>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="37" />
+      <option name="time" value="40" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="ScalaTestRunConfiguration">
@@ -1568,15 +1602,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/week3/MakeHeap.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/week3/heap/Heap.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="118" selection-end-column="9" />
-          <folding>
-            <element signature="e#141#167#0" expanded="false" />
-            <element signature="e#1190#1213#0" expanded="false" />
-            <element signature="e#2000#2160#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="2278">
+          <caret line="134" column="3" selection-start-line="134" selection-start-column="3" selection-end-line="134" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/week3/MakeHeap.sc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-248">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1590,23 +1628,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/week3/heap/Heap.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/week3/JobQueue.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="654">
-          <caret line="134" column="3" selection-start-line="134" selection-start-column="3" selection-end-line="134" selection-end-column="3" />
-          <folding />
+        <state relative-caret-position="166">
+          <caret line="229" column="0" selection-start-line="229" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#2181#2359#0" expanded="false" />
+            <element signature="e#2365#2547#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/week3/JobQueue.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/week3/MakeHeap.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="252" column="0" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
+        <state relative-caret-position="322">
+          <caret line="243" column="32" selection-start-line="243" selection-start-column="32" selection-end-line="243" selection-end-column="32" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#1453#2110#0" expanded="false" />
-            <element signature="e#2178#2356#0" expanded="false" />
-            <element signature="e#2362#2544#0" expanded="false" />
+            <element signature="e#792#917#0" expanded="false" />
+            <element signature="e#942#1049#0" expanded="false" />
+            <element signature="e#1105#1193#0" expanded="false" />
+            <element signature="e#1360#1554#0" expanded="false" />
+            <element signature="e#2281#2307#0" expanded="false" />
+            <element signature="e#3330#3353#0" expanded="false" />
+            <element signature="e#4140#4300#0" expanded="false" />
+            <element signature="e#5006#5178#0" expanded="false" />
+            <element signature="e#5184#5217#0" expanded="false" />
+            <element signature="e#5304#5745#0" expanded="false" />
           </folding>
         </state>
       </provider>

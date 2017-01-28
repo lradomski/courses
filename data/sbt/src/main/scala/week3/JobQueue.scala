@@ -4,7 +4,7 @@ import java.util.Scanner
 import scala.annotation.tailrec
 
 // copied from week3/Heap.scala:
-class Heap[T: Manifest](a: Array[T])(cond: (T, T) => Boolean)
+class Heap_JQ[T: Manifest](a: Array[T])(cond: (T, T) => Boolean)
 {
   private var size = 0
 
@@ -224,7 +224,7 @@ object JobQueue
 
     //    val jobsPending = new scala.collection.mutable.PriorityQueue[Pending]() //(Ordering.by(p => -1*(p.start+jobs(p.job))))
     val cond = (l: Pending, r: Pending) => l.compare(r) > 0
-    val jobsPending = new Heap[Pending](jobs.length)(cond)
+    val jobsPending = new Heap_JQ[Pending](jobs.length)(cond)
 
     var time: Long = 0
 
