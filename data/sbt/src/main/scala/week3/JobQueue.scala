@@ -199,7 +199,7 @@ object JobQueue
 
     //val jobsPending = new scala.collection.mutable.PriorityQueue[Pending]() //(Ordering.by(p => -1*(p.start+jobs(p.job))))
     val cond = (l: Pending, r: Pending) => l.compare(r) > 0
-    val jobsPending = new week3.Heap[Pending](jobs.length)(cond)
+    val jobsPending = new Heap[Pending](jobs.length)(cond)
 
     var time: Long = 0
 
