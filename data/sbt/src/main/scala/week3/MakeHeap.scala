@@ -176,58 +176,8 @@ object MakeHeap {
     swaps.foreach(ij => println(ij._1 + " " + ij._2))
 
     // /Users/luke/git/courses/data/download/Programming-Assignment-2/make_heap/tests/04
-
-//    while (!swaps.isEmpty)
-//    {
-//      println(swaps.head._1 + " " + swaps.head._2)
-//      swaps.dequeue()
-//    }
-
-//    if (args.isEmpty)
-//    {
-//      println(swaps.length)
-//      while (!swaps.isEmpty)
-//      {
-//        println(swaps.head._1 + " " + swaps.head._2)
-//        swaps.dequeue()
-//      }
-//    }
-//    else
-//    {
-//      val s2 = new Scanner( new File(args(0)+".a"))
-//
-//      var n2 = s2.nextInt()
-//
-//      println(swaps.length)
-//      assert(swaps.length == n2, "swaps.length == n2")
-//
-//      while (!swaps.isEmpty && n2 > 0 && s2.hasNext())
-//      {
-//
-//        println(swaps.head._1 + " " + swaps.head._2)
-//        val swap = swaps.dequeue()
-//
-//        val swap2 = (s2.nextInt(), s2.nextInt())
-//        n2 -= 1
-//        assert(swap == swap2, "swap == swap2")
-//      }
-//
-//      assert(swaps.isEmpty, "swaps.isEmpty")
-//      assert(n2 == 0, "n2 == 0")
-//    }
-
-
-    /*
-    */
   }
 
-  def readVertices(s: Scanner, n: Int): Array[Int] = {
-    val tree = new Array[Int](n)
-    for (i <- 0 to n - 1) {
-      tree(i) = s.nextInt()
-    }
-    tree
-  }
 
   def makeHeap(a : Array[Int], swaps: scala.collection.mutable.Queue[(Int,Int)]) =
   {
