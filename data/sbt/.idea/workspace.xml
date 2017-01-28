@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="64c9de5a-9204-46d8-bed2-5032ea4dae28" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/week3/JobQueue.scala" afterPath="$PROJECT_DIR$/src/main/scala/week3/JobQueue.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/week3/MakeHeap.scala" afterPath="$PROJECT_DIR$/src/main/scala/week3/MakeHeap.scala" />
     </list>
     <ignored path="data.iws" />
@@ -70,20 +69,15 @@
       <file leaf-file-name="MakeHeap.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/week3/MakeHeap.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="243" column="32" selection-start-line="243" selection-start-column="32" selection-end-line="243" selection-end-column="32" />
+            <state relative-caret-position="291">
+              <caret line="172" column="29" selection-start-line="172" selection-start-column="29" selection-end-line="172" selection-end-column="29" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
                 <element signature="e#792#917#0" expanded="false" />
                 <element signature="e#942#1049#0" expanded="false" />
                 <element signature="e#1105#1193#0" expanded="false" />
                 <element signature="e#1360#1554#0" expanded="false" />
-                <element signature="e#2281#2307#0" expanded="false" />
-                <element signature="e#3330#3353#0" expanded="false" />
-                <element signature="e#4140#4300#0" expanded="false" />
-                <element signature="e#5006#5178#0" expanded="false" />
-                <element signature="e#5184#5217#0" expanded="false" />
-                <element signature="e#5304#5745#0" expanded="false" />
+                <element signature="e#3503#3526#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -1051,7 +1045,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485585772430</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Week3 - MakeHeap(own heap) + JobQueue(own heap)">
+      <created>1485587717602</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1485587717602</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1097,7 +1098,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16576819" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16576819" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1141,7 +1142,8 @@
     <MESSAGE value="week3 -" />
     <MESSAGE value="Heap for week3 + test" />
     <MESSAGE value="Week3 - JobQueue(own heap)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Week3 - JobQueue(own heap)" />
+    <MESSAGE value="Week3 - MakeHeap(own heap) + JobQueue(own heap)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Week3 - MakeHeap(own heap) + JobQueue(own heap)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1219,7 +1221,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="scala-line">
           <url>file://$PROJECT_DIR$/src/main/scala/week3/MakeHeap.scala</url>
-          <line>232</line>
+          <line>236</line>
           <properties>
             <option name="lambda-ordinal" value="0" />
           </properties>
@@ -1642,20 +1644,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/week3/MakeHeap.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="243" column="32" selection-start-line="243" selection-start-column="32" selection-end-line="243" selection-end-column="32" />
+        <state relative-caret-position="291">
+          <caret line="172" column="29" selection-start-line="172" selection-start-column="29" selection-end-line="172" selection-end-column="29" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
             <element signature="e#792#917#0" expanded="false" />
             <element signature="e#942#1049#0" expanded="false" />
             <element signature="e#1105#1193#0" expanded="false" />
             <element signature="e#1360#1554#0" expanded="false" />
-            <element signature="e#2281#2307#0" expanded="false" />
-            <element signature="e#3330#3353#0" expanded="false" />
-            <element signature="e#4140#4300#0" expanded="false" />
-            <element signature="e#5006#5178#0" expanded="false" />
-            <element signature="e#5184#5217#0" expanded="false" />
-            <element signature="e#5304#5745#0" expanded="false" />
+            <element signature="e#3503#3526#0" expanded="false" />
           </folding>
         </state>
       </provider>

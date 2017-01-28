@@ -165,19 +165,23 @@ object MakeHeap {
 
     val s : Scanner = if (args.isEmpty) new Scanner(System.in) else new Scanner( new File(args(0)) )
     val n = s.nextInt();
-    val vertices = readVertices(s, n)
+    val vertices = (for (i <- 1 to n) yield s.nextInt).toArray
 
-    //val vertices : Array[Int] = List(5, 4, 3, 2, 1).toArray
+    //val vertices : Array[Int] = Array(5, 4, 3, 2, 1)
 
     val swaps = new scala.collection.mutable.Queue[(Int, Int)]()
     makeHeap(vertices, swaps)
 
     println(swaps.length)
-    while (!swaps.isEmpty)
-    {
-      println(swaps.head._1 + " " + swaps.head._2)
-      swaps.dequeue()
-    }
+    swaps.foreach(ij => println(ij._1 + " " + ij._2))
+
+    // /Users/luke/git/courses/data/download/Programming-Assignment-2/make_heap/tests/04
+
+//    while (!swaps.isEmpty)
+//    {
+//      println(swaps.head._1 + " " + swaps.head._2)
+//      swaps.dequeue()
+//    }
 
 //    if (args.isEmpty)
 //    {
@@ -227,78 +231,11 @@ object MakeHeap {
 
   def makeHeap(a : Array[Int], swaps: scala.collection.mutable.Queue[(Int,Int)]) =
   {
-    val h = new Heap_MH[Int](a)(_<_)
+    val h = new Heap_MH[Int](a)(_<_) // min-heap
     h.q = swaps
     h.size = a.length
     for (i <- a.length / 2 - 1 to 0 by -1) h.siftDown(i)
 
   }
-
-  def makeHeap2(a : Array[Int], swaps: scala.collection.mutable.Queue[(Int,Int)]) =
-  {
-    def hasParent(i: Int) = i > 0
-    def hasLeft(i: Int) = left(i) < a.length
-    def hasRight(i: Int) = right(i) < a.length
-
-    def parent(i: Int) = (i - 1) / 2
-    def left(i: Int) = 2 * i + 1
-    def right(i: Int) = 2 * i + 2
-
-    def isHeap(parent: Int, child: Int) = a(parent) <= a(child) // min-heap
-
-    def p() =
-    {
-      a.foreach(i => print(i + ", ")); println();
-    }
-
-
-    def swap(i: Int, j: Int) =
-    {
-      //println(i + " <-> " + j)
-      val store = a(j)
-      a(j) = a(i)
-      a(i) = store
-      swaps.enqueue( (i,j) )
-      //p()
-    }
-
-    //  def siftDown(i : Int) : Int =
-    //  {
-    //    println(">>> " + i)
-    //    siftDownRecursive(i)
-    //  }
-
-    @tailrec
-    def siftDown(i: Int) : Unit =
-    {
-      //assert(0 <= i && i < a.length, "0 <= i && i < a.length")
-      //println(">> " + i)
-
-      var p = i // new parent
-
-      val r = right(i)
-      if (r < a.length && !isHeap(p, r))
-      {
-        p = r
-      }
-
-      val l = left(i)
-      if (l < a.length && !isHeap(p, l))
-      {
-        p = l
-      }
-
-
-      if (i != p)
-      {
-        swap(i, p)
-        siftDown(p)
-      }
-    }
-
-    for (i <- a.length / 2 - 1 to 0 by -1) siftDown(i)
-  }
-
-
 
 }
