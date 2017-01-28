@@ -90,27 +90,49 @@ class Heap[T: Manifest](a: Array[T])(cond: (T,T) => Boolean)
   }
 
 
+  @tailrec
   private def siftDown(i: Int): Int =
   {
+    /*
+      maxIndex ← i
+
+      ℓ ← LeftChild(i)
+      if ℓ ≤ size and H[ℓ] > H[maxIndex]:
+        maxIndex ← ℓ
+
+      r ← RightChild(i)
+      if r ≤ size and H[r] > H[maxIndex]:
+        maxIndex ← r
+
+      if i ̸= maxIndex:
+        swap H[i] and H[maxIndex]
+        SiftDown(maxIndex)
+     */
+
     verify(i)
 
     val il = left(i)
     val ir = right(i)
-    val out = if (isValid(il) && !cond(a(i), a(il)))
+
+    var imax = i
+
+    if (isValid(il) && !cond(a(i), a(il)))
     {
-      swap(i, il)
-      siftDown(il)
+      imax = il
+    }
+
+    if (isValid(ir) && !cond(a(imax), a(ir)))
+    {
+      imax = ir
+    }
+
+    if (imax != i)
+    {
+      swap(i, imax)
+      siftDown(imax)
     }
     else i
-
-    if (isValid(ir) && !cond(a(i), a(ir)))
-    {
-      swap(i, ir)
-      siftDown(ir)
-    }
-    else out
   }
-
 
 }
 

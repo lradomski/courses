@@ -4,11 +4,11 @@ import java.util.Scanner
 import scala.annotation.tailrec
 
 // copied from week3/Heap.scala:
-class Heap[T: Manifest](a: Array[T])(cond: (T,T) => Boolean)
+class Heap[T: Manifest](a: Array[T])(cond: (T, T) => Boolean)
 {
   private var size = 0
 
-  def this(n: Int)(cond: (T,T) => Boolean)
+  def this(n: Int)(cond: (T, T) => Boolean)
   {
     this(new Array[T](n))(cond)
   }
@@ -18,7 +18,9 @@ class Heap[T: Manifest](a: Array[T])(cond: (T,T) => Boolean)
   //  }
 
   def parent(i: Int) = (i - 1) / 2
+
   def left(i: Int) = 2 * i + 1
+
   def right(i: Int) = 2 * i + 2
 
   def top =
@@ -34,7 +36,7 @@ class Heap[T: Manifest](a: Array[T])(cond: (T,T) => Boolean)
     val t = top
     if (size > 1)
     {
-      a(0) = a(size-1)
+      a(0) = a(size - 1)
       size -= 1
       siftDown(0)
     }
@@ -47,8 +49,8 @@ class Heap[T: Manifest](a: Array[T])(cond: (T,T) => Boolean)
   {
     assert(size < a.length, "insert: full")
     size += 1
-    a(size-1) = v
-    siftUp(size-1)
+    a(size - 1) = v
+    siftUp(size - 1)
   }
 
   def length = size
@@ -56,7 +58,7 @@ class Heap[T: Manifest](a: Array[T])(cond: (T,T) => Boolean)
   def toArray =
   {
     val out = new Array[T](size)
-    while(!isEmpty) out(size-1) = takeTop
+    while (!isEmpty) out(size - 1) = takeTop
     out
   }
 
@@ -86,31 +88,54 @@ class Heap[T: Manifest](a: Array[T])(cond: (T,T) => Boolean)
     else
     {
       val ip = parent(i)
-      swap(i, parent(i))
+      swap(i, ip)
       siftUp(ip)
     }
   }
 
 
+  @tailrec
   private def siftDown(i: Int): Int =
   {
+    /*
+      maxIndex ← i
+
+      ℓ ← LeftChild(i)
+      if ℓ ≤ size and H[ℓ] > H[maxIndex]:
+        maxIndex ← ℓ
+
+      r ← RightChild(i)
+      if r ≤ size and H[r] > H[maxIndex]:
+        maxIndex ← r
+
+      if i ̸= maxIndex:
+        swap H[i] and H[maxIndex]
+        SiftDown(maxIndex)
+     */
+
     verify(i)
 
     val il = left(i)
     val ir = right(i)
-    val out = if (isValid(il) && !cond(a(i), a(il)))
+
+    var imax = i
+
+    if (isValid(il) && !cond(a(i), a(il)))
     {
-      swap(i, il)
-      siftDown(il)
+      imax = il
+    }
+
+    if (isValid(ir) && !cond(a(imax), a(ir)))
+    {
+      imax = ir
+    }
+
+    if (imax != i)
+    {
+      swap(i, imax)
+      siftDown(imax)
     }
     else i
-
-    if (isValid(ir) && !cond(a(i), a(ir)))
-    {
-      swap(i, ir)
-      siftDown(ir)
-    }
-    else out
   }
 
 
@@ -197,7 +222,7 @@ object JobQueue
 
     val threads = new Array[Int](jobs.length) // record of which thread processed which job
 
-    //val jobsPending = new scala.collection.mutable.PriorityQueue[Pending]() //(Ordering.by(p => -1*(p.start+jobs(p.job))))
+    //    val jobsPending = new scala.collection.mutable.PriorityQueue[Pending]() //(Ordering.by(p => -1*(p.start+jobs(p.job))))
     val cond = (l: Pending, r: Pending) => l.compare(r) > 0
     val jobsPending = new Heap[Pending](jobs.length)(cond)
 
@@ -207,8 +232,8 @@ object JobQueue
 
     while (i < n && i < jobs.length)
     {
-      //jobsPending += Pending(i, i, time)
-      jobsPending.insert( Pending(i, i, time) )
+      //      jobsPending += Pending(i, i, time)
+      jobsPending.insert(Pending(i, i, time))
       i += 1
     }
 
@@ -223,8 +248,8 @@ object JobQueue
 
       if (i < jobs.length)
       {
-//        jobsPending += Pending(done.thread, i, time)
-        jobsPending.insert( Pending(done.thread, i, time) )
+        //        jobsPending += Pending(done.thread, i, time)
+        jobsPending.insert(Pending(done.thread, i, time))
         i += 1
       }
     }
