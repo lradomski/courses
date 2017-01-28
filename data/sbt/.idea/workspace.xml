@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="64c9de5a-9204-46d8-bed2-5032ea4dae28" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/week3/heap/Heap.scala" afterPath="$PROJECT_DIR$/src/main/scala/week3/heap/Heap.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/week3/heap/heap.sc" afterPath="$PROJECT_DIR$/src/main/scala/week3/heap/heap.sc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/week3/heap/HeapTest.scala" afterPath="$PROJECT_DIR$/src/test/scala/week3/heap/HeapTest.scala" />
     </list>
     <ignored path="data.iws" />
@@ -54,23 +56,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Heap.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Heap.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/week3/heap/Heap.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="103" column="12" selection-start-line="103" selection-start-column="12" selection-end-line="103" selection-end-column="12" />
+            <state relative-caret-position="2516">
+              <caret line="154" column="0" selection-start-line="153" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
               <folding>
-                <element signature="e#2059#2147#0" expanded="false" />
+                <element signature="e#2284#2412#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HeapTest.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MakeHeap.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/week3/MakeHeap.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="94" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HeapTest.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/week3/heap/HeapTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="289">
+              <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
               <folding>
                 <element signature="e#20#49#0" expanded="true" />
               </folding>
@@ -81,8 +93,8 @@
       <file leaf-file-name="heap.sc" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/week3/heap/heap.sc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+            <state relative-caret-position="51">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -119,9 +131,9 @@
         <option value="$PROJECT_DIR$/src/main/scala/TreeOrder.sc" />
         <option value="$PROJECT_DIR$/src/main/scala/drill/Tree.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/week1/NetSim.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/week3/heap/HeapTest.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/week3/heap/heap.sc" />
         <option value="$PROJECT_DIR$/src/main/scala/week3/heap/Heap.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/week3/heap/HeapTest.scala" />
       </list>
     </option>
   </component>
@@ -421,22 +433,7 @@
       <recent name="org.scalatest.FunSuite" />
     </key>
   </component>
-  <component name="RunManager" selected="ScalaTest.HeapTest.heap sort - new array">
-    <configuration default="false" name="RangeSumTest" type="Application" factoryName="Application" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="RangeSumTest" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="sbt" />
-      <envs />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="ScalaTest.HeapTest.heap sort - in place">
     <configuration default="false" name="Tree" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -497,6 +494,21 @@
       <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
       <setting name="searchForTest" value="Across module dependencies" />
       <setting name="testName" value="heap sort - new array" />
+      <setting name="testKind" value="Test name" />
+      <setting name="showProgressMessages" value="true" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="HeapTest.heap sort - in place" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="sbt" />
+      <setting name="path" value="week3.heap.HeapTest" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="heap sort - in place" />
       <setting name="testKind" value="Test name" />
       <setting name="showProgressMessages" value="true" />
       <envs />
@@ -746,19 +758,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Application.RangeSum-console" />
-      <item index="1" class="java.lang.String" itemvalue="Application.RangeSumTest" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Tree" />
-      <item index="3" class="java.lang.String" itemvalue="Application.NetSim" />
-      <item index="4" class="java.lang.String" itemvalue="ScalaTest.HeapTest" />
-      <item index="5" class="java.lang.String" itemvalue="ScalaTest.HeapTest.heap sort - new array" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Tree" />
+      <item index="2" class="java.lang.String" itemvalue="Application.NetSim" />
+      <item index="3" class="java.lang.String" itemvalue="ScalaTest.HeapTest" />
+      <item index="4" class="java.lang.String" itemvalue="ScalaTest.HeapTest.heap sort - new array" />
+      <item index="5" class="java.lang.String" itemvalue="ScalaTest.HeapTest.heap sort - in place" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="ScalaTest.HeapTest.heap sort - new array" />
-        <item index="1" class="java.lang.String" itemvalue="ScalaTest.HeapTest" />
-        <item index="2" class="java.lang.String" itemvalue="Application.NetSim" />
-        <item index="3" class="java.lang.String" itemvalue="Application.Tree" />
-        <item index="4" class="java.lang.String" itemvalue="Application.RangeSumTest" />
+        <item index="0" class="java.lang.String" itemvalue="ScalaTest.HeapTest.heap sort - in place" />
+        <item index="1" class="java.lang.String" itemvalue="ScalaTest.HeapTest.heap sort - new array" />
+        <item index="2" class="java.lang.String" itemvalue="ScalaTest.HeapTest" />
+        <item index="3" class="java.lang.String" itemvalue="Application.NetSim" />
+        <item index="4" class="java.lang.String" itemvalue="Application.Tree" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
@@ -963,21 +975,34 @@
       <option name="project" value="LOCAL" />
       <updated>1485542433982</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Heap for week3 + test">
+      <created>1485542554667</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1485542554667</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="HeapTest - 2017.01.27 at 11h 23m 25s.xml">
-      <configuration name="HeapTest" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="HeapTest_heap_sort_-_in_place - 2017.01.27 at 13h 48m 20s.xml">
+      <configuration name="HeapTest.heap sort - in place" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="HeapTest - 2017.01.27 at 11h 30m 28s.xml">
-      <configuration name="HeapTest" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="HeapTest_heap_sort_-_in_place - 2017.01.27 at 13h 54m 36s.xml">
+      <configuration name="HeapTest.heap sort - in place" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="HeapTest - 2017.01.27 at 11h 34m 11s.xml">
-      <configuration name="HeapTest" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="HeapTest_heap_sort_-_in_place - 2017.01.27 at 13h 55m 40s.xml">
+      <configuration name="HeapTest.heap sort - in place" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="HeapTest - 2017.01.27 at 11h 35m 32s.xml">
-      <configuration name="HeapTest" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="HeapTest_heap_sort_-_in_place - 2017.01.27 at 13h 56m 29s.xml">
+      <configuration name="HeapTest.heap sort - in place" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="HeapTest_heap_sort_-_in_place - 2017.01.27 at 13h 59m 57s.xml">
+      <configuration name="HeapTest.heap sort - in place" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="HeapTest_heap_sort_-_in_place - 2017.01.27 at 14h 04m 05s.xml">
+      <configuration name="HeapTest.heap sort - in place" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
     <history-entry file="HeapTest_heap_sort_-_new_array - 2017.01.27 at 13h 32m 35s.xml">
       <configuration name="HeapTest.heap sort - new array" configurationId="ScalaTestRunConfiguration" />
@@ -990,12 +1015,6 @@
     </history-entry>
     <history-entry file="HeapTest_heap_sort_-_new_array - 2017.01.27 at 13h 40m 09s.xml">
       <configuration name="HeapTest.heap sort - new array" configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="SetSuite_case36_3 - 2016.12.29 at 23h 20m 03s.xml">
-      <configuration name="SetSuite.case36/3" configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="SetSuite_case36_3 - 2016.12.29 at 23h 28m 08s.xml">
-      <configuration name="SetSuite.case36/3" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -1014,7 +1033,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27987897" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19288956" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1050,7 +1069,8 @@
     <MESSAGE value="data / week 1 - NetSim" />
     <MESSAGE value="data - copying from pure scala project." />
     <MESSAGE value="week3 -" />
-    <option name="LAST_COMMIT_MESSAGE" value="week3 -" />
+    <MESSAGE value="Heap for week3 + test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Heap for week3 + test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1491,38 +1511,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/week3/heap/HeapTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
+          <folding>
+            <element signature="e#20#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/week3/MakeHeap.scala">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="94" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/week3/heap/heap.sc">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/week3/heap/Heap.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="103" column="12" selection-start-line="103" selection-start-column="12" selection-end-line="103" selection-end-column="12" />
+        <state relative-caret-position="2516">
+          <caret line="154" column="0" selection-start-line="153" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
           <folding>
-            <element signature="e#2059#2147#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/week3/heap/heap.sc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/week3/heap/HeapTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="e#20#49#0" expanded="true" />
+            <element signature="e#2284#2412#0" expanded="false" />
           </folding>
         </state>
       </provider>

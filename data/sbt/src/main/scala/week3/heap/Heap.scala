@@ -44,6 +44,7 @@ class Heap(n: Int)
   }
 
   def length = size
+
   //def toArray = a.clone
 
   private def isValid(i: Int) = 1 <= i && i <= size
@@ -96,7 +97,7 @@ class Heap(n: Int)
     }
     else i
 
-    if (isValid(ir)  && !cond(a(i), a(ir)))
+    if (isValid(ir) && !cond(a(i), a(ir)))
     {
       swap(i, ir)
       siftDown(ir)
@@ -111,23 +112,30 @@ object Heap
 {
   def sort(a: Array[Int]): Array[Int] =
   {
-    val h = a.foldLeft(new Heap(a.length))( (h,v) => { h.insert(v); h })
+    val h = a.foldLeft(new Heap(a.length))((h, v) =>
+    {
+      h.insert(v); h
+    })
     val hl = h.length
     val out = for (i <- 1 to hl) yield h.takeTop
     out.toArray
   }
 
-  def sortInPlace(a: Array[Int], cond: (Int,Int) => Boolean): Unit =
+  def sortInPlace(a: Array[Int], cond: (Int, Int) => Boolean): Array[Int] =
   {
-    def parent(i: Int) = i / 2 - 1
-    def left(i: Int) = 2 * i - 1
-    def right(i: Int) = 2 * i + 1 - 1
+    //    def parent(i: Int) = (i+1) / 2 - 1
+    //    def left(i: Int) = 2 * (i+1) - 1
+    //    def right(i: Int) = 2 * (i+1) + 1 - 1
+
+    def parent(i: Int) = (i - 1) / 2
+    def left(i: Int) = 2 * i + 1
+    def right(i: Int) = 2 * i + 2
 
     def isValid(i: Int) = 0 <= i && i < a.length
 
     def verify(i: Int): Unit =
     {
-      assert(isValid(i), "0 <= i  &&  i <= size")
+      assert(isValid(i))
     }
 
     def swap(i: Int, j: Int): Unit =
@@ -143,10 +151,10 @@ object Heap
     def siftDown(i: Int): Int =
     {
       verify(i)
+      //println("    " + i)
 
       val il = left(i)
       val ir = right(i)
-
       val out = if (isValid(il) && !cond(a(i), a(il)))
       {
         swap(i, il)
@@ -154,7 +162,7 @@ object Heap
       }
       else i
 
-      if (isValid(ir)  && !cond(a(i), a(ir)))
+      if (isValid(ir) && !cond(a(i), a(ir)))
       {
         swap(i, ir)
         siftDown(ir)
@@ -162,7 +170,23 @@ object Heap
       else out
     }
 
-    for (i <- a.length/2-1 to 0 by -1) siftDown(i)
+    //val al = (a.length/2)-1
+    for (i <- a.length / 2 - 1 to 0 by -1)
+    {
+      //println(">>> " + i);
+      siftDown(i)
+      println(a.toList)
+    }
+
+    println("----")
+    for (i <- a.length-1 to 0 by -1)
+    {
+      swap(0, i)
+      siftDown(0)
+      println(a.toList)
+    }
+
+    a
   }
 
 
