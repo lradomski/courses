@@ -16,10 +16,6 @@ class Heap_MH[T: Manifest](a: Array[T])(cond: (T, T) => Boolean)
 
   var q : mutable.Queue[(Int,Int)] = null
 
-  //  def newArray[T: Manifest](elem:T):Array[T] = {
-  //    new Array[T](1)
-  //  }
-
   def parent(i: Int) = (i - 1) / 2
 
   def left(i: Int) = 2 * i + 1
