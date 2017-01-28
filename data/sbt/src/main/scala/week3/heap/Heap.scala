@@ -2,14 +2,18 @@ package week3
 
 import scala.annotation.tailrec
 
-class Heap(a: Array[Int])(implicit cond: (Int,Int) => Boolean)
+class Heap[T: Manifest](a: Array[T])(cond: (T,T) => Boolean)
 {
   private var size = 0
 
-  def this(n: Int)(implicit cond: (Int,Int) => Boolean)
+  def this(n: Int)(cond: (T,T) => Boolean)
   {
-    this(new Array[Int](n))(cond)
+    this(new Array[T](n))(cond)
   }
+
+//  def newArray[T: Manifest](elem:T):Array[T] = {
+//    new Array[T](1)
+//  }
 
   def parent(i: Int) = (i - 1) / 2
   def left(i: Int) = 2 * i + 1
@@ -37,7 +41,7 @@ class Heap(a: Array[Int])(implicit cond: (Int,Int) => Boolean)
     t
   }
 
-  def insert(v: Int) =
+  def insert(v: T) =
   {
     assert(size < a.length, "insert: full")
     size += 1
@@ -49,7 +53,7 @@ class Heap(a: Array[Int])(implicit cond: (Int,Int) => Boolean)
 
   def toArray =
   {
-    val out = new Array[Int](size)
+    val out = new Array[T](size)
     while(!isEmpty) out(size-1) = takeTop
     out
   }
@@ -114,23 +118,19 @@ object Heap
 {
   implicit val cond = (l: Int, r: Int) => l > r
 
-  def sorted(a: Array[Int]): Array[Int] =
+  def sorted[T: Manifest](a: Array[T])(cond: (T,T) => Boolean): Array[T] =
   {
-    val h = a.foldLeft(new Heap(a.length))((h, v) =>
+    val h = a.foldLeft(new Heap[T](a.length)(cond))((h, v) =>
     {
       h.insert(v); h
     })
 
     h.toArray
-
-//    val hl = h.length
-//    for (i <- hl-1 to 0 by -1) a(i) = h.takeTop
-//    a
   }
 
-  def sort(a: Array[Int]): Array[Int] =
+  def sort[T: Manifest](a: Array[T])(cond: (T,T) => Boolean): Array[T] =
   {
-    val h = new Heap(a)
+    val h = new Heap[T](a)(cond)
     h.size = a.length
 
     for (i <- a.length / 2 - 1 to 0 by -1)
@@ -140,11 +140,6 @@ object Heap
 
 
     while (!h.isEmpty) a(h.size-1) = h.takeTop
-
-//    for (i <- 1 to a.length-1)
-//    {
-//      a(h.size-1) = h.takeTop
-//    }
 
 //    for (i <- 1 to a.length-1)
 //    {
