@@ -14,7 +14,8 @@ class Heap_MH[T: Manifest](a: Array[T])(cond: (T, T) => Boolean)
     this(new Array[T](n))(cond)
   }
 
-  var q : mutable.Queue[(Int,Int)] = null
+  var qi = 0
+  var q : Array[(Int,Int)] = null
 
   def parent(i: Int) = (i - 1) / 2
 
@@ -76,7 +77,11 @@ class Heap_MH[T: Manifest](a: Array[T])(cond: (T, T) => Boolean)
     val v = a(i)
     a(i) = a(j)
     a(j) = v
-    if (q != null) q.enqueue((i,j))
+    if (q != null)
+      {
+        q(qi) = ((i,j))
+        qi+=1
+      }
   }
 
   @tailrec
@@ -165,23 +170,30 @@ object MakeHeap {
 
     //val vertices : Array[Int] = Array(5, 4, 3, 2, 1)
 
-    val swaps = new scala.collection.mutable.Queue[(Int, Int)]()
-    makeHeap(vertices, swaps)
+    //val swaps = new scala.collection.mutable.Queue[(Int, Int)]()
+    val swaps = new Array[(Int,Int)](20*n)
+    val count = makeHeap(vertices, swaps)
 
     println(swaps.length)
-    swaps.foreach(ij => println(ij._1 + " " + ij._2))
+    //swaps.foreach(ij => println(ij._1 + " " + ij._2))
+    for (i <- 0 until count)
+      {
+        val ij = swaps(i)
+        println(ij._1 + " " + ij._2)
+      }
 
     // /Users/luke/git/courses/data/download/Programming-Assignment-2/make_heap/tests/04
   }
 
 
-  def makeHeap(a : Array[Int], swaps: scala.collection.mutable.Queue[(Int,Int)]) =
+  def makeHeap(a : Array[Int], swaps: Array[(Int,Int)]) = //swaps: scala.collection.mutable.Queue[(Int,Int)]) =
   {
     val h = new Heap_MH[Int](a)(_<_) // min-heap
     h.q = swaps
     h.size = a.length
     for (i <- a.length / 2 - 1 to 0 by -1) h.siftDown(i)
 
+    h.qi
   }
 
 }
