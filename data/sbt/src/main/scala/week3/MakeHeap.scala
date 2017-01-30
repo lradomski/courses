@@ -174,8 +174,10 @@ object MakeHeap {
     val swaps = new Array[(Int,Int)](20*n)
     val count = makeHeap(vertices, swaps)
 
-    println(swaps.length)
+//    println(swaps.length)
     //swaps.foreach(ij => println(ij._1 + " " + ij._2))
+
+    println(count)
     for (i <- 0 until count)
       {
         val ij = swaps(i)
@@ -190,6 +192,7 @@ object MakeHeap {
   {
     val h = new Heap_MH[Int](a)(_<_) // min-heap
     h.q = swaps
+    h.qi = 0
     h.size = a.length
     for (i <- a.length / 2 - 1 to 0 by -1) h.siftDown(i)
 
