@@ -16,6 +16,7 @@ object MergeTables
     val parents = (for (i <- 1 to n) yield i - 1).toArray
     val ranks = (for (i <- 1 to n) yield 1).toArray
 
+    //println(counts.toList)
     var max = counts.max
 
     def parent(in: Int) =
@@ -37,10 +38,10 @@ object MergeTables
 
       if (pdest != psrc)
       {
-        assert(counts(pdest) >= 0)
-        assert(counts(psrc) >= 0)
-        assert(ranks(pdest) > 0)
-        assert(ranks(psrc) > 0)
+//        assert(counts(pdest) >= 0)
+//        assert(counts(psrc) >= 0)
+//        assert(ranks(pdest) > 0)
+//        assert(ranks(psrc) > 0)
 
         val newCount = counts(pdest) + counts(psrc)
         if (newCount > max) max = newCount
@@ -64,17 +65,16 @@ object MergeTables
 
           ranks(pdest) = 0
         }
-
-
-        println(max)
-        if (s2 != null)
-        {
-          val aMax = s2.nextInt
-          assert(max == aMax, "line " + (i + 1) + ": " + max + " != " + aMax)
-        }
-
-
       }
+
+      //print((dest+1).toString + " " + (src+1).toString + " = ")
+      println(max)
+      //        if (s2 != null)
+      //        {
+      //          val aMax = s2.nextInt
+      //          assert(max == aMax, "line " + i + ": " + max + " != " + aMax)
+      //        }
+
 
     }
   }
