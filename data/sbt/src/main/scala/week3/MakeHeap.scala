@@ -72,8 +72,8 @@ class Heap_MH[T: Manifest](a: Array[T])(cond: (T, T) => Boolean)
 
   private def swap(i: Int, j: Int): Unit =
   {
-    verify(i)
-    verify(j)
+//    verify(i)
+//    verify(j)
     val v = a(i)
     a(i) = a(j)
     a(j) = v
@@ -118,7 +118,7 @@ class Heap_MH[T: Manifest](a: Array[T])(cond: (T, T) => Boolean)
         SiftDown(maxIndex)
      */
 
-    verify(i)
+//    verify(i)
 
     val il = left(i)
     val ir = right(i)
