@@ -1,6 +1,7 @@
 import org.junit.runner.RunWith
 import org.scalatest.FunSuite
 import org.scalatest.junit.JUnitRunner
+import RangeSum.{Set,Tree}
 
 @RunWith(classOf[JUnitRunner])
 class SetSuite extends FunSuite
