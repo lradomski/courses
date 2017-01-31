@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="64c9de5a-9204-46d8-bed2-5032ea4dae28" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/week4/Substring.scala" afterPath="$PROJECT_DIR$/src/main/scala/week4/Substring.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/week4/SubstringTest.scala" afterPath="$PROJECT_DIR$/src/test/scala/week4/SubstringTest.scala" />
     </list>
     <ignored path="data.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -870,7 +868,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485839439418</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Week4 - Substring">
+      <created>1485840455229</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1485840455229</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TestHistory">
