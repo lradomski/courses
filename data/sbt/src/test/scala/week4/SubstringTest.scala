@@ -1,5 +1,3 @@
-package week4
-
 import org.scalatest.FunSuite
 import org.scalatest.prop.Checkers
 
@@ -7,16 +5,21 @@ import org.scalatest.prop.Checkers
   * Created by luke on 1/30/17.
   */
 class SubstringTest
-extends FunSuite with Checkers
+  extends FunSuite with Checkers
+{
+  //val cond: (l: Int, r: Int) => l>r
+  test("substring")
   {
-    //val cond: (l: Int, r: Int) => l>r
-    test("heap sort - new array")
+    check((text: String, patter: String) =>
     {
-      check((main: String, sub: String) =>
-        {
-          val o1 = Substring.findAll(main, sub)
-          val o2 = Substring.findAllNaive(main,sub)
-          o1.length == o2.length && (o1 zip o2).forall(lr => lr._1 == lr._2)
-        })
-    }
+      if (!text.isEmpty && !patter.isEmpty)
+      {
+
+        val o1 = Substring.findAll(text, patter)
+        val o2 = Substring.findAllNaive(text, patter)
+        o1._2 == o2._2 && (o1._1.slice(0, o1._2) zip o2._1.slice(0, o2._2)).forall(lr => lr._1 == lr._2)
+      }
+      else true
+    })
+  }
 }
