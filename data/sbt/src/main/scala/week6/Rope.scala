@@ -3,15 +3,107 @@ import java.util.Scanner
 
 import scala.annotation.tailrec
 
-/*
 object Rope
 {
-  case class CharPlace(char: Char, pos: Int, offset: Int)
 
-  class Tree(var left: Tree, var right: Tree, var parent: Tree, var key: CharPlace)
+  case class CharOffset(var char: Char, var off: Int)
+  {
+    override def toString: String = char + "@" + off
+
+    def absPos(pos: Int) = pos + off
+  }
+
+  case class OffsetRange(var left: Int, var right: Int)
+  {
+    assert(left <= right, "left<=right (" + left + "," + right + ")")
+
+    def toAbs(pos: Int) = OffsetRange(pos + left, pos + right)
+
+    def toRel(pos: Int) = OffsetRange(left - pos, right - pos)
+
+    override def toString = "[" + left + ":" + right + "]"
+  }
+
+  val EmptyRange = OffsetRange(Int.MaxValue, Int.MinValue)
+
+  case class NodePos(n: Tree, parentPos: Int)
+  {
+    val absPos = n.key.absPos(parentPos)
+    assert(absPos >= 0, "absPos<0 (" + absPos + ")")
+
+    def isNull = n == null
+
+    def isNotNull = n != null
+
+
+    def hasParent = n != null && n.parent != null
+
+    def hasNotParent = n != null && n.parent == null
+
+    def isRoot = hasNotParent
+
+    def parent = if (hasParent) NodePos(n.parent, parentPos - n.parent.key.off) else EmptyNodePos
+
+    def setParent(newParent: NodePos) =
+    {
+      if (newParent.isNotNull)
+      {
+        n.key.off = absPos - parent.absPos
+        n.parent = newParent.n
+      }
+      else
+      {
+        n.key.off = absPos
+        n.parent = null
+      }
+    }
+
+    def left = NodePos(n.left, absPos)
+
+    def hasLeft = n.left != null
+
+    def hasNotLeft = n.left == null
+
+    def setLeft(newChild: NodePos) =
+    {
+      n.left = newChild.n
+      if (newChild.isNotNull)
+      {
+        assert(newChild.absPos < absPos)
+        //n.range.left = newChild.n.range.left
+        val absRange = n.range.toAbs(absPos)
+        n.range = OffsetRange(newChild.n.range.toAbs(newChild.absPos).left, absRange.right).toRel(absPos)
+      }
+    }
+
+    def right = NodePos(n.right, absPos)
+
+    def hasRight = n.right != null
+
+    def hasNotRight = n.right == null
+
+    def setRight(newChild: NodePos) =
+    {
+      n.right = newChild.n
+      if (newChild.isNotNull)
+      {
+        assert(absPos < newChild.absPos)
+        //n.range.right = newChild.n.range.right
+        val absRange = n.range.toAbs(absPos)
+        n.range = OffsetRange(absRange.left, newChild.n.range.toAbs(newChild.absPos).right).toRel(absPos)
+      }
+    }
+
+    def adjustHeight = n.adjustHeight
+  }
+
+  val EmptyNodePos = NodePos(null, 0)
+
+
+  class Tree(var left: Tree, var right: Tree, var parent: Tree, var key: CharOffset)
   {
     var height: Int = 1
-    var treeString: String = ""
+    var range = OffsetRange(key.off, key.off)
 
     def reset(): Unit =
     {
@@ -19,8 +111,10 @@ object Rope
       right = null
       parent = null
       height = 1
-      treeString = ""
+      val range = OffsetRange(key.off, key.off)
     }
+
+    def withPos(pos: Int) = NodePos(this, pos)
 
     def isLeaf = left == null && right == null
 
@@ -28,13 +122,17 @@ object Rope
 
     def adjustHeight: Unit =
     {
-      val old = (height, treeString)
-      val (lh, ls) = if (left != null) (left.height, left.treeString) else (0, "")
-      val (rh, rs) = if (right != null) (right.height, right.treeString) else (0, "")
+      val old = (height, range)
+      val (lh, lr) = if (left != null) (left.height, left.range) else (0, EmptyRange)
+      val (rh, rr) = if (right != null) (right.height, right.range) else (0, EmptyRange)
       height = 1 + math.max(lh, rh)
-      treeString = (ls + key.char + rs)
+      val newRange = OffsetRange(Math.min(lr.left, range.left), Math.max(range.right, rr.right)) // TODO: assign to range ?
 
-      if (old != (height,treeString) && null != parent) parent.adjustHeight
+      if (old != (height, newRange))
+      {
+        range = newRange
+        if (null != parent) parent.adjustHeight
+      }
     }
 
     def isBalanced: Boolean =
@@ -83,7 +181,7 @@ object Rope
           val s = " " * indent
 
           val ok = "" //if (isBinarySearch) "" else " (?)"
-        val sum = " (" + t.treeString + ") "
+        val sum = " (" + key + range + ") "
 
           val ret = "\n" + s + "[ " + t.key + sum + ok + "\n" +
             s + "  <<<" + toString(t.left, indent + 5) + "\n" +
@@ -107,30 +205,19 @@ object Rope
     //  type Tree = Node[Int]
 
     var root: Tree = null
-    var lastSum: Long = 0
 
     def get = root
+
+    def asNodePos = if (root != null) root.withPos(0) else EmptyNodePos
 
 
     var debug = false
 
-    val M = (1e9 + 1).toInt
-
-    var check = List[Int]()
+    var check = List[CharOffset]()
 
     override def toString: String =
     {
       if (null == root) "[]" else root.toString
-    }
-
-    def hash(i: Int): Int =
-    {
-      def x = lastSum
-
-      val ret: Long = (i + x) % M
-      //println("// " + i + " --[" + x + "]--> " + ret)
-      assert(ret < Int.MaxValue)
-      ret.toInt
     }
 
     def format(i: Long): String = i.toString
@@ -151,109 +238,151 @@ object Rope
     //    }
     //  }
 
-    def find(i: Int): Tree =
+    def find(i: Int): NodePos =
     {
-      assert(i < M, "find: hash")
-      var n = root
+      var n = NodePos(root, 0)
       var done = false
 
-      while (n != null && !done)
+
+      //      while (!n.isNull && !done)
+      //      {
+      //        if (n.absPos == i) done = true
+      //        else if (i < n.absPos) if (!n.hasLeft) done = true else n = n.left
+      //        else if (n.absPos < i) if (!n.hasRight) done = true else n = n.right
+      //        else assert(false, "find: impossible")
+      //      }
+
+      if (!n.isNull)
       {
-        if (n.key == i) done = true
-        else if (i < n.key) if (n.left == null) done = true else n = n.left
-        else if (n.key < i) if (n.right == null) done = true else n = n.right
-        else assert(false, "find: impossible")
+        while (!done)
+        {
+          if (n.absPos == i) done = true
+          else if (i < n.absPos) if (n.hasLeft) n = n.left else done = true
+          else if (n.absPos < i) if (n.hasRight) n = n.right else done = true
+          else assert(false, "find: impossible")
+        }
       }
 
       n
     }
 
-    def exists(i: Int): Boolean =
+
+    def next(node: NodePos): NodePos =
     {
-      assert(i < M, "exists: hash")
-      if (null != root) find(i).key == i else false
+      @tailrec
+      def leftDescendent(node: NodePos): NodePos =
+      {
+        if (node.hasNotLeft) node
+        else leftDescendent(node.left)
+      }
+
+      @tailrec
+      def rightAncestor(node: NodePos): NodePos =
+      {
+        if (node.hasNotParent) EmptyNodePos
+        else
+        {
+          val p = node.parent
+          if (p.absPos > node.absPos) p else rightAncestor(p)
+        }
+      }
+
+      if (node.isNull) EmptyNodePos
+      else
+      {
+        if (node.hasRight) leftDescendent(node.right)
+        else rightAncestor(node)
+      }
+
     }
 
 
-    def rebalance(node: Tree): Tree =
+    // TODO
+    def rebalance(node: NodePos): NodePos =
     {
-      def updateParent(in: Tree, out: Tree, parent: Tree): Unit =
+      def updateParent(in: NodePos, out: NodePos, parent: NodePos): Unit =
       {
-        if (null != parent)
+        if (parent.isNotNull)
         {
-          if (parent.left == out) parent.left = in
-          else if (parent.right == out) parent.right = in
+          if (parent.left.n == out.n) parent.setLeft(in)
+          else if (parent.right.n == out.n) parent.setRight(in)
           else assert(false, "reparent: parent -> in")
         }
         else
         {
-          root = in
+          root = in.n
+          root.key.off = in.absPos
         }
       }
 
 
-      def rotateRight(out: Tree): Tree = // A <- *B -> C   ==>   A -> *B -> C
+      def rotateRight(out: NodePos): NodePos = // A <- *B -> C   ==>   A -> *B -> C
       {
-        assert(out != null)
-        assert(out.left != null)
+        assert(out.isNotNull)
+        assert(out.hasLeft)
         val parent = out.parent
         val in = out.left
 
 
-        if (in.right != null) in.right.parent = out
-        out.left = in.right
+        val inRight = in.right
+        if (inRight.isNotNull) inRight.setParent(out)
+        out.setLeft(inRight)
 
-        out.parent = in
-        in.right = out
+        out.setParent(in)
+        in.setRight(out)
 
-        in.parent = parent
+        in.setParent(parent)
         updateParent(in, out, parent)
         out.adjustHeight
         in
       }
 
-      def rotateLeft(out: Tree): Tree = // A <- *B -> C   ==>   A <- *B <- C
+      def rotateLeft(out: NodePos): NodePos = // A <- *B -> C   ==>   A <- *B <- C
       {
-        assert(out != null)
-        assert(out.right != null)
+        // out - node that is being "rotated out"
+        // in - node that is being "rotated in"
+
+        assert(out.isNotNull)
+        assert(out.hasRight)
         val parent = out.parent
         val in = out.right
 
 
-        if (in.left != null) in.left.parent = out
-        out.right = in.left
+        val inLeft = in.left
+        if (inLeft.isNotNull) inLeft.setParent(out)
+        out.setRight(inLeft)
 
-        out.parent = in
-        in.left = out
+        out.setParent(in)
+        in.setLeft(out)
 
-        in.parent = parent
+        in.setParent(parent)
         updateParent(in, out, parent)
         out.adjustHeight
         in
       }
 
-      def h(node: Tree) = if (node != null) node.height else 0
+      def h(node: NodePos) = if (node.isNotNull) node.n.height else 0
 
-      def rebalanceRight(node: Tree): Tree =
+      def rebalanceRight(node: NodePos): NodePos =
       {
-        assert(node != null)
-        assert(node.left != null)
+        assert(node.isNotNull)
+        assert(node.hasLeft)
 
-        if (h(node.left.right) > h(node.left.left)) rotateLeft(node.left)
+        if (h(node.left.right) > h(node.left.left)) rotateLeft(node)
         rotateRight(node)
       }
 
-      def rebalanceLeft(node: Tree): Tree =
+      def rebalanceLeft(node: NodePos): NodePos =
       {
-        assert(node != null)
-        assert(node.right != null)
+        assert(node.isNotNull)
+        assert(node.hasRight)
 
         if (h(node.right.left) > h(node.right.right)) rotateRight(node.right)
         rotateLeft(node)
       }
 
 
-      if (null != node)
+      if (node.isNotNull)
       {
         val parent = node.parent
         val out =
@@ -272,14 +401,13 @@ object Rope
     }
 
 
-    def add(i: Int): Tree =
+    def add(ch: Char, pos: Int): NodePos =
     {
-      assert(i < M, "add: hash")
-
+      assert(pos >= 0)
       def dbgAdd: Unit =
       {
-        println("// s.add(" + format(i) + ")")
-        if (!check.exists(key => key == i)) check = check ::: List(i)
+        val key = CharOffset(ch, pos)
+        if (!check.exists(k => k == key)) check = check ::: List(key)
       }
 
       if (debug) dbgAdd
@@ -287,27 +415,30 @@ object Rope
       val ret =
         if (null == root)
         {
-          root = new Tree(null, null, null, i)
-          root
+          assert(pos == 0)
+          root = new Tree(null, null, null, CharOffset(ch, pos))
+          root.withPos(0)
         }
         else
         {
+          val i = pos
           val parent = find(i)
-          if (i < parent.key)
+          if (i < parent.absPos)
           {
-            assert(parent.left == null, "add: parent.left")
-            parent.left = new Tree(null, null, parent, i)
+            assert(!parent.hasLeft, "add: parent.left")
+            parent.n.left = new Tree(null, null, parent.n, CharOffset(ch, pos))
             parent.left
           }
-          else if (parent.key < i)
+          else if (parent.absPos < i)
           {
-            assert(parent.right == null, "add: parent.right")
-            parent.right = new Tree(null, null, parent, i)
+            assert(!parent.hasRight, "add: parent.right")
+            parent.n.right = new Tree(null, null, parent.n, CharOffset(ch, pos - parent.absPos))
             parent.right
           }
           else
           {
-            assert(parent.key == i, "add: parent.key")
+            assert(parent.absPos == i, "add: parent.key")
+            parent.n.key.char = ch
             parent
           }
         }
@@ -318,9 +449,8 @@ object Rope
 
     def del(i: Int): Boolean =
     {
-      assert(i < M, "del: hash")
       val node = find(i)
-      if (null != node && node.key == i)
+      if (node.isNotNull && node.absPos == i)
       {
         del(node)
         true
@@ -328,57 +458,59 @@ object Rope
       else false
     }
 
-    def del(node: Tree): Unit =
+    def del(node: NodePos): Unit =
     {
 
       def dbgDel(i: Int): Unit =
       {
-        println("// s.del(" + format(i) + ")")
-        check = check.filter(key => key != i)
+        //        println("// s.del(" + format(i) + ")")
+        check = check.filter(key => key.off != i)
       }
 
-      def promote(toPromote: Tree, toSkip: Tree): Tree =
+      def promote(toPromote: NodePos, toSkip: NodePos): NodePos =
       {
-        assert(toSkip != null, "promote: toSkip")
-        assert(if (toPromote != null) toPromote.parent == toSkip else true, "promote: toPromote")
+        assert(toSkip.isNotNull, "promote: toSkip")
+        assert(if (toPromote.isNotNull) toPromote.parent.n == toSkip.n else true, "promote: toPromote")
 
         val newParent = toSkip.parent
 
-        if (newParent != null)
+        if (newParent.isNotNull)
         {
-          if (toSkip == newParent.left) newParent.left = toPromote
-          else if (toSkip == newParent.right) newParent.right = toPromote
+          if (toSkip.n == newParent.left.n) newParent.setLeft(toPromote)
+          else if (toSkip.n == newParent.right.n) newParent.setRight(toPromote)
           else assert(false, "promote: newParent->toSkip")
         }
         else
         {
-          root = toPromote
+          root = toPromote.n
+          root.key.off = toPromote.absPos
         }
 
-        if (toPromote != null) toPromote.parent = newParent
+        if (toPromote.isNotNull) toPromote.setParent(newParent)
         newParent
       }
 
-      def replaceWith(old: Tree, newNode: Tree): Unit =
+
+      def replaceWith(old: NodePos, newNode: NodePos): Unit =
       {
-        old.key = newNode.key
-        newNode.reset
+        old.n.key = newNode.n.key
+        newNode.n.reset
       }
 
       if (node != null)
       {
-        if (debug) dbgDel(node.key)
+        if (debug) dbgDel(node.absPos)
 
         val nextNode = next(node)
-        if (nextNode == null)
+        if (nextNode.isNull)
         {
-          assert(node.right == null)
+          assert(node.hasNotRight)
           val parent = promote(node.left, node)
           rebalance(parent)
         }
         else
         {
-          if (nextNode.left == null)
+          if (nextNode.hasNotLeft)
           {
             val parent = promote(nextNode.right, nextNode)
             replaceWith(node, nextNode)
@@ -387,7 +519,7 @@ object Rope
           }
           else
           {
-            assert(node.right == null)
+            assert(node.hasNotRight)
             val parent = promote(node.left, node)
             rebalance(parent)
           }
@@ -397,31 +529,45 @@ object Rope
       }
     }
 
-    def mergeWithRoot(l: Tree, r: Tree, parent: Tree): Tree =
+    def mergeWithRoot(l: NodePos, r: NodePos, parent: NodePos): NodePos =
     {
-      def h(n: Tree) = if (n != null) n.height else 0
+      def h(n: NodePos) = if (n.isNotNull) n.n.height else 0
 
-      assert(parent != null)
-      assert(if (l != null) l.key < parent.key else true)
-      assert(if (r != null) parent.key < r.key else true)
+      assert(parent.isNotNull)
+      assert(parent.n.key.off >= 0)
 
-      parent.left = l
-      parent.right = r
-      if (l != null) l.parent = parent
-      if (r != null) r.parent = parent
-      parent.parent = null
+      assert(if (l != null) l.absPos < parent.absPos else true)
+      assert(if (r != null) parent.absPos < r.absPos else true)
+
+      parent.setLeft(l)
+      parent.setRight(r)
+      if (l.isNotNull)
+      {
+        assert(l.n.key.off >= 0)
+        l.setParent(parent)
+      }
+
+      if (r != null)
+      {
+        assert(r.n.key.off >= 0)
+        r.setParent(parent)
+      }
+
+      parent.n.parent = null
       parent.adjustHeight
 
       parent
     }
 
-    def mergeWithRootAVL(l: Tree, r: Tree, parent: Tree): Tree =
+    def mergeWithRootAVL(l: NodePos, r: NodePos, parent: NodePos): NodePos =
     {
-      def h(n: Tree) = if (n != null) n.height else 0
+      def h(n: NodePos) = if (n.isNotNull) n.n.height else 0
 
-      assert(parent != null)
-      assert(if (l != null) l.key < parent.key else true)
-      assert(if (r != null) parent.key < r.key else true)
+      assert(parent.isNotNull)
+      assert(parent.n.key.off >= 0)
+
+      assert(if (l != null) l.absPos < parent.absPos else true)
+      assert(if (r != null) parent.absPos < r.absPos else true)
 
       if (math.abs(h(l) - h(r)) <= 1)
       {
@@ -431,9 +577,9 @@ object Rope
       {
         assert(l != null)
         val newRight = mergeWithRootAVL(l.right, r, parent)
-        l.right = newRight
-        if (newRight != null) newRight.parent = l
-        l.parent = null
+        l.setRight(newRight)
+        if (newRight.isNotNull) newRight.setParent(l)
+        l.n.parent = null
         val out = rebalance(l)
         out
       }
@@ -443,9 +589,9 @@ object Rope
         assert(r != null)
 
         val newLeft = mergeWithRootAVL(l, r.left, parent)
-        r.left = newLeft
-        if (newLeft != null) newLeft.parent = r
-        r.parent = null
+        r.setLeft(newLeft)
+        if (newLeft.isNotNull) newLeft.setParent(r)
+        r.n.parent = null
         val out = rebalance(r)
         out
       }
@@ -457,12 +603,13 @@ object Rope
     def split(x: Int): (Set, Set) =
     {
 
-      def splitCore(node: Tree, x: Int): (Tree, Tree) = // l.key <= x , x < r.key
+      // TODO
+      def splitCore(node: NodePos, x: Int): (NodePos, NodePos) = // l.key <= x , x < r.key
       {
         if (node == null) (null, null)
         else
         {
-          if (node.key <= x)
+          if (node.absPos <= x)
           {
             // node.left tree already meets condition entirely
             // node.right may still have some nodes which we need on the left
@@ -486,29 +633,29 @@ object Rope
         }
       }
 
-      val (left, right) = splitCore(root, x)
-      if (left != null) left.parent = null
-      if (right != null) right.parent = null
+      val (left, right) = splitCore(root.withPos(0), x)
+      if (left.isNotNull) left.setParent(EmptyNodePos)
+      if (right.isNotNull) right.setParent(EmptyNodePos)
 
       root = null
       val setLeft = new Set;
-      setLeft.root = left
+      setLeft.root = left.n
       val setRight = new Set;
-      setRight.root = right
+      setRight.root = right.n
       (setLeft, setRight)
     }
 
-    def max: Tree =
+    def max: NodePos =
     {
       @tailrec
-      def findMax(node: Tree): Tree =
+      def findMax(node: NodePos): NodePos =
       {
         assert(node != null)
-        if (null != node.right) findMax(node.right)
+        if (node.hasRight) findMax(node.right)
         else node
       }
 
-      if (null != root) findMax(root) else null
+      if (null != root) findMax(root.withPos(0)) else EmptyNodePos
     }
 
     def merge(left: Set, right: Set): Set =
@@ -521,7 +668,9 @@ object Rope
       {
         val parent = left.max
         left.del(parent)
-        root = mergeWithRootAVL(left.root, right.root, parent)
+        val rootPos = mergeWithRootAVL(left.root.withPos(0), right.root.withPos(0), parent)
+        root = rootPos.n
+        root.key.off = rootPos.absPos
       }
       else
       {
@@ -534,150 +683,66 @@ object Rope
     }
 
 
-    def sum(l: Int, r: Int): Long = sumSplitMerge(l, r) // sumNextLoop(l,r) //
+    // TODO*
+    /*
+     def sum(l: Int, r: Int): Long = sumSplitMerge(l, r) // sumNextLoop(l,r) //
 
-    def sumSplitMerge(l: Int, r: Int): Long =
-    {
-      //    def addUp(node: Tree): Long =
-      //    {
-      //      if (null == node) 0
-      //      else addUp(node.left) + addUp(node.right) + node.key
-      //    }
+     def sumSplitMerge(l: Int, r: Int): Long =
+     {
+       //    def addUp(node: Tree): Long =
+       //    {
+       //      if (null == node) 0
+       //      else addUp(node.left) + addUp(node.right) + node.key
+       //    }
 
-      assert(l < M, "sum: hash")
-      assert(r < M, "sum: hash")
-      assert(l <= r, "sum: " + l + " > " + r)
+       assert(l < M, "sum: hash")
+       assert(r < M, "sum: hash")
+       assert(l <= r, "sum: " + l + " > " + r)
 
-      val s = split(l - 1)
-      val (range, ignore) = s._2.split(r)
+       val s = split(l - 1)
+       val (range, ignore) = s._2.split(r)
 
-      val total = if (range.root != null) range.root.treeString else 0
-      //addUp(range.root)
+       val total = if (range.root != null) range.root.treeString else 0
+       //addUp(range.root)
 
-      if (debug)
-      {
-        println(
-          "// s.sum(" + format(l) + ", " + format(r) + ") // = " + format(total) +
-            " // " + format(check.foldLeft(0L)((sum, key) => if (l <= key && key <= r) sum + key else sum)) +
-            " // " + check.filter(key => (l <= key && key <= r)))
-      }
+       if (debug)
+       {
+         println(
+           "// s.sum(" + format(l) + ", " + format(r) + ") // = " + format(total) +
+             " // " + format(check.foldLeft(0L)((sum, key) => if (l <= key && key <= r) sum + key else sum)) +
+             " // " + check.filter(key => (l <= key && key <= r)))
+       }
 
-      merge(s._1, (new Set).merge(range, ignore))
+       merge(s._1, (new Set).merge(range, ignore))
 
-      total
-    }
+       total
+     }
+    */
 
-    def sumNextLoop(l: Int, r: Int): Long =
-    {
-      assert(l < M, "sum: hash")
-      assert(r < M, "sum: hash")
-      assert(l <= r, "sum: " + l + " > " + r)
-
-      var sum: Long = 0
-      var node = find(l)
-
-      while (null != node && node.key <= r)
-      {
-        if (l <= node.key && node.key <= r) sum += node.key
-        node = next(node)
-      }
-
-      if (debug)
-      {
-        println(
-          "// s.s(" + format(l) + ", " + format(r) + ") // = " + format(sum) +
-            " // " + format(check.foldLeft(0L)((sum, key) => if (l <= key && key <= r) sum + key else sum)) +
-            " // " + check.filter(key => (l <= key && key <= r)))
-      }
-
-      sum
-    }
-
-
-    def next(node: Tree): Tree =
-    {
-      @tailrec
-      def leftDescendent(node: Tree): Tree =
-      {
-        if (node.left == null) node
-        else leftDescendent(node.left)
-      }
-
-      @tailrec
-      def rightAncestor(node: Tree): Tree =
-      {
-        if (node.parent == null) null
-        else
-        {
-          if (node.parent.key > node.key) node.parent else rightAncestor(node.parent)
-
-        }
-      }
-
-      if (node == null) null
-      else
-      {
-        if (node.right != null) leftDescendent(node.right)
-        else rightAncestor(node)
-      }
-
-    }
-
-    def findNext(i: Int): Tree = next(find(i))
+    //def findNext(i: Int): Tree = next(find(i))
 
     def isBinarySearch: Boolean =
     {
-      def core(node: Tree, min: Tree, max: Tree): Boolean =
+      def core(node: NodePos, min: NodePos, max: NodePos): Boolean =
       {
-        def checkMin(min: Tree, node: Tree): Boolean =
+        def checkMin(min: NodePos, node: NodePos): Boolean =
         {
           if (null == node || null == min) true
-          else min.key < node.key
+          else min.absPos < node.absPos
         }
 
-        def checkMax(node: Tree, max: Tree): Boolean =
+        def checkMax(node: NodePos, max: NodePos): Boolean =
         {
           if (null == max || null == node) true
-          else node.key < max.key
+          else node.absPos < max.absPos
         }
 
         if (node == null) true
         else checkMin(min, node) && checkMax(node, max) && core(node.left, min, node) && core(node.right, node, max)
       }
 
-      core(root, null, null)
+      core(root.withPos(0), NodePos(null, Int.MaxValue), NodePos(null, Int.MinValue))
     }
-
-    ////////////////////////////////
-    def +(arg: Int): Set =
-    {
-      val i = hash(arg)
-      add(i)
-      this
-    }
-
-    def -(arg: Int): Set =
-    {
-      val i = hash(arg)
-      del(i)
-      this
-    }
-
-    def ?(arg: Int): String =
-    {
-      val i = hash(arg)
-      if (exists(i)) "Found" else "Not found"
-    }
-
-    def s(larg: Int, rarg: Int) =
-    {
-      val l = hash(larg)
-      val r = hash(rarg)
-      val ret = if (l <= r) sum(l, r) else sum(r, l)
-      lastSum = ret
-      ret
-    }
-
   }
 
   def main(args: Array[String]) =
@@ -689,10 +754,9 @@ object Rope
     val text = s.next()
     val n = s.nextInt()
 
-    for(i <- 0 to n-1)
+    for (i <- 0 to n - 1)
     {
       val op = Op(s.nextInt, s.nextInt, s.nextInt)
     }
   }
 }
-*/

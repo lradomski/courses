@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="64c9de5a-9204-46d8-bed2-5032ea4dae28" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/week6/RangeSum.scala" afterPath="$PROJECT_DIR$/src/main/scala/week6/RangeSum.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/week6/Rope.scala" afterPath="$PROJECT_DIR$/src/main/scala/week6/Rope.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/SetSuite.scala" afterPath="$PROJECT_DIR$/src/test/scala/SetSuite.scala" />
     </list>
     <ignored path="data.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,23 +82,16 @@
       <file leaf-file-name="Rope.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/week6/Rope.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="586">
-              <caret line="697" column="2" selection-start-line="697" selection-start-column="2" selection-end-line="697" selection-end-column="2" />
+            <state relative-caret-position="-927">
+              <caret line="673" column="0" selection-start-line="672" selection-start-column="0" selection-end-line="673" selection-end-column="0" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RangeSum.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/week6/RangeSum.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
-              <folding>
-                <element signature="e#369#2483#1" expanded="false" />
-                <element signature="e#2499#16038#1" expanded="false" />
+                <element signature="e#9616#10772#0" expanded="false" />
+                <element signature="e#10778#10951#0" expanded="false" />
+                <element signature="e#11001#11150#0" expanded="false" />
+                <element signature="e#11158#11881#0" expanded="false" />
+                <element signature="e#11890#12019#0" expanded="false" />
+                <element signature="e#12051#12674#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -288,36 +279,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="week6" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sbt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="week6" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RangeSum.scala" />
-              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1062,7 +1023,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485840460063</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Week6 - Rope (in progress)">
+      <created>1485868070644</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1485868070644</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1181,7 +1149,8 @@
     <MESSAGE value="Week3 - MakeHeap(own heap) + JobQueue(own heap)" />
     <MESSAGE value="Week3 - MakeHeap(own heap) + JobQueue(own heap) + MergeTables" />
     <MESSAGE value="Week4 - Substring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Week4 - Substring" />
+    <MESSAGE value="Week6 - Rope (in progress)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Week6 - Rope (in progress)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1269,7 +1238,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="41" />
+      <option name="time" value="43" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="ScalaTestRunConfiguration">
@@ -1531,13 +1500,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-510">
           <caret line="142" column="10" selection-start-line="142" selection-start-column="10" selection-end-line="142" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#711#836#0" expanded="false" />
-            <element signature="e#861#968#0" expanded="false" />
-            <element signature="e#1024#1112#0" expanded="false" />
-            <element signature="e#1320#1514#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1581,16 +1544,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/week4/SubstringTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/week4/Substring.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -1620,12 +1573,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/week4/SubstringTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/week6/Rope.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
-          <caret line="697" column="2" selection-start-line="697" selection-start-column="2" selection-end-line="697" selection-end-column="2" />
+        <state relative-caret-position="-927">
+          <caret line="673" column="0" selection-start-line="672" selection-start-column="0" selection-end-line="673" selection-end-column="0" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#9616#10772#0" expanded="false" />
+            <element signature="e#10778#10951#0" expanded="false" />
+            <element signature="e#11001#11150#0" expanded="false" />
+            <element signature="e#11158#11881#0" expanded="false" />
+            <element signature="e#11890#12019#0" expanded="false" />
+            <element signature="e#12051#12674#0" expanded="false" />
           </folding>
         </state>
       </provider>
