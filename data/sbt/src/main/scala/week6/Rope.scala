@@ -1,6 +1,8 @@
 import java.io.File
 import java.util.Scanner
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException
+
 import scala.annotation.tailrec
 
 object Rope
@@ -211,12 +213,8 @@ object Rope
     }
   }
 
-  class TextCutter(in: String)
+  class Set
   {
-    in.foldLeft(0)((i,ch) => { add(ch, i); i+1 })
-
-    def this() = this("")
-
     var root: Tree = null
     var count = 0
 
@@ -636,7 +634,7 @@ object Rope
     }
 
 
-    def split(x: Int): (TextCutter, TextCutter) =
+    def split(x: Int): (Set, Set) =
     {
 
       // TODO
@@ -674,9 +672,9 @@ object Rope
       if (right.isNotNull) right.setParent(EmptyNodePos)
 
       root = null
-      val setLeft = new TextCutter;
+      val setLeft = new Set;
       setLeft.root = left.n
-      val setRight = new TextCutter;
+      val setRight = new Set;
       setRight.root = right.n
       (setLeft, setRight)
     }
@@ -694,7 +692,7 @@ object Rope
       if (null != root) findMax(root.withPos(0)) else EmptyNodePos
     }
 
-    def merge(left: TextCutter, right: TextCutter): TextCutter =
+    def merge(left: Set, right: Set): Set =
     {
       assert(root == null)
       assert(left != null)
@@ -781,6 +779,22 @@ object Rope
     }
   }
 
+  class TextCutter(in: String)
+  {
+    private val s = new Set
+    in.foldLeft(0)((i,ch) => { s.add(ch, i); i+1 })
+
+    override def toString: String = new String(chars)
+    def chars = s.text
+
+    // TODO
+    def cutInsert(left: Int, right: Int, insert: Int) =
+    {
+      throw NotImplementedException
+    }
+
+  }
+
   def main(args: Array[String]) =
   {
     case class Op(left: Int, right: Int, insert: Int)
@@ -790,9 +804,16 @@ object Rope
     val text = s.next()
     val n = s.nextInt()
 
+    val cutter = new TextCutter(text)
     for (i <- 0 to n - 1)
     {
-      val op = Op(s.nextInt, s.nextInt, s.nextInt)
+      val left = s.nextInt
+      val right = s.nextInt
+      val insert = s.nextInt
+      cutter.cutInsert(left, right, insert)
     }
+
+    val out = cutter.toString
+    println(out)
   }
 }

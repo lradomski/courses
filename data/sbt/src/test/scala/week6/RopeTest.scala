@@ -1,4 +1,4 @@
-import Rope.{CharOffset, NodePos, EmptyNodePos, OffsetRange, Tree, TextCutter}
+import Rope.{CharOffset, NodePos, EmptyNodePos, OffsetRange, Tree, Set}
 import org.scalacheck.{Arbitrary, Gen}
 import org.scalacheck.Prop.forAll
 import org.scalatest.FunSuite
@@ -162,7 +162,7 @@ extends FunSuite with Checkers
     pnp.setLeft(l.withPos(0).setParent(pnp)).setRight(r.withPos(0).setParent(pnp))
     pnp.adjustHeight
 
-    val s = new TextCutter
+    val s = new Set
     s.root = p
 
     {
@@ -196,7 +196,7 @@ extends FunSuite with Checkers
     pnp.setLeft(l.withPos(0).setParent(pnp)).setRight(r.withPos(0).setParent(pnp))
     pnp.adjustHeight
 
-    val s = new TextCutter
+    val s = new Set
     s.root = p
 
     val a = s.find(0)
@@ -241,7 +241,7 @@ extends FunSuite with Checkers
     assert(bnp.n.range == OffsetRange(0, 1))
     assert(cnp.n.range == OffsetRange(0, 0))
 
-    val s = new TextCutter
+    val s = new Set
     s.root = anp.n
 
     s.rebalance(anp)
@@ -276,7 +276,7 @@ extends FunSuite with Checkers
     assert(bnp.n.range == OffsetRange(-1, 0))
     assert(anp.n.range == OffsetRange(0, 0))
 
-    val s = new TextCutter
+    val s = new Set
     s.root = cnp.n
 
     s.rebalance(cnp)
@@ -292,7 +292,7 @@ extends FunSuite with Checkers
 
   test("Tree-add/del/text")
   {
-    val s = new TextCutter
+    val s = new Set
 
     val in = "abc"
 
