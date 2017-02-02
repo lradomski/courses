@@ -298,15 +298,31 @@ extends FunSuite with Checkers
 
     in.foldLeft(0)((i,ch) => { s.add(ch, i); i+1 })
 
-    val out = s.text
+    val out = s.chars
 
     val ok = (in zip out).forall(lr => lr._1==lr._2)
     assert(ok)
 
     val ch = in(1)
     s.del(s.find(1))
-    val ok2 = (in.filter(_!=ch) zip s.text).forall(lr => lr._1==lr._2)
+    val ok2 = (in.filter(_!=ch) zip s.chars).forall(lr => lr._1==lr._2)
     assert(ok2)
   }
 
+  test("Tree-split")
+  {
+    val s = new Set
+
+    val in = "abcde"
+    in.foldLeft(0)((i,ch) => { s.add(ch, i); i+1 })
+
+    val idx = 2
+    val (before, after) = s.split(idx)
+
+    assert(before.text == in.substring(0,idx+1))
+
+    assert(after.text == in.substring(idx+1))
+
+
+  }
 }

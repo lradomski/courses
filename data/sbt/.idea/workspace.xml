@@ -2,8 +2,8 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/main/scala/week6/RangeSum.scala" />
-    <bookmark url="file://$PROJECT_DIR$/src/main/scala/week6/Rope.scala" line="119" />
-    <bookmark url="file://$PROJECT_DIR$/src/main/scala/week6/Rope.scala" line="137" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/scala/week6/Rope.scala" line="120" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/scala/week6/Rope.scala" line="138" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64c9de5a-9204-46d8-bed2-5032ea4dae28" name="Default" comment="">
@@ -63,15 +63,25 @@
       <file leaf-file-name="Rope.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/week6/Rope.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-6556">
-              <caret line="237" column="18" selection-start-line="237" selection-start-column="18" selection-end-line="237" selection-end-column="18" />
+            <state relative-caret-position="-728">
+              <caret line="700" column="212" selection-start-line="700" selection-start-column="212" selection-end-line="700" selection-end-column="212" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
-                <element signature="e#2736#5156#1" expanded="false" />
-                <element signature="e#3089#3692#0" expanded="false" />
-                <element signature="e#3698#4589#0" expanded="false" />
-                <element signature="e#4596#5152#0" expanded="false" />
+                <element signature="e#2758#5178#1" expanded="false" />
+                <element signature="e#3111#3714#0" expanded="false" />
+                <element signature="e#3720#4611#0" expanded="false" />
+                <element signature="e#4618#5174#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Predef.scala" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.11.2-sources.jar!/scala/Predef.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -79,8 +89,8 @@
       <file leaf-file-name="RopeTest.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/week6/RopeTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-968">
-              <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+            <state relative-caret-position="1360">
+              <caret line="316" column="33" selection-start-line="316" selection-start-column="33" selection-end-line="316" selection-end-column="33" />
               <folding>
                 <element signature="e#0#71#0" expanded="true" />
                 <element signature="e#1028#1837#0" expanded="false" />
@@ -88,8 +98,8 @@
                 <element signature="e#3699#4347#0" expanded="false" />
                 <element signature="e#4372#5032#0" expanded="false" />
                 <element signature="e#6000#6899#0" expanded="false" />
-                <marker date="1486014404000" expanded="false" signature="283:996" ph="(...)" />
-                <marker date="1486014404000" expanded="false" signature="2067:3675" ph="(...)" />
+                <marker date="1486073766000" expanded="false" signature="283:996" ph="(...)" />
+                <marker date="1486073766000" expanded="false" signature="2067:3675" ph="(...)" />
               </folding>
             </state>
           </provider>
@@ -417,22 +427,7 @@
       <recent name="org.scalatest.FunSuite" />
     </key>
   </component>
-  <component name="RunManager" selected="ScalaTest.RopeTest">
-    <configuration default="false" name="RopeTest.Tree-rebalance/left" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="sbt" />
-      <setting name="path" value="RopeTest" />
-      <setting name="package" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="Tree-rebalance/left" />
-      <setting name="testKind" value="Test name" />
-      <setting name="showProgressMessages" value="true" />
-      <envs />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="ScalaTest.RopeTest.Tree-split">
     <configuration default="false" name="RopeTest.Tree-rebalance/right" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="sbt" />
@@ -489,6 +484,21 @@
       <setting name="searchForTest" value="Across module dependencies" />
       <setting name="testName" value="" />
       <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="RopeTest.Tree-split" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="sbt" />
+      <setting name="path" value="RopeTest" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="Tree-split" />
+      <setting name="testKind" value="Test name" />
       <setting name="showProgressMessages" value="true" />
       <envs />
       <method />
@@ -737,19 +747,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Application.RangeSum-console" />
-      <item index="1" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-rebalance/left" />
-      <item index="2" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-rebalance/right" />
-      <item index="3" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-add/text" />
-      <item index="4" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-add/del/text" />
-      <item index="5" class="java.lang.String" itemvalue="ScalaTest.RopeTest" />
+      <item index="1" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-rebalance/right" />
+      <item index="2" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-add/text" />
+      <item index="3" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-add/del/text" />
+      <item index="4" class="java.lang.String" itemvalue="ScalaTest.RopeTest" />
+      <item index="5" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-split" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="ScalaTest.RopeTest" />
-        <item index="1" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-add/del/text" />
-        <item index="2" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-add/text" />
-        <item index="3" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-rebalance/right" />
-        <item index="4" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-rebalance/left" />
+        <item index="0" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-split" />
+        <item index="1" class="java.lang.String" itemvalue="ScalaTest.RopeTest" />
+        <item index="2" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-add/del/text" />
+        <item index="3" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-add/text" />
+        <item index="4" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-rebalance/right" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
@@ -1129,39 +1139,46 @@
       <option name="project" value="LOCAL" />
       <updated>1486014237983</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Week6 - Rope (in progress)">
+      <created>1486014955175</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1486014955175</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RopeTest - 2017.02.02 at 00h 43m 30s.xml">
-      <configuration name="RopeTest" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_Tree-split - 2017.02.02 at 16h 59m 28s.xml">
+      <configuration name="RopeTest.Tree-split" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="RopeTest_Tree-add_del_text - 2017.02.02 at 00h 33m 15s.xml">
-      <configuration name="RopeTest.Tree-add/del/text" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_Tree-split - 2017.02.02 at 17h 00m 00s.xml">
+      <configuration name="RopeTest.Tree-split" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="RopeTest_Tree-add_text - 2017.02.02 at 00h 25m 04s.xml">
-      <configuration name="RopeTest.Tree-add/text" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_Tree-split - 2017.02.02 at 17h 11m 14s.xml">
+      <configuration name="RopeTest.Tree-split" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="RopeTest_Tree-add_text - 2017.02.02 at 00h 26m 43s.xml">
-      <configuration name="RopeTest.Tree-add/text" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_Tree-split - 2017.02.02 at 17h 13m 04s.xml">
+      <configuration name="RopeTest.Tree-split" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="RopeTest_Tree-add_text - 2017.02.02 at 00h 28m 26s.xml">
-      <configuration name="RopeTest.Tree-add/text" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_Tree-split - 2017.02.02 at 17h 36m 30s.xml">
+      <configuration name="RopeTest.Tree-split" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="RopeTest_Tree-add_text - 2017.02.02 at 00h 30m 33s.xml">
-      <configuration name="RopeTest.Tree-add/text" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_Tree-split - 2017.02.02 at 17h 38m 04s.xml">
+      <configuration name="RopeTest.Tree-split" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="RopeTest_Tree-add_text - 2017.02.02 at 00h 33m 08s.xml">
-      <configuration name="RopeTest.Tree-add/text" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_Tree-split - 2017.02.02 at 17h 46m 02s.xml">
+      <configuration name="RopeTest.Tree-split" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="RopeTest_Tree-rebalance - 2017.02.02 at 00h 05m 45s.xml">
-      <configuration name="RopeTest.Tree-rebalance" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_Tree-split - 2017.02.02 at 17h 47m 50s.xml">
+      <configuration name="RopeTest.Tree-split" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="RopeTest_Tree-rebalance_left - 2017.02.02 at 00h 05m 51s.xml">
-      <configuration name="RopeTest.Tree-rebalance/left" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_Tree-split - 2017.02.02 at 17h 49m 11s.xml">
+      <configuration name="RopeTest.Tree-split" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="RopeTest_Tree-rebalance_right - 2017.02.02 at 00h 08m 19s.xml">
-      <configuration name="RopeTest.Tree-rebalance/right" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_Tree-split - 2017.02.02 at 17h 49m 53s.xml">
+      <configuration name="RopeTest.Tree-split" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -1175,7 +1192,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35309973" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2574124" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1349,7 +1366,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="49" />
+      <option name="time" value="50" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="ScalaTestRunConfiguration">
@@ -1365,21 +1382,16 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/scala/SetSuite.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7769">
-          <caret line="457" column="39" selection-start-line="457" selection-start-column="30" selection-end-line="457" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/RangeSum.scala" />
     <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.11.2-sources.jar!/scala/Predef.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2788">
           <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="e#541#596#0" expanded="false" />
+            <element signature="e#24035#24062#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1494,13 +1506,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/TreeOrder.sc" />
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.11.2-sources.jar!/scala/Predef.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../scala/ds.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1693,10 +1698,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="1933" column="5" selection-start-line="1933" selection-start-column="5" selection-end-line="1933" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/week6/RopeTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-968">
-          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+        <state relative-caret-position="1360">
+          <caret line="316" column="33" selection-start-line="316" selection-start-column="33" selection-end-line="316" selection-end-column="33" />
           <folding>
             <element signature="e#0#71#0" expanded="true" />
             <element signature="e#1028#1837#0" expanded="false" />
@@ -1704,22 +1717,30 @@
             <element signature="e#3699#4347#0" expanded="false" />
             <element signature="e#4372#5032#0" expanded="false" />
             <element signature="e#6000#6899#0" expanded="false" />
-            <marker date="1486014404000" expanded="false" signature="283:996" ph="(...)" />
-            <marker date="1486014404000" expanded="false" signature="2067:3675" ph="(...)" />
+            <marker date="1486073766000" expanded="false" signature="283:996" ph="(...)" />
+            <marker date="1486073766000" expanded="false" signature="2067:3675" ph="(...)" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.11.2-sources.jar!/scala/Predef.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/week6/Rope.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6556">
-          <caret line="237" column="18" selection-start-line="237" selection-start-column="18" selection-end-line="237" selection-end-column="18" />
+        <state relative-caret-position="-728">
+          <caret line="700" column="212" selection-start-line="700" selection-start-column="212" selection-end-line="700" selection-end-column="212" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#2736#5156#1" expanded="false" />
-            <element signature="e#3089#3692#0" expanded="false" />
-            <element signature="e#3698#4589#0" expanded="false" />
-            <element signature="e#4596#5152#0" expanded="false" />
+            <element signature="e#2758#5178#1" expanded="false" />
+            <element signature="e#3111#3714#0" expanded="false" />
+            <element signature="e#3720#4611#0" expanded="false" />
+            <element signature="e#4618#5174#0" expanded="false" />
           </folding>
         </state>
       </provider>
