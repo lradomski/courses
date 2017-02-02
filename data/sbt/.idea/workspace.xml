@@ -2,11 +2,15 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/main/scala/week6/RangeSum.scala" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/scala/week6/Rope.scala" line="117" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/scala/week6/Rope.scala" line="135" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64c9de5a-9204-46d8-bed2-5032ea4dae28" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/scala/week6/RopeTest.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/week6/Rope.scala" afterPath="$PROJECT_DIR$/src/main/scala/week6/Rope.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/week4/SubstringTest.scala" afterPath="$PROJECT_DIR$/src/test/scala/week4/SubstringTest.scala" />
     </list>
     <ignored path="data.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,64 +61,59 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Substring.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/week4/Substring.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SubstringTest.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/week4/SubstringTest.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Rope.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/week6/Rope.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-927">
-              <caret line="673" column="0" selection-start-line="672" selection-start-column="0" selection-end-line="673" selection-end-column="0" />
+            <state relative-caret-position="-317">
+              <caret line="218" column="0" selection-start-line="218" selection-start-column="0" selection-end-line="218" selection-end-column="0" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
-                <element signature="e#9616#10772#0" expanded="false" />
-                <element signature="e#10778#10951#0" expanded="false" />
-                <element signature="e#11001#11150#0" expanded="false" />
-                <element signature="e#11158#11881#0" expanded="false" />
-                <element signature="e#11890#12019#0" expanded="false" />
-                <element signature="e#12051#12674#0" expanded="false" />
+                <element signature="e#2665#5085#1" expanded="false" />
+                <element signature="e#3018#3621#0" expanded="false" />
+                <element signature="e#3627#4518#0" expanded="false" />
+                <element signature="e#4525#5081#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SetSuite.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/SetSuite.scala">
+      <file leaf-file-name="RopeTest.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/scala/week6/RopeTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+            <state relative-caret-position="-968">
+              <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
               <folding>
-                <element signature="e#0#31#0" expanded="true" />
+                <element signature="e#0#78#0" expanded="true" />
+                <element signature="e#1035#1844#0" expanded="false" />
+                <element signature="e#1873#2022#0" expanded="false" />
+                <element signature="e#3706#4361#0" expanded="false" />
+                <element signature="e#4386#5053#0" expanded="false" />
+                <element signature="e#6028#6934#0" expanded="false" />
+                <marker date="1486013771000" expanded="false" signature="290:1003" ph="(...)" />
+                <marker date="1486013771000" expanded="false" signature="2074:3682" ph="(...)" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="heap.sc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/week3/heap/heap.sc">
+      <file leaf-file-name="Rope.sc" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/week6/Rope.sc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RangeSum.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/week6/RangeSum.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="116">
+              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+              <folding>
+                <element signature="e#2499#16038#1" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -161,9 +160,10 @@
         <option value="$PROJECT_DIR$/src/test/scala/week4/Substring$Test.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/week3/heap/heap.sc" />
         <option value="$PROJECT_DIR$/src/main/scala/week4/Substring.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/week4/SubstringTest.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/week6/RangeSum.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/SetSuite.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/week4/SubstringTest.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/week6/RopeTest.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/week6/Rope.scala" />
       </list>
     </option>
@@ -230,6 +230,66 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sbt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="week6" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sbt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="week4" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -303,6 +363,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="week6" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RangeSum.scala" />
+              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sbt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="week4" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -314,12 +404,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../scala/src/tree/bintree.scala" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="ScalaTest" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="week6" />
       <recent name="week4" />
       <recent name="week3.heap" />
     </key>
@@ -327,83 +418,78 @@
       <recent name="org.scalatest.FunSuite" />
     </key>
   </component>
-  <component name="RunManager" selected="ScalaTest.SubstringTest.substring">
-    <configuration default="false" name="MakeHeap" type="Application" factoryName="Application" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="MakeHeap" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="sbt" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="MergeTables" type="Application" factoryName="Application" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="MergeTables" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="sbt" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="Substring" type="Application" factoryName="Application" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="week4.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="week4.Substring" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="sbt" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="SubstringTest.heap sort - new array" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+  <component name="RunManager" selected="ScalaTest.RopeTest">
+    <configuration default="false" name="RopeTest.Tree-rebalance/left" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="sbt" />
-      <setting name="path" value="week4.SubstringTest" />
+      <setting name="path" value="RopeTest" />
       <setting name="package" value="" />
       <setting name="vmparams" value="" />
       <setting name="params" value="" />
       <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
       <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="heap sort - new array" />
+      <setting name="testName" value="Tree-rebalance/left" />
       <setting name="testKind" value="Test name" />
       <setting name="showProgressMessages" value="true" />
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="SubstringTest.substring" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+    <configuration default="false" name="RopeTest.Tree-rebalance/right" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="sbt" />
-      <setting name="path" value="SubstringTest" />
+      <setting name="path" value="RopeTest" />
       <setting name="package" value="" />
       <setting name="vmparams" value="" />
       <setting name="params" value="" />
       <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
       <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="substring" />
+      <setting name="testName" value="Tree-rebalance/right" />
       <setting name="testKind" value="Test name" />
+      <setting name="showProgressMessages" value="true" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="RopeTest.Tree-add/text" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="sbt" />
+      <setting name="path" value="RopeTest" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="Tree-add/text" />
+      <setting name="testKind" value="Test name" />
+      <setting name="showProgressMessages" value="true" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="RopeTest.Tree-add/del/text" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="sbt" />
+      <setting name="path" value="RopeTest" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="Tree-add/del/text" />
+      <setting name="testKind" value="Test name" />
+      <setting name="showProgressMessages" value="true" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="RopeTest" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="sbt" />
+      <setting name="path" value="RopeTest" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
       <setting name="showProgressMessages" value="true" />
       <envs />
       <method />
@@ -652,19 +738,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Application.RangeSum-console" />
-      <item index="1" class="java.lang.String" itemvalue="Application.MakeHeap" />
-      <item index="2" class="java.lang.String" itemvalue="Application.MergeTables" />
-      <item index="3" class="java.lang.String" itemvalue="Application.Substring" />
-      <item index="4" class="java.lang.String" itemvalue="ScalaTest.SubstringTest.heap sort - new array" />
-      <item index="5" class="java.lang.String" itemvalue="ScalaTest.SubstringTest.substring" />
+      <item index="1" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-rebalance/left" />
+      <item index="2" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-rebalance/right" />
+      <item index="3" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-add/text" />
+      <item index="4" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-add/del/text" />
+      <item index="5" class="java.lang.String" itemvalue="ScalaTest.RopeTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="ScalaTest.SubstringTest.substring" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Substring" />
-        <item index="2" class="java.lang.String" itemvalue="ScalaTest.SubstringTest.heap sort - new array" />
-        <item index="3" class="java.lang.String" itemvalue="Application.MakeHeap" />
-        <item index="4" class="java.lang.String" itemvalue="Application.MergeTables" />
+        <item index="0" class="java.lang.String" itemvalue="ScalaTest.RopeTest" />
+        <item index="1" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-add/del/text" />
+        <item index="2" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-add/text" />
+        <item index="3" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-rebalance/right" />
+        <item index="4" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-rebalance/left" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
@@ -1030,39 +1116,46 @@
       <option name="project" value="LOCAL" />
       <updated>1485868070644</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Week6 - Rope (in progress)">
+      <created>1485930154897</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1485930154897</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="HeapTest - 2017.01.28 at 02h 31m 48s.xml">
-      <configuration name="HeapTest" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest - 2017.02.02 at 00h 43m 30s.xml">
+      <configuration name="RopeTest" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="SubstringTest_heap_sort_-_new_array - 2017.01.30 at 23h 57m 01s.xml">
-      <configuration name="SubstringTest.heap sort - new array" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_Tree-add_del_text - 2017.02.02 at 00h 33m 15s.xml">
+      <configuration name="RopeTest.Tree-add/del/text" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="SubstringTest_heap_sort_-_new_array - 2017.01.30 at 23h 58m 51s.xml">
-      <configuration name="SubstringTest.heap sort - new array" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_Tree-add_text - 2017.02.02 at 00h 25m 04s.xml">
+      <configuration name="RopeTest.Tree-add/text" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="SubstringTest_heap_sort_-_new_array - 2017.01.31 at 00h 02m 22s.xml">
-      <configuration name="SubstringTest.heap sort - new array" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_Tree-add_text - 2017.02.02 at 00h 26m 43s.xml">
+      <configuration name="RopeTest.Tree-add/text" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="SubstringTest_heap_sort_-_new_array - 2017.01.31 at 00h 03m 25s.xml">
-      <configuration name="SubstringTest.heap sort - new array" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_Tree-add_text - 2017.02.02 at 00h 28m 26s.xml">
+      <configuration name="RopeTest.Tree-add/text" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="SubstringTest_heap_sort_-_new_array - 2017.01.31 at 00h 06m 29s.xml">
-      <configuration name="SubstringTest.heap sort - new array" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_Tree-add_text - 2017.02.02 at 00h 30m 33s.xml">
+      <configuration name="RopeTest.Tree-add/text" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="SubstringTest_heap_sort_-_new_array - 2017.01.31 at 00h 06m 35s.xml">
-      <configuration name="SubstringTest.heap sort - new array" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_Tree-add_text - 2017.02.02 at 00h 33m 08s.xml">
+      <configuration name="RopeTest.Tree-add/text" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="SubstringTest_substring - 2017.01.31 at 00h 25m 17s.xml">
-      <configuration name="SubstringTest.substring" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_Tree-rebalance - 2017.02.02 at 00h 05m 45s.xml">
+      <configuration name="RopeTest.Tree-rebalance" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="SubstringTest_substring - 2017.01.31 at 00h 26m 54s.xml">
-      <configuration name="SubstringTest.substring" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_Tree-rebalance_left - 2017.02.02 at 00h 05m 51s.xml">
+      <configuration name="RopeTest.Tree-rebalance/left" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="SubstringTest_substring - 2017.01.31 at 00h 27m 11s.xml">
-      <configuration name="SubstringTest.substring" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_Tree-rebalance_right - 2017.02.02 at 00h 08m 19s.xml">
+      <configuration name="RopeTest.Tree-rebalance/right" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -1076,7 +1169,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35309973" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35309973" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1097,7 +1190,7 @@
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32884097" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884097" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="SBT" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1234,11 +1327,23 @@
           </properties>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/test/scala/week6/RopeTest.scala</url>
+          <line>110</line>
+          <properties />
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/test/scala/week6/RopeTest.scala</url>
+          <line>119</line>
+          <properties />
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="43" />
+      <option name="time" value="49" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="ScalaTestRunConfiguration">
@@ -1254,14 +1359,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/scala/RangeSum.sc" />
-    <entry file="file://$PROJECT_DIR$/../download/Programming-Assignment-4/set_range_sum/tests/20">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
-          <caret line="83" column="9" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/SetSuite.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7769">
@@ -1546,8 +1643,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/week4/Substring.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        <state relative-caret-position="154">
+          <caret line="62" column="7" selection-start-line="62" selection-start-column="7" selection-end-line="62" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/week6/Rope.sc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1562,39 +1667,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/week6/RangeSum.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
-          <folding>
-            <element signature="e#369#2483#1" expanded="false" />
-            <element signature="e#2499#16038#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/week4/SubstringTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+        <state relative-caret-position="306">
+          <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/week6/RangeSum.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <element signature="e#2499#16038#1" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/week6/RopeTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-968">
+          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#78#0" expanded="true" />
+            <element signature="e#1035#1844#0" expanded="false" />
+            <element signature="e#1873#2022#0" expanded="false" />
+            <element signature="e#3706#4361#0" expanded="false" />
+            <element signature="e#4386#5053#0" expanded="false" />
+            <element signature="e#6028#6934#0" expanded="false" />
+            <marker date="1486013771000" expanded="false" signature="290:1003" ph="(...)" />
+            <marker date="1486013771000" expanded="false" signature="2074:3682" ph="(...)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/week6/Rope.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-927">
-          <caret line="673" column="0" selection-start-line="672" selection-start-column="0" selection-end-line="673" selection-end-column="0" />
+        <state relative-caret-position="-317">
+          <caret line="218" column="0" selection-start-line="218" selection-start-column="0" selection-end-line="218" selection-end-column="0" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#9616#10772#0" expanded="false" />
-            <element signature="e#10778#10951#0" expanded="false" />
-            <element signature="e#11001#11150#0" expanded="false" />
-            <element signature="e#11158#11881#0" expanded="false" />
-            <element signature="e#11890#12019#0" expanded="false" />
-            <element signature="e#12051#12674#0" expanded="false" />
+            <element signature="e#2665#5085#1" expanded="false" />
+            <element signature="e#3018#3621#0" expanded="false" />
+            <element signature="e#3627#4518#0" expanded="false" />
+            <element signature="e#4525#5081#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -13,7 +13,7 @@ object Rope
     def absPos(pos: Int) = pos + off
   }
 
-  case class OffsetRange(var left: Int, var right: Int)
+  case class OffsetRange(  left: Int, var right: Int)
   {
     assert(left <= right, "left<=right (" + left + "," + right + ")")
 
@@ -24,11 +24,11 @@ object Rope
     override def toString = "[" + left + ":" + right + "]"
   }
 
-  val EmptyRange = OffsetRange(Int.MaxValue, Int.MinValue)
+  //val EmptyRange = OffsetRange(Int.MaxValue, Int.MinValue)
 
-  case class NodePos(n: Tree, parentPos: Int)
+  case class NodePos(n: Tree, var parentPos: Int)
   {
-    val absPos = n.key.absPos(parentPos)
+    def absPos = if (n != null) n.key.absPos(parentPos) else 0
     assert(absPos >= 0, "absPos<0 (" + absPos + ")")
 
     def isNull = n == null
@@ -44,18 +44,22 @@ object Rope
 
     def parent = if (hasParent) NodePos(n.parent, parentPos - n.parent.key.off) else EmptyNodePos
 
-    def setParent(newParent: NodePos) =
+    def setParent(newParent: NodePos): NodePos =
     {
       if (newParent.isNotNull)
       {
-        n.key.off = absPos - parent.absPos
+        n.key.off = absPos - newParent.absPos
+        parentPos = newParent.absPos
         n.parent = newParent.n
       }
       else
       {
         n.key.off = absPos
+        parentPos = 0
         n.parent = null
       }
+
+      this
     }
 
     def left = NodePos(n.left, absPos)
@@ -64,16 +68,20 @@ object Rope
 
     def hasNotLeft = n.left == null
 
-    def setLeft(newChild: NodePos) =
+    def setLeft(newChild: NodePos): NodePos =
     {
       n.left = newChild.n
       if (newChild.isNotNull)
       {
         assert(newChild.absPos < absPos)
-        //n.range.left = newChild.n.range.left
-        val absRange = n.range.toAbs(absPos)
-        n.range = OffsetRange(newChild.n.range.toAbs(newChild.absPos).left, absRange.right).toRel(absPos)
+//        val absRange = n.range.toAbs(absPos)
+//        n.range = OffsetRange(newChild.n.range.toAbs(newChild.absPos).left, absRange.right).toRel(absPos)
       }
+//      else
+//      {
+//        n.range = OffsetRange(0, n.range.right)
+//      }
+      this
     }
 
     def right = NodePos(n.right, absPos)
@@ -88,10 +96,15 @@ object Rope
       if (newChild.isNotNull)
       {
         assert(absPos < newChild.absPos)
-        //n.range.right = newChild.n.range.right
-        val absRange = n.range.toAbs(absPos)
-        n.range = OffsetRange(absRange.left, newChild.n.range.toAbs(newChild.absPos).right).toRel(absPos)
+//        val absRange = n.range.toAbs(absPos)
+//        n.range = OffsetRange(absRange.left, newChild.n.range.toAbs(newChild.absPos).right).toRel(absPos)
       }
+//      else
+//      {
+//        n.range = OffsetRange(n.range.left, 0)
+//      }
+
+      this
     }
 
     def adjustHeight = n.adjustHeight
@@ -103,7 +116,7 @@ object Rope
   class Tree(var left: Tree, var right: Tree, var parent: Tree, var key: CharOffset)
   {
     var height: Int = 1
-    var range = OffsetRange(key.off, key.off)
+    var range = OffsetRange(0, 0)
 
     def reset(): Unit =
     {
@@ -123,10 +136,12 @@ object Rope
     def adjustHeight: Unit =
     {
       val old = (height, range)
-      val (lh, lr) = if (left != null) (left.height, left.range) else (0, EmptyRange)
-      val (rh, rr) = if (right != null) (right.height, right.range) else (0, EmptyRange)
+
+      // adjust child ranges so they're relative to this one (using their offset)
+      val (lh, lleft) = if (left != null) (left.height, left.range.toAbs(left.key.off).left) else (0,0)
+      val (rh, rright) = if (right != null) (right.height, right.range.toAbs(right.key.off).right) else (0,0)
       height = 1 + math.max(lh, rh)
-      val newRange = OffsetRange(Math.min(lr.left, range.left), Math.max(range.right, rr.right)) // TODO: assign to range ?
+      val newRange = OffsetRange(lleft, rright) // TODO: assign to range ?
 
       if (old != (height, newRange))
       {
@@ -181,7 +196,7 @@ object Rope
           val s = " " * indent
 
           val ok = "" //if (isBinarySearch) "" else " (?)"
-        val sum = " (" + key + range + ") "
+        val sum = " (" + range + ") "
 
           val ret = "\n" + s + "[ " + t.key + sum + ok + "\n" +
             s + "  <<<" + toString(t.left, indent + 5) + "\n" +
@@ -196,15 +211,14 @@ object Rope
     }
   }
 
-  class Set
+  class TextCutter(in: String)
   {
-    //  class Tree(left: Node[Int], right: Node[Int], parent: Node[Int], key: Int) extends Node[Int](left, right, parent, key)
-    //  {
-    //    override def ownSum: Int = key
-    //  }
-    //  type Tree = Node[Int]
+    in.foldLeft(0)((i,ch) => { add(ch, i); i+1 })
+
+    def this() = this("")
 
     var root: Tree = null
+    var count = 0
 
     def get = root
 
@@ -218,6 +232,25 @@ object Rope
     override def toString: String =
     {
       if (null == root) "[]" else root.toString
+    }
+
+    def text =
+    {
+
+      val a = new Array[Char](count)
+
+      def core(np: NodePos): Unit =
+      {
+        assert(0 <= np.absPos)
+        assert(np.absPos < a.length, "np.absPos < a.length: (" + np.absPos + "," + a.length + ")")
+        a(np.absPos) = np.n.key.char
+
+        if (np.hasLeft) core(np.left)
+        if (np.hasRight) core(np.right)
+      }
+
+      core( root.withPos(0) )
+      a
     }
 
     def format(i: Long): String = i.toString
@@ -297,7 +330,6 @@ object Rope
     }
 
 
-    // TODO
     def rebalance(node: NodePos): NodePos =
     {
       def updateParent(in: NodePos, out: NodePos, parent: NodePos): Unit =
@@ -416,6 +448,7 @@ object Rope
         if (null == root)
         {
           assert(pos == 0)
+          count += 1
           root = new Tree(null, null, null, CharOffset(ch, pos))
           root.withPos(0)
         }
@@ -426,12 +459,14 @@ object Rope
           if (i < parent.absPos)
           {
             assert(!parent.hasLeft, "add: parent.left")
+            count += 1
             parent.n.left = new Tree(null, null, parent.n, CharOffset(ch, pos))
             parent.left
           }
           else if (parent.absPos < i)
           {
             assert(!parent.hasRight, "add: parent.right")
+            count += 1
             parent.n.right = new Tree(null, null, parent.n, CharOffset(ch, pos - parent.absPos))
             parent.right
           }
@@ -452,6 +487,7 @@ object Rope
       val node = find(i)
       if (node.isNotNull && node.absPos == i)
       {
+        count -= 1
         del(node)
         true
       }
@@ -600,7 +636,7 @@ object Rope
     }
 
 
-    def split(x: Int): (Set, Set) =
+    def split(x: Int): (TextCutter, TextCutter) =
     {
 
       // TODO
@@ -638,9 +674,9 @@ object Rope
       if (right.isNotNull) right.setParent(EmptyNodePos)
 
       root = null
-      val setLeft = new Set;
+      val setLeft = new TextCutter;
       setLeft.root = left.n
-      val setRight = new Set;
+      val setRight = new TextCutter;
       setRight.root = right.n
       (setLeft, setRight)
     }
@@ -658,7 +694,7 @@ object Rope
       if (null != root) findMax(root.withPos(0)) else EmptyNodePos
     }
 
-    def merge(left: Set, right: Set): Set =
+    def merge(left: TextCutter, right: TextCutter): TextCutter =
     {
       assert(root == null)
       assert(left != null)
