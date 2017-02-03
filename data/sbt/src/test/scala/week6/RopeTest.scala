@@ -458,85 +458,85 @@ extends FunSuite with Checkers
     //println(c)
   }
 
-  test("TextCutter-cutInsert/gen3")
-  {
-    val strGen = (n: Int) => Gen.listOfN(n, Gen.alphaChar).map(_.mkString)
-    //val s = "abcde"
+//  test("TextCutter-cutInsert/gen3")
+//  {
+//    val strGen = (n: Int) => Gen.listOfN(n, Gen.alphaChar).map(_.mkString)
+//    //val s = "abcde"
+//
+//    val ranges =
+//      for {
+//        s <- strGen(300*1000)
+//        l <- Gen.choose(0,s.length-1)
+//        r <- Gen.choose(l, s.length-1)
+//        ins <- Gen.choose(0, s.length-(r-l+1))
+//      } yield (s,l,r, ins)
+//
+//    //    val gen = ranges
+//    val gen = ranges suchThat (slri =>
+//    {
+//      val (s,l,r,i) = slri
+//      0 <= l && l <= r && r < s.length  &&
+//        0 < r-l+1 &&
+//        0 <= i && i <= s.length-(r-l+1)
+//      //true
+//    }) // Arbitrary.arbitrary[(Int,Int)]
+//
+//
+//    check
+//    {
+//
+//      forAll(gen)
+//      {
+//        case (s,l,r,ins) =>
+//        {
+//          verify(s, l, r, ins)
+//          true
+//        }
+//      }
+//    }
+//
+//  }
 
-    val ranges =
-      for {
-        s <- strGen(300*1000)
-        l <- Gen.choose(0,s.length-1)
-        r <- Gen.choose(l, s.length-1)
-        ins <- Gen.choose(0, s.length-(r-l+1))
-      } yield (s,l,r, ins)
-
-    //    val gen = ranges
-    val gen = ranges suchThat (slri =>
-    {
-      val (s,l,r,i) = slri
-      0 <= l && l <= r && r < s.length  &&
-        0 < r-l+1 &&
-        0 <= i && i <= s.length-(r-l+1)
-      //true
-    }) // Arbitrary.arbitrary[(Int,Int)]
-
-
-    check
-    {
-
-      forAll(gen)
-      {
-        case (s,l,r,ins) =>
-        {
-          verify(s, l, r, ins)
-          true
-        }
-      }
-    }
-
-  }
-
-  test("TextCutter-cutInsert/gen4")
-  {
-    check
-    {
-      val strGen = (n: Int) => Gen.listOfN(n, Gen.alphaChar).map(_.mkString)
-
-      forAll(strGen(300*1000))
-      {
-        case in =>
-        {
-          val tc = new TextCutter(in)
-          var s = in
-          val cuts =
-            for
-            {
-              l <- Gen.choose(0, s.length - 1)
-              r <- Gen.choose(l, s.length - 1)
-              ins <- Gen.choose(0, s.length - (r - l + 1))
-            } yield (l, r, ins)
-
-          val gen = cuts suchThat (lri =>
-          {
-            val (l, r, i) = lri
-            0 <= l && l <= r && r < s.length &&
-              0 < r - l + 1 &&
-              0 <= i && i <= s.length - (r - l + 1)
-          })
-
-          forAll(gen)
-          {
-            case (l, r, ins) =>
-            {
-              s = verify(tc, s, l, r, ins)
-              true
-            }
-          }
-        }
-      }
-    }
-  }
+//  test("TextCutter-cutInsert/gen4")
+//  {
+//    check
+//    {
+//      val strGen = (n: Int) => Gen.listOfN(n, Gen.alphaChar).map(_.mkString)
+//
+//      forAll(strGen(300*1000))
+//      {
+//        case in =>
+//        {
+//          val tc = new TextCutter(in)
+//          var s = in
+//          val cuts =
+//            for
+//            {
+//              l <- Gen.choose(0, s.length - 1)
+//              r <- Gen.choose(l, s.length - 1)
+//              ins <- Gen.choose(0, s.length - (r - l + 1))
+//            } yield (l, r, ins)
+//
+//          val gen = cuts suchThat (lri =>
+//          {
+//            val (l, r, i) = lri
+//            0 <= l && l <= r && r < s.length &&
+//              0 < r - l + 1 &&
+//              0 <= i && i <= s.length - (r - l + 1)
+//          })
+//
+//          forAll(gen)
+//          {
+//            case (l, r, ins) =>
+//            {
+//              s = verify(tc, s, l, r, ins)
+//              true
+//            }
+//          }
+//        }
+//      }
+//    }
+//  }
 
   test("Set-del")
   {
