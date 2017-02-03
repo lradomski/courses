@@ -4,7 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/scala/week6/RangeSum.scala" />
     <bookmark url="file://$PROJECT_DIR$/src/main/scala/week6/Rope.scala" line="121" />
     <bookmark url="file://$PROJECT_DIR$/src/main/scala/week6/Rope.scala" line="139" />
-    <bookmark url="file://$PROJECT_DIR$/src/main/scala/week6/Rope.scala" line="607" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/scala/week6/Rope.scala" line="609" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64c9de5a-9204-46d8-bed2-5032ea4dae28" name="Default" comment="">
@@ -61,41 +61,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Rope.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Rope.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/week6/Rope.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3916">
-              <caret line="611" column="80" selection-start-line="611" selection-start-column="80" selection-end-line="611" selection-end-column="80" />
+            <state relative-caret-position="132">
+              <caret line="531" column="0" selection-start-line="531" selection-start-column="0" selection-end-line="531" selection-end-column="0" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
-                <element signature="e#2837#5259#1" expanded="false" />
-                <element signature="e#3190#3795#0" expanded="false" />
                 <element signature="e#3801#4692#0" expanded="false" />
                 <element signature="e#4699#5255#0" expanded="false" />
-                <element signature="e#11766#11915#0" expanded="false" />
-                <element signature="e#11923#12683#0" expanded="false" />
+                <element signature="e#11852#12001#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OutcomeOf.scala" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.ivy2/cache/org.scalatest/scalatest_2.11/srcs/scalatest_2.11-2.2.1-sources.jar!/org/scalatest/OutcomeOf.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="83" column="4" selection-start-line="83" selection-start-column="4" selection-end-line="83" selection-end-column="4" />
-              <folding>
-                <element signature="n#!!doc" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RopeTest.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RopeTest.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/week6/RopeTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="344" column="14" selection-start-line="344" selection-start-column="14" selection-end-line="344" selection-end-column="14" />
+            <state relative-caret-position="471">
+              <caret line="415" column="16" selection-start-line="415" selection-start-column="14" selection-end-line="415" selection-end-column="16" />
               <folding>
                 <element signature="e#0#83#0" expanded="true" />
                 <element signature="e#1040#1849#0" expanded="false" />
@@ -103,8 +88,7 @@
                 <element signature="e#3711#4359#0" expanded="false" />
                 <element signature="e#4384#5044#0" expanded="false" />
                 <element signature="e#6012#6911#0" expanded="false" />
-                <marker date="1486089467000" expanded="false" signature="295:1008" ph="(...)" />
-                <marker date="1486089467000" expanded="false" signature="2079:3687" ph="(...)" />
+                <marker date="1486094881000" expanded="false" signature="2079:3687" ph="(...)" />
               </folding>
             </state>
           </provider>
@@ -123,11 +107,9 @@
       <file leaf-file-name="RangeSum.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/week6/RangeSum.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-              <folding>
-                <element signature="e#2499#16038#1" expanded="false" />
-              </folding>
+            <state relative-caret-position="-1007">
+              <caret line="182" column="8" selection-start-line="182" selection-start-column="8" selection-end-line="182" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -177,8 +159,8 @@
         <option value="$PROJECT_DIR$/src/main/scala/week6/RangeSum.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/SetSuite.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/week4/SubstringTest.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/week6/Rope.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/week6/RopeTest.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/week6/Rope.scala" />
       </list>
     </option>
   </component>
@@ -432,52 +414,7 @@
       <recent name="org.scalatest.FunSuite" />
     </key>
   </component>
-  <component name="RunManager" selected="ScalaTest.RopeTest.TextCutter-cutInsert/1">
-    <configuration default="false" name="RopeTest.Tree-add/text" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="sbt" />
-      <setting name="path" value="RopeTest" />
-      <setting name="package" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="Tree-add/text" />
-      <setting name="testKind" value="Test name" />
-      <setting name="showProgressMessages" value="true" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="RopeTest.Tree-add/del/text" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="sbt" />
-      <setting name="path" value="RopeTest" />
-      <setting name="package" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="Tree-add/del/text" />
-      <setting name="testKind" value="Test name" />
-      <setting name="showProgressMessages" value="true" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="RopeTest" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="sbt" />
-      <setting name="path" value="RopeTest" />
-      <setting name="package" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="" />
-      <setting name="testKind" value="Class" />
-      <setting name="showProgressMessages" value="true" />
-      <envs />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="ScalaTest.RopeTest.TextCutter-cutInsert/gen1">
     <configuration default="false" name="RopeTest.Tree-split" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="sbt" />
@@ -503,6 +440,51 @@
       <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
       <setting name="searchForTest" value="Across module dependencies" />
       <setting name="testName" value="TextCutter-cutInsert/1" />
+      <setting name="testKind" value="Test name" />
+      <setting name="showProgressMessages" value="true" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="RopeTest.TextCutter-cutInsert/2" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="sbt" />
+      <setting name="path" value="RopeTest" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="TextCutter-cutInsert/2" />
+      <setting name="testKind" value="Test name" />
+      <setting name="showProgressMessages" value="true" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="RopeTest.TextCutter-cutInsert/failed" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="sbt" />
+      <setting name="path" value="RopeTest" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="TextCutter-cutInsert/failed" />
+      <setting name="testKind" value="Test name" />
+      <setting name="showProgressMessages" value="true" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="RopeTest.TextCutter-cutInsert/gen1" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="sbt" />
+      <setting name="path" value="RopeTest" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="TextCutter-cutInsert/gen1" />
       <setting name="testKind" value="Test name" />
       <setting name="showProgressMessages" value="true" />
       <envs />
@@ -752,19 +734,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Application.RangeSum-console" />
-      <item index="1" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-add/text" />
-      <item index="2" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-add/del/text" />
-      <item index="3" class="java.lang.String" itemvalue="ScalaTest.RopeTest" />
-      <item index="4" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-split" />
-      <item index="5" class="java.lang.String" itemvalue="ScalaTest.RopeTest.TextCutter-cutInsert/1" />
+      <item index="1" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-split" />
+      <item index="2" class="java.lang.String" itemvalue="ScalaTest.RopeTest.TextCutter-cutInsert/1" />
+      <item index="3" class="java.lang.String" itemvalue="ScalaTest.RopeTest.TextCutter-cutInsert/2" />
+      <item index="4" class="java.lang.String" itemvalue="ScalaTest.RopeTest.TextCutter-cutInsert/failed" />
+      <item index="5" class="java.lang.String" itemvalue="ScalaTest.RopeTest.TextCutter-cutInsert/gen1" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="ScalaTest.RopeTest.TextCutter-cutInsert/1" />
-        <item index="1" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-split" />
-        <item index="2" class="java.lang.String" itemvalue="ScalaTest.RopeTest" />
-        <item index="3" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-add/del/text" />
-        <item index="4" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-add/text" />
+        <item index="0" class="java.lang.String" itemvalue="ScalaTest.RopeTest.TextCutter-cutInsert/gen1" />
+        <item index="1" class="java.lang.String" itemvalue="ScalaTest.RopeTest.TextCutter-cutInsert/failed" />
+        <item index="2" class="java.lang.String" itemvalue="ScalaTest.RopeTest.TextCutter-cutInsert/2" />
+        <item index="3" class="java.lang.String" itemvalue="ScalaTest.RopeTest.TextCutter-cutInsert/1" />
+        <item index="4" class="java.lang.String" itemvalue="ScalaTest.RopeTest.Tree-split" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
@@ -1158,39 +1140,46 @@
       <option name="project" value="LOCAL" />
       <updated>1486075812280</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Week6 - Rope (in progress)">
+      <created>1486089487963</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1486089487963</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RopeTest_TextCutter-cutInsert_1 - 2017.02.02 at 21h 10m 44s.xml">
-      <configuration name="RopeTest.TextCutter-cutInsert/1" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_TextCutter-cutInsert_failed - 2017.02.02 at 23h 22m 06s.xml">
+      <configuration name="RopeTest.TextCutter-cutInsert/failed" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="RopeTest_TextCutter-cutInsert_1 - 2017.02.02 at 21h 12m 11s.xml">
-      <configuration name="RopeTest.TextCutter-cutInsert/1" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_TextCutter-cutInsert_failed - 2017.02.02 at 23h 22m 26s.xml">
+      <configuration name="RopeTest.TextCutter-cutInsert/failed" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="RopeTest_TextCutter-cutInsert_1 - 2017.02.02 at 21h 18m 21s.xml">
-      <configuration name="RopeTest.TextCutter-cutInsert/1" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_TextCutter-cutInsert_failed - 2017.02.02 at 23h 29m 12s.xml">
+      <configuration name="RopeTest.TextCutter-cutInsert/failed" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="RopeTest_TextCutter-cutInsert_1 - 2017.02.02 at 21h 21m 36s.xml">
-      <configuration name="RopeTest.TextCutter-cutInsert/1" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_TextCutter-cutInsert_failed - 2017.02.02 at 23h 37m 05s.xml">
+      <configuration name="RopeTest.TextCutter-cutInsert/failed" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="RopeTest_TextCutter-cutInsert_1 - 2017.02.02 at 21h 25m 51s.xml">
-      <configuration name="RopeTest.TextCutter-cutInsert/1" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_TextCutter-cutInsert_failed - 2017.02.02 at 23h 37m 07s.xml">
+      <configuration name="RopeTest.TextCutter-cutInsert/failed" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="RopeTest_TextCutter-cutInsert_1 - 2017.02.02 at 21h 33m 12s.xml">
-      <configuration name="RopeTest.TextCutter-cutInsert/1" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_TextCutter-cutInsert_failed - 2017.02.02 at 23h 40m 02s.xml">
+      <configuration name="RopeTest.TextCutter-cutInsert/failed" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="RopeTest_TextCutter-cutInsert_1 - 2017.02.02 at 21h 34m 08s.xml">
-      <configuration name="RopeTest.TextCutter-cutInsert/1" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_TextCutter-cutInsert_failed - 2017.02.02 at 23h 45m 28s.xml">
+      <configuration name="RopeTest.TextCutter-cutInsert/failed" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="RopeTest_TextCutter-cutInsert_1 - 2017.02.02 at 21h 34m 27s.xml">
-      <configuration name="RopeTest.TextCutter-cutInsert/1" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_TextCutter-cutInsert_failed - 2017.02.02 at 23h 53m 41s.xml">
+      <configuration name="RopeTest.TextCutter-cutInsert/failed" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="RopeTest_TextCutter-cutInsert_1 - 2017.02.02 at 21h 37m 39s.xml">
-      <configuration name="RopeTest.TextCutter-cutInsert/1" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_TextCutter-cutInsert_failed - 2017.02.02 at 23h 53m 55s.xml">
+      <configuration name="RopeTest.TextCutter-cutInsert/failed" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="RopeTest_TextCutter-cutInsert_1 - 2017.02.02 at 21h 37m 52s.xml">
-      <configuration name="RopeTest.TextCutter-cutInsert/1" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="RopeTest_TextCutter-cutInsert_gen1 - 2017.02.02 at 23h 54m 08s.xml">
+      <configuration name="RopeTest.TextCutter-cutInsert/gen1" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -1376,15 +1365,39 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="scala-line">
           <url>file://$PROJECT_DIR$/src/main/scala/week6/Rope.scala</url>
-          <line>789</line>
+          <line>799</line>
           <properties />
-          <option name="timeStamp" value="52" />
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/main/scala/week6/Rope.scala</url>
+          <line>550</line>
+          <properties />
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/main/scala/week6/Rope.scala</url>
+          <line>76</line>
+          <properties />
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/main/scala/week6/Rope.scala</url>
+          <line>98</line>
+          <properties />
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/main/scala/week6/Rope.scala</url>
+          <line>52</line>
+          <properties />
+          <option name="timeStamp" value="65" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="54" />
+      <option name="time" value="67" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="ScalaTestRunConfiguration">
@@ -1699,33 +1712,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/week6/RangeSum.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <element signature="e#2499#16038#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="1933" column="5" selection-start-line="1933" selection-start-column="5" selection-end-line="1933" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.11.2-sources.jar!/scala/Predef.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#541#596#0" expanded="false" />
-            <element signature="e#24035#24062#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1739,26 +1730,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/week6/Rope.scala">
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.11.2-sources.jar!/scala/Predef.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3916">
-          <caret line="611" column="80" selection-start-line="611" selection-start-column="80" selection-end-line="611" selection-end-column="80" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#2837#5259#1" expanded="false" />
-            <element signature="e#3190#3795#0" expanded="false" />
-            <element signature="e#3801#4692#0" expanded="false" />
-            <element signature="e#4699#5255#0" expanded="false" />
-            <element signature="e#11766#11915#0" expanded="false" />
-            <element signature="e#11923#12683#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="174">
+          <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/week6/RangeSum.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1007">
+          <caret line="182" column="8" selection-start-line="182" selection-start-column="8" selection-end-line="182" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/week6/RopeTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="344" column="14" selection-start-line="344" selection-start-column="14" selection-end-line="344" selection-end-column="14" />
+        <state relative-caret-position="471">
+          <caret line="415" column="16" selection-start-line="415" selection-start-column="14" selection-end-line="415" selection-end-column="16" />
           <folding>
             <element signature="e#0#83#0" expanded="true" />
             <element signature="e#1040#1849#0" expanded="false" />
@@ -1766,8 +1757,20 @@
             <element signature="e#3711#4359#0" expanded="false" />
             <element signature="e#4384#5044#0" expanded="false" />
             <element signature="e#6012#6911#0" expanded="false" />
-            <marker date="1486089467000" expanded="false" signature="295:1008" ph="(...)" />
-            <marker date="1486089467000" expanded="false" signature="2079:3687" ph="(...)" />
+            <marker date="1486094881000" expanded="false" signature="2079:3687" ph="(...)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/week6/Rope.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="531" column="0" selection-start-line="531" selection-start-column="0" selection-end-line="531" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#3801#4692#0" expanded="false" />
+            <element signature="e#4699#5255#0" expanded="false" />
+            <element signature="e#11852#12001#0" expanded="false" />
           </folding>
         </state>
       </provider>

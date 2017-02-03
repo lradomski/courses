@@ -326,13 +326,19 @@ extends FunSuite with Checkers
 
   def naiveCutInsert(s: String, l: Int, r: Int, ins: Int): String =
   {
-    val noRange = (s.substring(0, l) + s.substring(r+1))
+    def core: String =
+    {
+      val noRange = (s.substring(0, l) + s.substring(r + 1))
 
-    val before = noRange.substring(0, ins)
-    val range = s.substring(l, r+1)
-    val after = noRange.substring(ins)
+      val before = noRange.substring(0, ins)
+      val range = s.substring(l, r + 1)
+      val after = noRange.substring(ins)
 
-    before + range + after
+      before + range + after
+    }
+
+    if (s.isEmpty) "" else core
+
   }
 
   test("TextCutter-cutInsert/1")
@@ -345,5 +351,69 @@ extends FunSuite with Checkers
     val out = tc.toString
     val test = naiveCutInsert(s, 1,2,2)
     assert(out == test)
+  }
+
+  def verify(s: String, l: Int, r: Int, ins: Int): String =
+  {
+    val tc = new TextCutter(s)
+    verify(tc, s, l, r, ins)
+
+  }
+
+  def verify(tc: TextCutter, s: String, l: Int, r: Int, ins: Int): String =
+  {
+    tc.cutInsert(l, r, ins)
+
+    val out = tc.toString
+    val test = naiveCutInsert(s, l, r, ins)
+    assert(out == test, out + "==" + test)
+    out
+
+  }
+
+  test("TextCutter-cutInsert/gen1")
+  {
+    //val s = "abcde"
+
+    val ranges =
+      for {
+        s <- Arbitrary.arbitrary[String]
+        l <- Gen.choose(0,s.length-1)
+        r <- Gen.choose(l, s.length-1)
+        ins <- Gen.choose(0, s.length-(r-l+1)-1)
+      } yield (s,l,r, ins)
+
+//    val gen = ranges
+    val gen = ranges suchThat (slri =>
+      {
+        val (s,l,r,i) = slri
+        0 <= l && l <= r && r < s.length  &&
+        0 < r-l+1 &&
+        0 <= i && i < s.length-(r-l+1)
+        //true
+      }) // Arbitrary.arbitrary[(Int,Int)]
+
+
+    check
+    {
+
+      forAll(gen)
+      {
+        case (s,l,r,ins) =>
+        {
+          verify(s, l, r, ins)
+          true
+        }
+      }
+    }
+
+  }
+
+  test("TextCutter-cutInsert/failed")
+  {
+//    verify("a",0,0,0)
+//    verify("abc",2,2,0)
+    verify("abcde",2,3,2)
+
   }
 }

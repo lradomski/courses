@@ -249,7 +249,7 @@ object Rope
         if (np.hasRight) core(np.right)
       }
 
-      core(root.withPos(0))
+      if (count > 0) core(root.withPos(0))
       a
     }
 
@@ -260,6 +260,9 @@ object Rope
     //java.text.NumberFormat.getIntegerInstance.format(i) // i.toString
 
     def height = if (root != null) root.height else 0
+
+    def isEmpty = root == null
+    def isNotEmpty = root != null
 
     def isBalanced = if (root != null) root.isBalanced else true
 
@@ -402,7 +405,7 @@ object Rope
         assert(node.isNotNull)
         assert(node.hasLeft)
 
-        if (h(node.left.right) > h(node.left.left)) rotateLeft(node)
+        if (h(node.left.right) > h(node.left.left)) rotateLeft(node.left)
         rotateRight(node)
       }
 
@@ -526,7 +529,6 @@ object Rope
         if (toPromote.isNotNull)
         {
           toPromote.setParent(newParent)
-          toPromote.n.key.off = toPromote.absPos
         }
         newParent
       }
@@ -680,7 +682,7 @@ object Rope
         }
       }
 
-      val (left, right) = splitCore(root.withPos(0), x)
+      val (left, right) = splitCore(asNodePos, x)
       if (left.isNotNull) left.setParent(EmptyNodePos)
       if (right.isNotNull) right.setParent(EmptyNodePos)
 
@@ -738,6 +740,7 @@ object Rope
       {
         val parent = left.max
         left.del(parent)
+        parent.n.range = OffsetRange(0,0)
         val rootPos = mergeWithRootAVL(left.asNodePos, right.asNodePos, parent)
         root = rootPos.n
         root.key.off = rootPos.absPos
@@ -753,61 +756,63 @@ object Rope
       this
     }
 
-
-    // TODO
     def cutInsert(l: Int, r: Int, ins: Int): Unit =
     {
+      if (count > 0) core(l, r, ins)
 
-      //    def addUp(node: Tree): Long =
-      //    {
-      //      if (null == node) 0
-      //      else addUp(node.left) + addUp(node.right) + node.key
-      //    }
-      assert(0 <= l)
-      assert(l <= r, "sum: left <= right ? (" + l + " > " + r + ")")
-      assert(r < count)
-      assert(0 <= ins)
-      val rangeLength = (r + 1 - l)
-      val noRangeLength = count - rangeLength
-      assert(ins < noRangeLength)
+      def core(l: Int, r: Int, ins: Int): Unit =
+      {
+        //    def addUp(node: Tree): Long =
+        //    {
+        //      if (null == node) 0
+        //      else addUp(node.left) + addUp(node.right) + node.key
+        //    }
+        assert(0 <= l)
+        assert(l <= r, "sum: left <= right ? (" + l + " > " + r + ")")
+        assert(r < count)
+        assert(0 <= ins)
+        val rangeLength = (r + 1 - l)
+        val noRangeLength = count - rangeLength
+        assert(if (noRangeLength > 0) ins < noRangeLength else ins==0)
 
-      val (before, rangeSuperset) = split(l - 1)
-      val (range, after) = rangeSuperset.split(r - l)
-      assert(before.asNodePos.range.length == OffsetRange(0, l - 1).length, "cutInsert: before: " + before.asNodePos.range.length + " == " + OffsetRange(0, l - 1).length)
-      assert(range.asNodePos.range.length == OffsetRange(0, rangeLength - 1).length, "cutInsert: range: " + range.asNodePos.range.length + " == " + OffsetRange(0, rangeLength - 1).length)
-      assert(after.asNodePos.range.length == OffsetRange(0, count - rangeLength - l - 1).length, "cutInsert: after: " + after.asNodePos.range.length + " == " + OffsetRange(0, count - rangeLength - l - 1).length)
+        val (before, rangeSuperset) = split(l - 1)
+        val (range, after) = rangeSuperset.split(r - l)
+        if (before.isNotEmpty) assert(before.asNodePos.range.length == OffsetRange(0, l - 1).length, "cutInsert: before: " + before.asNodePos.range.length + " == " + OffsetRange(0, l - 1).length)
+        if (range.isNotEmpty) assert(range.asNodePos.range.length == OffsetRange(0, rangeLength - 1).length, "cutInsert: range: " + range.asNodePos.range.length + " == " + OffsetRange(0, rangeLength - 1).length)
+        if (after.isNotEmpty) assert(after.asNodePos.range.length == OffsetRange(0, count - rangeLength - l - 1).length, "cutInsert: after: " + after.asNodePos.range.length + " == " + OffsetRange(0, count - rangeLength - l - 1).length)
 
-      // before [0,l-1] + after [now: l, noRangeCount-1]
-      if (after.root != null) after.root.key.off += l
-      val noRange = (new Set).merge(before, after)
-      assert(noRange.asNodePos.range.length == OffsetRange(0, noRangeLength - 1).length, "cutInsert: noRange: " + noRange.asNodePos.range.length + " == " + OffsetRange(0, noRangeLength - 1).length)
+        // before [0,l-1] + after [now: l, noRangeCount-1]
+        if (after.root != null) after.root.key.off += l
+        val noRange = (new Set).merge(before, after)
+        if (noRange.isNotEmpty) assert(noRange.asNodePos.range.length == OffsetRange(0, noRangeLength - 1).length, "cutInsert: noRange: " + noRange.asNodePos.range.length + " == " + OffsetRange(0, noRangeLength - 1).length)
 
-      val (newBefore, newAfter) = noRange.split(ins-1)
-      assert(newBefore.asNodePos.range.length == OffsetRange(0, ins - 1).length, "cutInsert: newBefore: " + newBefore.asNodePos.range.length + "== " + OffsetRange(0, ins - 1).length)
-      assert(newAfter.asNodePos.range.length == OffsetRange(0, noRangeLength - ins - 1).length, "cutInsert: newAfter: " + newAfter.asNodePos.range.length + " == " + OffsetRange(0, noRangeLength - ins - 1).length)
+        val (newBefore, newAfter) = noRange.split(ins - 1)
+        if (newBefore.isNotEmpty) assert(newBefore.asNodePos.range.length == OffsetRange(0, ins - 1).length, "cutInsert: newBefore: " + newBefore.asNodePos.range.length + "== " + OffsetRange(0, ins - 1).length)
+        if (newAfter.isNotEmpty) assert(newAfter.asNodePos.range.length == OffsetRange(0, noRangeLength - ins - 1).length, "cutInsert: newAfter: " + newAfter.asNodePos.range.length + " == " + OffsetRange(0, noRangeLength - ins - 1).length)
 
-      // newBefore [0, ins-1] + range [now: ins, ins + rangeCount-1] + newAfter [ins+rangeCount,count-1]
-      if (range.root != null) range.root.key.off += ins
+        // newBefore [0, ins-1] + range [now: ins, ins + rangeLength-1] + newAfter [ins+rangeLength,count-1]
+        if (range.root != null) range.root.key.off += ins
 
-      val newBeforeAndRange = (new Set).merge(newBefore, range)
-      assert(newBeforeAndRange.asNodePos.range.length == OffsetRange(0, ins + rangeLength - 1).length, "cutInsert: newBeforeAndRange: " + newBeforeAndRange.asNodePos.range.length + " == " + OffsetRange(0, ins + rangeLength - 1).length)
+        val newBeforeAndRange = (new Set).merge(newBefore, range)
+        if (newBeforeAndRange.isNotEmpty) assert(newBeforeAndRange.asNodePos.range.length == OffsetRange(0, ins + rangeLength - 1).length, "cutInsert: newBeforeAndRange: " + newBeforeAndRange.asNodePos.range.length + " == " + OffsetRange(0, ins + rangeLength - 1).length)
 
-      if (newAfter.root != null) newAfter.root.key.off = ins + rangeLength
-      merge(newBeforeAndRange, newAfter)
-      assert(asNodePos.range.length == OffsetRange(0, count - 1).length, "out: before: " + asNodePos.range.length + " == " + OffsetRange(0, count - 1).length)
+        if (newAfter.root != null) newAfter.root.key.off += ins + rangeLength
+        merge(newBeforeAndRange, newAfter)
+        assert(asNodePos.range.length == OffsetRange(0, count - 1).length, "out: before: " + asNodePos.range.length + " == " + OffsetRange(0, count - 1).length)
 
-      //val total = if (range.root != null) range.root.treeString else 0
-      //addUp(range.root)
+        //val total = if (range.root != null) range.root.treeString else 0
+        //addUp(range.root)
 
-      //       if (debug)
-      //       {
-      //         println(
-      //           "// s.sum(" + format(l) + ", " + format(r) + ") // = " + format(total) +
-      //             " // " + format(check.foldLeft(0L)((sum, key) => if (l <= key && key <= r) sum + key else sum)) +
-      //             " // " + check.filter(key => (l <= key && key <= r)))
-      //       }
+        //       if (debug)
+        //       {
+        //         println(
+        //           "// s.sum(" + format(l) + ", " + format(r) + ") // = " + format(total) +
+        //             " // " + format(check.foldLeft(0L)((sum, key) => if (l <= key && key <= r) sum + key else sum)) +
+        //             " // " + check.filter(key => (l <= key && key <= r)))
+        //       }
 
-      //merge(before, (new Set).merge(range, after))
+        //merge(before, (new Set).merge(range, after))
+      }
     }
 
     //def findNext(i: Int): Tree = next(find(i))
