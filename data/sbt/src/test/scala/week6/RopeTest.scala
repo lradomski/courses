@@ -362,12 +362,23 @@ extends FunSuite with Checkers
 
   def verify(tc: TextCutter, s: String, l: Int, r: Int, ins: Int): String =
   {
-    tc.cutInsert(l, r, ins)
+    try
+    {
+      tc.cutInsert(l, r, ins)
 
-    val out = tc.toString
-    val test = naiveCutInsert(s, l, r, ins)
-    assert(out == test, out + "==" + test)
-    out
+      val out = tc.toString
+      val test = naiveCutInsert(s, l, r, ins)
+      assert(out == test, out + "==" + test)
+      out
+    }
+    catch
+      {
+        case e: Throwable =>
+          {
+            println(List(l,r,ins))
+            throw e
+          }
+      }
 
   }
 
@@ -380,7 +391,7 @@ extends FunSuite with Checkers
         s <- Arbitrary.arbitrary[String]
         l <- Gen.choose(0,s.length-1)
         r <- Gen.choose(l, s.length-1)
-        ins <- Gen.choose(0, s.length-(r-l+1)-1)
+        ins <- Gen.choose(0, s.length-(r-l+1))
       } yield (s,l,r, ins)
 
 //    val gen = ranges
@@ -389,7 +400,7 @@ extends FunSuite with Checkers
         val (s,l,r,i) = slri
         0 <= l && l <= r && r < s.length  &&
         0 < r-l+1 &&
-        0 <= i && i < s.length-(r-l+1)
+        0 <= i && i <= s.length-(r-l+1)
         //true
       }) // Arbitrary.arbitrary[(Int,Int)]
 
@@ -409,11 +420,174 @@ extends FunSuite with Checkers
 
   }
 
+  test("TextCutter-cutInsert/gen2")
+  {
+    var c = 0
+    check
+    {
+      forAll((in: String) =>
+      {
+        val tc = new TextCutter(in)
+        var s = in
+        val cuts =
+          for {
+            l <- Gen.choose(0,s.length-1)
+            r <- Gen.choose(l, s.length-1)
+            ins <- Gen.choose(0, s.length-(r-l+1))
+          } yield (l,r, ins)
+
+        val gen = cuts suchThat (lri =>
+        {
+          val (l,r,i) = lri
+          0 <= l && l <= r && r < s.length  &&
+            0 < r-l+1 &&
+            0 <= i && i <= s.length-(r-l+1)
+        })
+
+        forAll(gen)
+        {
+          case (l,r,ins) =>
+          {
+            c += 1
+            s = verify(tc, s, l, r, ins)
+            true
+          }
+        }
+      })
+    }
+    //println(c)
+  }
+
+  test("TextCutter-cutInsert/gen3")
+  {
+    val strGen = (n: Int) => Gen.listOfN(n, Gen.alphaChar).map(_.mkString)
+    //val s = "abcde"
+
+    val ranges =
+      for {
+        s <- strGen(300*1000)
+        l <- Gen.choose(0,s.length-1)
+        r <- Gen.choose(l, s.length-1)
+        ins <- Gen.choose(0, s.length-(r-l+1))
+      } yield (s,l,r, ins)
+
+    //    val gen = ranges
+    val gen = ranges suchThat (slri =>
+    {
+      val (s,l,r,i) = slri
+      0 <= l && l <= r && r < s.length  &&
+        0 < r-l+1 &&
+        0 <= i && i <= s.length-(r-l+1)
+      //true
+    }) // Arbitrary.arbitrary[(Int,Int)]
+
+
+    check
+    {
+
+      forAll(gen)
+      {
+        case (s,l,r,ins) =>
+        {
+          verify(s, l, r, ins)
+          true
+        }
+      }
+    }
+
+  }
+
+  test("TextCutter-cutInsert/gen4")
+  {
+    check
+    {
+      val strGen = (n: Int) => Gen.listOfN(n, Gen.alphaChar).map(_.mkString)
+
+      forAll(strGen(300*1000))
+      {
+        case in =>
+        {
+          val tc = new TextCutter(in)
+          var s = in
+          val cuts =
+            for
+            {
+              l <- Gen.choose(0, s.length - 1)
+              r <- Gen.choose(l, s.length - 1)
+              ins <- Gen.choose(0, s.length - (r - l + 1))
+            } yield (l, r, ins)
+
+          val gen = cuts suchThat (lri =>
+          {
+            val (l, r, i) = lri
+            0 <= l && l <= r && r < s.length &&
+              0 < r - l + 1 &&
+              0 <= i && i <= s.length - (r - l + 1)
+          })
+
+          forAll(gen)
+          {
+            case (l, r, ins) =>
+            {
+              s = verify(tc, s, l, r, ins)
+              true
+            }
+          }
+        }
+      }
+    }
+  }
+
+  test("Set-del")
+  {
+    val in = "abcdefghijklmnopqrstuvwxyz"
+    val tc = new TextCutter(in)
+    val s = tc.s
+
+    while(s.asNodePos.isNotNull)
+      {
+        val len = s.asNodePos.range.length
+        val max = s.max
+        s.del(max)
+        if (s.asNodePos.isNotNull) assert(s.asNodePos.range.length + 1 == len)
+      }
+  }
+
+  test("TextCutter-cutInsert/gen5")
+  {
+    val in = "abcdefghijklmnopqrstuvwxyz"
+    val tc = new TextCutter(in)
+
+    val cuts = (for
+      {
+        l <- 0 until in.length
+        r <- l until in.length
+        i <- 0 to in.length-(r+1-l)
+      } yield (l,r,i)).toArray
+
+
+    cuts.foldLeft(in)(
+      (s,lri) =>
+        {
+//          if (lri == (5,25,1))
+//            {
+//              val i = 0
+//            }
+          verify(tc, s, lri._1, lri._2, lri._3)
+        }
+      )
+  }
+
   test("TextCutter-cutInsert/failed")
   {
-//    verify("a",0,0,0)
-//    verify("abc",2,2,0)
+    verify("a",0,0,0)
+    verify("abc",2,2,0)
     verify("abcde",2,3,2)
+  }
 
+
+  test("TextCutter-cutInsert/failed2")
+  {
+    verify("abcdefghijklmnopqrstuvwxyz",5,25,1)
   }
 }

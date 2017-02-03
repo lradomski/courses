@@ -32,7 +32,7 @@ object Rope
   {
     def absPos = if (n != null) n.key.absPos(parentPos) else 0
 
-    assert(absPos >= 0, "absPos>=0 (" + absPos + ")")
+    //assert(absPos >= 0, "absPos>=0 (" + absPos + ")")
 
     def isNull = n == null
 
@@ -773,7 +773,7 @@ object Rope
         assert(0 <= ins)
         val rangeLength = (r + 1 - l)
         val noRangeLength = count - rangeLength
-        assert(if (noRangeLength > 0) ins < noRangeLength else ins==0)
+        assert(ins <= noRangeLength)
 
         val (before, rangeSuperset) = split(l - 1)
         val (range, after) = rangeSuperset.split(r - l)
@@ -843,7 +843,7 @@ object Rope
 
   class TextCutter(in: String)
   {
-    private val s = new Set
+    val s = new Set
     in.foldLeft(0)((i, ch) =>
     {
       s.add(ch, i); i + 1
