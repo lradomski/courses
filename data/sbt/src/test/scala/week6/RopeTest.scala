@@ -1,4 +1,4 @@
-import Rope.{CharOffset, NodePos, EmptyNodePos, OffsetRange, Tree, Set}
+import Rope.{CharOffset, EmptyNodePos, NodePos, OffsetRange, Set, TextCutter, Tree}
 import org.scalacheck.{Arbitrary, Gen}
 import org.scalacheck.Prop.forAll
 import org.scalatest.FunSuite
@@ -322,7 +322,28 @@ extends FunSuite with Checkers
     assert(before.text == in.substring(0,idx+1))
 
     assert(after.text == in.substring(idx+1))
+  }
 
+  def naiveCutInsert(s: String, l: Int, r: Int, ins: Int): String =
+  {
+    val noRange = (s.substring(0, l) + s.substring(r+1))
 
+    val before = noRange.substring(0, ins)
+    val range = s.substring(l, r+1)
+    val after = noRange.substring(ins)
+
+    before + range + after
+  }
+
+  test("TextCutter-cutInsert/1")
+  {
+    val s = "acdbe"
+    val tc = new TextCutter(s)
+
+    tc.cutInsert(1,2,2)
+
+    val out = tc.toString
+    val test = naiveCutInsert(s, 1,2,2)
+    assert(out == test)
   }
 }
