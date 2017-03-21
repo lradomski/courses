@@ -24,8 +24,8 @@ object StackOverflow extends StackOverflow {
     val raw     = rawPostings(lines)
     val grouped = groupedPostings(raw)
     val scored  = scoredPostings(grouped)
-    val vectors = vectorPostings(scored)
-//    assert(vectors.count() == 2121822, "Incorrect number of vectors: " + vectors.count())
+    val vectors = vectorPostings(scored).cache()
+    assert(vectors.count() == 2121822, "Incorrect number of vectors: " + vectors.count())
 
     val means   = kmeans(sampleVectors(vectors), vectors, debug = true)
     val results = clusterResults(means, vectors)
@@ -78,7 +78,9 @@ class StackOverflow extends Serializable {
 
   /** Group the questions and answers together */
   def groupedPostings(postings: RDD[Posting]): RDD[(Int, Iterable[(Posting, Posting)])] = {
-    ???
+    val qs = postings.filter(_.postingType==1).map(p => (p.id,p))
+    val as = postings.filter(p => p.postingType==2  && p.parentId.isDefined).map(p => (p.parentId.get,p))
+    qs.join(as).groupByKey()
   }
 
 
@@ -97,7 +99,15 @@ class StackOverflow extends Serializable {
       highScore
     }
 
-    ???
+    grouped.map(_._2).map(
+      qas =>
+        {
+          val q: Posting = qas.head._1
+          val max: Int = if (qas.isEmpty) 0 else qas.map(_._2.score).max //qas.maxBy(qa => qa._2.score)//(`qa => qa._2.score) //.max //maxBy(_._2.score)
+          (q,max)
+        }
+    )
+    //grouped.map(idQAs => (idQAs._1, idQAs._2.map(_._2))).map(idAs => (idAs._1, answerHighScore(idAs._2.toArray))))
   }
 
 
@@ -108,7 +118,8 @@ class StackOverflow extends Serializable {
       if (tag.isEmpty) None
       else if (ls.isEmpty) None
       else if (tag.get == ls.head) Some(0) // index: 0
-      else {
+      else
+      {
         val tmp = firstLangInTag(tag, ls.tail)
         tmp match {
           case None => None
@@ -117,7 +128,10 @@ class StackOverflow extends Serializable {
       }
     }
 
-    ???
+    scored
+      .map(ps => (firstLangInTag(ps._1.tags, langs), ps._2))
+      .filter(_._1.isDefined)
+      .map(ls => (ls._1.get*langSpread, ls._2))
   }
 
 
@@ -272,13 +286,20 @@ class StackOverflow extends Serializable {
     val closest = vectors.map(p => (findClosest(p, means), p))
     val closestGrouped = closest.groupByKey()
 
-    val median = closestGrouped.mapValues { vs =>
-      val langLabel: String   = ??? // most common language in the cluster
-      val langPercent: Double = ??? // percent of the questions in the most common language
-      val clusterSize: Int    = ???
-      val medianScore: Int    = ???
+    val totalCount = vectors.count()
 
-      (langLabel, langPercent, clusterSize, medianScore)
+
+
+    val median = closestGrouped.mapValues { vs =>
+      val cLangs = vs.groupBy(_._1).map(lvs => (lvs._1, lvs._2.size)).toArray.sortBy(-1 * _._2)
+
+
+      val langLabel: String   = langs(cLangs(0)._1/langSpread) // most common language in the cluster
+      val clusterSize: Int    = vs.size // ???
+      val langPercent: Double = cLangs(0)._2/clusterSize // percent of the questions in the most common language
+      val medianScore: Int    = -1 // ???
+
+      (langLabel, langPercent, clusterSize, cLangs.size) //medianScore)
     }
 
     median.collect().map(_._2).sortBy(_._4)
