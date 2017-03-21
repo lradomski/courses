@@ -1,9 +1,11 @@
 package stackoverflow
 
+import org.apache.log4j.{Level, Logger}
 import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
 import org.apache.spark.SparkContext._
 import org.apache.spark.rdd.RDD
+
 import annotation.tailrec
 import scala.reflect.ClassTag
 
@@ -14,8 +16,9 @@ case class Posting(postingType: Int, id: Int, acceptedAnswer: Option[Int], paren
 /** The main class */
 object StackOverflow extends StackOverflow {
 
-  @transient lazy val conf: SparkConf = new SparkConf().setMaster("local").setAppName("StackOverflow")
+  @transient lazy val conf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("StackOverflow")
   @transient lazy val sc: SparkContext = new SparkContext(conf)
+  //Logger.getRootLogger().setLevel(Level.WARN)
 
   /** Main function */
   def main(args: Array[String]): Unit = {
@@ -274,9 +277,6 @@ class StackOverflow extends Serializable {
     ((comp1 / count).toInt, (comp2 / count).toInt)
   }
 
-
-
-
   //
   //
   //  Displaying results:
@@ -291,15 +291,13 @@ class StackOverflow extends Serializable {
 
 
     val median = closestGrouped.mapValues { vs =>
-      val cLangs = vs.groupBy(_._1).map(lvs => (lvs._1, lvs._2.size)).toArray.sortBy(-1 * _._2)
+      val langLabel: String   = langs(vs.head._1/langSpread) // most common language in the cluster
+      val clusterSize: Int    = vs.size
+      val langPercent: Double = clusterSize.toDouble/totalCount * 100.0 // percent of the questions in the most common language
+      val sorted = vs.map(_._2).toArray.sorted
+      val medianScore: Int = sorted(clusterSize/2)
 
-
-      val langLabel: String   = langs(cLangs(0)._1/langSpread) // most common language in the cluster
-      val clusterSize: Int    = vs.size // ???
-      val langPercent: Double = cLangs(0)._2/clusterSize // percent of the questions in the most common language
-      val medianScore: Int    = -1 // ???
-
-      (langLabel, langPercent, clusterSize, cLangs.size) //medianScore)
+      (langLabel, langPercent, clusterSize, medianScore)
     }
 
     median.collect().map(_._2).sortBy(_._4)
