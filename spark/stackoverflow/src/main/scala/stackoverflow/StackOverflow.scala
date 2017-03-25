@@ -16,7 +16,7 @@ case class Posting(postingType: Int, id: Int, acceptedAnswer: Option[Int], paren
 /** The main class */
 object StackOverflow extends StackOverflow {
 
-  @transient lazy val conf: SparkConf = new SparkConf().setMaster("local[2]").setAppName("StackOverflow")
+  @transient lazy val conf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("StackOverflow")
   @transient lazy val sc: SparkContext = new SparkContext(conf)
   //Logger.getRootLogger().setLevel(Level.WARN)
 
@@ -27,8 +27,8 @@ object StackOverflow extends StackOverflow {
     val raw     = rawPostings(lines)
     val grouped = groupedPostings(raw)
     val scored  = scoredPostings(grouped)
-    val vectors = vectorPostings(scored).cache()
-    assert(vectors.count() == 2121822, "Incorrect number of vectors: " + vectors.count())
+    val vectors = vectorPostings(scored).cache() //persist() //cache()
+    //assert(vectors.count() == 2121822, "Incorrect number of vectors: " + vectors.count())
 
     val means   = kmeans(sampleVectors(vectors), vectors, debug = true)
     val results = clusterResults(means, vectors)
@@ -113,6 +113,14 @@ class StackOverflow extends Serializable {
     //grouped.map(idQAs => (idQAs._1, idQAs._2.map(_._2))).map(idAs => (idAs._1, answerHighScore(idAs._2.toArray))))
   }
 
+//  def scoredPostings2(postings: RDD[Posting]): RDD[(Posting, Int)] =
+//  {
+//    val qs = postings.filter(_.postingType==1).map(p => (p.id,p))
+//    val as = postings.filter(p => p.postingType==2  && p.parentId.isDefined).map(p => (p.parentId.get,p))
+//    val joined = qs.join(as)
+//    joined.aggregateByKey(0)((s,pp) => Math.max(pp._2.score, s), Math.max(_,_))
+//  }
+
 
   /** Compute the vectors for the kmeans */
   def vectorPostings(scored: RDD[(Posting, Int)]): RDD[(Int, Int)] = {
@@ -188,7 +196,10 @@ class StackOverflow extends Serializable {
   //
 
   /** Main kmeans computation */
-  @tailrec final def kmeans(means: Array[(Int, Int)], vectors: RDD[(Int, Int)], iter: Int = 1, debug: Boolean = false): Array[(Int, Int)] = {
+  @tailrec final def kmeans(means: Array[(Int, Int)], in: RDD[(Int, Int)], iter: Int = 1, debug: Boolean = false): Array[(Int, Int)] = {
+
+
+    val vectors = in.cache()
 
 //    val closest = vectors.map(p => (findClosest(p, means), p))
     val meansIndex = means.zipWithIndex
@@ -205,6 +216,7 @@ class StackOverflow extends Serializable {
     val closest = vectors.map(p => (meansIndex.minBy(pi => (euclideanDistance(pi._1, p)))._2, p))
 
     val (x: Long, y: Long, count: Long) = (0L,0L,0L)
+
     val newMeansMap: Map[Int, (Int,Int)] = closest.aggregateByKey((x,y,count))(
       (a,p) => (a._1+p._1, a._2+p._2, a._3+1),
       (l,r) => (l._1 + r._1, l._2 + r._2, l._3 + r._3)
@@ -315,10 +327,6 @@ class StackOverflow extends Serializable {
   def clusterResults(means: Array[(Int, Int)], vectors: RDD[(Int, Int)]): Array[(String, Double, Int, Int)] = {
     val closest = vectors.map(p => (findClosest(p, means), p))
     val closestGrouped = closest.groupByKey()
-
-    val totalCount = vectors.count()
-
-
 
     val median = closestGrouped.mapValues { vs =>
       val langsInCluster = vs.groupBy(_._1).map(lPs => (lPs._1, lPs._2.size))
