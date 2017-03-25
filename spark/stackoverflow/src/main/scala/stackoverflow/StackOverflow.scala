@@ -16,7 +16,7 @@ case class Posting(postingType: Int, id: Int, acceptedAnswer: Option[Int], paren
 /** The main class */
 object StackOverflow extends StackOverflow {
 
-  @transient lazy val conf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("StackOverflow")
+  @transient lazy val conf: SparkConf = new SparkConf().setMaster("local[2]").setAppName("StackOverflow")
   @transient lazy val sc: SparkContext = new SparkContext(conf)
   //Logger.getRootLogger().setLevel(Level.WARN)
 
@@ -190,18 +190,38 @@ class StackOverflow extends Serializable {
   /** Main kmeans computation */
   @tailrec final def kmeans(means: Array[(Int, Int)], vectors: RDD[(Int, Int)], iter: Int = 1, debug: Boolean = false): Array[(Int, Int)] = {
 
-    val closest = vectors.map(p => (findClosest(p, means), p))
+//    val closest = vectors.map(p => (findClosest(p, means), p))
+    val meansIndex = means.zipWithIndex
 
+//    val closest = vectors.map(p =>
+//    {
+//      val ret = findClosest(p, means)
+//      val ret2 = meansIndex.minBy(pi => euclideanDistance(pi._1, p))._2
+//      assert(ret == ret2)
+//      (ret, p)
+//
+//    })
 
-    val newMeansMap = closest.groupByKey().mapValues(averageVectors(_)).collect().toMap
-    val newMeans = (for(i <- 0 until means.length) yield if (newMeansMap.contains(i)) newMeansMap(i) else means(i)).toArray
+    val closest = vectors.map(p => (meansIndex.minBy(pi => (euclideanDistance(pi._1, p)))._2, p))
+
+    val (x: Long, y: Long, count: Long) = (0L,0L,0L)
+    val newMeansMap: Map[Int, (Int,Int)] = closest.aggregateByKey((x,y,count))(
+      (a,p) => (a._1+p._1, a._2+p._2, a._3+1),
+      (l,r) => (l._1 + r._1, l._2 + r._2, l._3 + r._3)
+    ).mapValues(a => ((a._1/a._3).toInt, (a._2/a._3).toInt)).collect().toMap withDefault(i => means(i))
+
+    val newMeans: Array[(Int,Int)] = (for(i <- 0 until means.length) yield newMeansMap(i)).toArray
+
+//    val newMeansMap2 = closest.groupByKey().mapValues(ps => averageVectors(ps)).collect().toMap withDefault(i => means(i))
+//    val newMeans2 = (for(i <- 0 until means.length) yield newMeansMap2(i)).toArray
+//    assert( newMeans.zip(newMeans2).forall( lr => lr._1 == lr._2))
+
     assert(newMeans.length == means.length)
 
-//    newMeans.
-
-    //val newMeans = means.clone() // you need to compute newMeans
 
     // TODO: Fill in the newMeans array
+    //val newMeans = means.clone() // you need to compute newMeans
+
     val distance = euclideanDistance(means, newMeans)
 
     if (debug) {
@@ -307,7 +327,8 @@ class StackOverflow extends Serializable {
       val clusterSize: Int    = vs.size
       val langPercent: Double = mostCommon._2.toDouble/clusterSize.toDouble * 100.0 // percent of the questions in the most common language
       val sorted = vs.map(_._2).toArray.sorted
-      val medianScore: Int = sorted(clusterSize/2)
+//      val sorted = vs.
+      val medianScore: Int = if (sorted.length % 2 == 0) (sorted(clusterSize/2-1)+sorted(clusterSize/2))/2 else sorted(clusterSize/2)
 
       (langLabel, langPercent, clusterSize, medianScore)
     }
