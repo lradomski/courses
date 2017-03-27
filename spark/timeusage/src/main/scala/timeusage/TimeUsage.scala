@@ -1,9 +1,12 @@
 package timeusage
 
-import java.nio.file.Paths
+import java.io.{BufferedWriter, File, FileWriter}
+import java.nio.file.{Path, Paths}
+import java.util.Scanner
 
 import org.apache.spark.sql._
 import org.apache.spark.sql.types._
+
 
 /** Main class */
 object TimeUsage
@@ -22,9 +25,22 @@ object TimeUsage
   // For implicit conversions like converting RDDs to DataFrames
   import spark.implicits._
 
+  def lrTrruncate() =
+  {
+    val s = new Scanner(new File(fsPath("/timeusage/atussum.csv")) )
+    val out = new File("/Users/luke/git/courses/spark/timeusage/src/main/resources/timeusage/test.csv")
+    val bw = new BufferedWriter(new FileWriter(out))
+    for (i <- 1 to 100) bw.write(s.next() + "\n")
+    bw.close()
+
+  }
+
+  def lrtest() = println("Test!")
+
   /** Main function */
   def main(args: Array[String]): Unit =
   {
+    //lrTrruncate()
     timeUsageByLifePeriod()
   }
 
@@ -37,10 +53,12 @@ object TimeUsage
     finalDf.show()
   }
 
+  def lrGetRdd(resource: String) = spark.sparkContext.textFile(fsPath(resource))
+
   /** @return The read DataFrame along with its column names. */
   def read(resource: String): (List[String], DataFrame) =
   {
-    val rdd = spark.sparkContext.textFile(fsPath(resource))
+    val rdd = lrGetRdd(resource)
 
     val headerColumns = rdd.first().split(",").to[List]
     // Compute the schema based on the first line of the CSV file
@@ -193,9 +211,10 @@ when(people("gender") === "male", 0)
   def timeUsageGrouped(summed: DataFrame): DataFrame =
   {
     summed
-      .select($"working", $"sex", $"age") //, $"primaryNeeds", $"work", $"other") // )
+      .select($"working", $"sex", $"age", $"primaryNeeds", $"work", $"other") // )
       .groupBy($"working", $"sex", $"age")
       .agg(round(avg($"primaryNeeds"), 1), round(avg($"work"), 1), round(avg($"other"), 1))
+//      .agg(round(avg($"primaryNeeds"), 1).alias("primaryNeeds"), round(avg($"work"), 1).alias("work"), round(avg($"other"), 1).alias("other"))
 
   }
 
