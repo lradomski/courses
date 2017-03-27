@@ -260,6 +260,13 @@ when(people("gender") === "male", 0)
     import org.apache.spark.sql.expressions.scalalang.typed
     summed.groupByKey(r => (r.working, r.age, r.sex))
       .agg(avg($"primaryNeeds").as[Double], avg($"work").as[Double], avg($"other").as[Double])
+      .map(
+        kpwo =>
+          {
+            val (working, age, sex, pn, w, o) = (kpwo._1._1, kpwo._1._2, kpwo._1._3, kpwo._2, kpwo._3, kpwo._4)
+            TimeUsageRow(working = working, sex = sex, age = age, primaryNeeds = pn, work = w, other = o)
+          }
+      )
   }
 
   /**
