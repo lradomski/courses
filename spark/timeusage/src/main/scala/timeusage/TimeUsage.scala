@@ -50,8 +50,23 @@ object TimeUsage
     val (columns, initDf) = read("/timeusage/atussum.csv")
     val (primaryNeedsColumns, workColumns, otherColumns) = classifiedColumns(columns)
     val summaryDf = timeUsageSummary(primaryNeedsColumns, workColumns, otherColumns, initDf)
-    val finalDf = timeUsageGrouped(summaryDf)
-    finalDf.show()
+
+//    summaryDf.cache()
+
+    {
+      val finalDf = timeUsageGrouped(summaryDf)
+      finalDf.show()
+    }
+
+//    {
+//      val finalDf = timeUsageGroupedSql(summaryDf)
+//      finalDf.show()
+//    }
+
+//    {
+//      val finalDf = timeUsageGroupedTyped(timeUsageSummaryTyped(summaryDf))
+//      finalDf.show()
+//    }
   }
 
 
@@ -233,8 +248,8 @@ when(people("gender") === "male", 0)
     */
   def timeUsageGroupedSqlQuery(viewName: String): String =
   "SELECT " +
-    "working, sex, age, primaryNeeds, work, other" +
-    "ROUND(AVG(primaryNeeds), 1) as primaryNeeds, ROUND(AVG(work), 1) as work, ROUND(AVG(other), 1) as other" +
+    "working, sex, age, " + //primaryNeeds, work, other " +
+    "ROUND(AVG(primaryNeeds), 1) as primaryNeeds, ROUND(AVG(work), 1) as work, ROUND(AVG(other), 1) as other " +
     "FROM summed GROUP BY working, sex, age "
 
   /**
@@ -277,7 +292,7 @@ when(people("gender") === "male", 0)
   {
     import org.apache.spark.sql.expressions.scalalang.typed
     summed.groupByKey(r => (r.working, r.age, r.sex))
-      .agg(avg($"primaryNeeds").as[Double], avg($"work").as[Double], avg($"other").as[Double])
+      .agg(round(avg($"primaryNeeds"), 1).as[Double], round(avg($"work"), 1).as[Double], round(avg($"other"),1).as[Double])
       .map(
         kpwo =>
           {
