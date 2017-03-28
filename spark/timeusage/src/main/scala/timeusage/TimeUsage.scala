@@ -291,7 +291,7 @@ when(people("gender") === "male", 0)
   def timeUsageGroupedTyped(summed: Dataset[TimeUsageRow]): Dataset[TimeUsageRow] =
   {
     import org.apache.spark.sql.expressions.scalalang.typed
-    summed.groupByKey(r => (r.working, r.age, r.sex))
+    summed.groupByKey(r => (r.working, r.sex, r.age))
       .agg(round(avg($"primaryNeeds"), 1).as[Double], round(avg($"work"), 1).as[Double], round(avg($"other"),1).as[Double])
       .map(
         kpwo =>
