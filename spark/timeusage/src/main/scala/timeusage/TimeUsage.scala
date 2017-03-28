@@ -52,21 +52,53 @@ object TimeUsage
     val summaryDf = timeUsageSummary(primaryNeedsColumns, workColumns, otherColumns, initDf)
 
 //    summaryDf.cache()
+//
+//    var r1: Array[TimeUsageRow] = null
+//    var c1: Array[String] = null
+//
+//    var r2: Array[TimeUsageRow] = null
+//    var c2: Array[String] = null
+//
+//    var r3: Array[TimeUsageRow] = null
+//    var c3: Array[String] = null
 
     {
       val finalDf = timeUsageGrouped(summaryDf)
+//      r1 = timeUsageSummaryTyped(finalDf).collect()
+//      c1 = finalDf.columns
       finalDf.show()
     }
 
 //    {
 //      val finalDf = timeUsageGroupedSql(summaryDf)
+//      r2 = timeUsageSummaryTyped(finalDf).collect()
+//      c2 = finalDf.columns
 //      finalDf.show()
 //    }
-
+//
 //    {
 //      val finalDf = timeUsageGroupedTyped(timeUsageSummaryTyped(summaryDf))
+//      c3 = finalDf.columns
+//      r3 = finalDf.collect()
 //      finalDf.show()
 //    }
+//
+//    assert(r1.length == r2.length)
+//    assert(r3.length == r2.length)
+//
+//    r1.zipWithIndex.foreach( vi =>
+//    {
+//      val (v,i) = (vi._1, vi._2)
+//      assert(v == r2(i), i + "(2): " + v + "==" + r2(i))
+//      assert(v == r3(i), i + "(3): " + v + "==" + r3(i))
+//    })
+//
+//    c1.zipWithIndex.foreach( vi =>
+//    {
+//      val (v,i) = (vi._1, vi._2)
+//      assert(v == c2(i), i + "(2): " + v + "==" + c2(i))
+//      assert(v == c3(i), i + "(3): " + v + "==" + c3(i))
+//    })
   }
 
 
@@ -230,6 +262,7 @@ when(people("gender") === "male", 0)
       .groupBy($"working", $"sex", $"age")
 //      .agg(round(avg($"primaryNeeds"), 1), round(avg($"work"), 1), round(avg($"other"), 1))
       .agg(round(avg($"primaryNeeds"), 1).alias("primaryNeeds"), round(avg($"work"), 1).alias("work"), round(avg($"other"), 1).alias("other"))
+      .orderBy($"working", $"sex", $"age")
   }
 
   /**
@@ -250,7 +283,9 @@ when(people("gender") === "male", 0)
   "SELECT " +
     "working, sex, age, " + //primaryNeeds, work, other " +
     "ROUND(AVG(primaryNeeds), 1) as primaryNeeds, ROUND(AVG(work), 1) as work, ROUND(AVG(other), 1) as other " +
-    "FROM summed GROUP BY working, sex, age "
+    "FROM summed " +
+    "GROUP BY working, sex, age " +
+    "ORDER BY  working, sex, age "
 
   /**
     * @return A `Dataset[TimeUsageRow]` from the “untyped” `DataFrame`
@@ -290,13 +325,13 @@ when(people("gender") === "male", 0)
     */
   def timeUsageGroupedTyped(summed: Dataset[TimeUsageRow]): Dataset[TimeUsageRow] =
   {
-    import org.apache.spark.sql.expressions.scalalang.typed
     summed.groupByKey(r => (r.working, r.sex, r.age))
       .agg(round(avg($"primaryNeeds"), 1).as[Double], round(avg($"work"), 1).as[Double], round(avg($"other"),1).as[Double])
+      .orderBy($"key")
       .map(
         kpwo =>
           {
-            val (working, age, sex, pn, w, o) = (kpwo._1._1, kpwo._1._2, kpwo._1._3, kpwo._2, kpwo._3, kpwo._4)
+            val (working, sex, age, pn, w, o) = (kpwo._1._1, kpwo._1._2, kpwo._1._3, kpwo._2, kpwo._3, kpwo._4)
             TimeUsageRow(working = working, sex = sex, age = age, primaryNeeds = pn, work = w, other = o)
           }
       )
