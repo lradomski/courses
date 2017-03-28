@@ -36,6 +36,7 @@ object TimeUsage
   }
 
   def lrtest() = println("Test!")
+  def lrGetRdd(resource: String) = spark.sparkContext.textFile(fsPath("/timeusage/test.csv"))
 
   /** Main function */
   def main(args: Array[String]): Unit =
@@ -53,12 +54,11 @@ object TimeUsage
     finalDf.show()
   }
 
-  def lrGetRdd(resource: String) = spark.sparkContext.textFile(fsPath(resource))
 
   /** @return The read DataFrame along with its column names. */
   def read(resource: String): (List[String], DataFrame) =
   {
-    val rdd = lrGetRdd(resource)
+    val rdd = spark.sparkContext.textFile(fsPath(resource))
 
     val headerColumns = rdd.first().split(",").to[List]
     // Compute the schema based on the first line of the CSV file
@@ -96,7 +96,7 @@ object TimeUsage
   /** @return An RDD Row compatible with the schema produced by `dfSchema`
     * @param line Raw fields
     */
-  def row(line: List[String]): Row = Row(line.head :: line.tail.map(_.toDouble))
+  def row(line: List[String]): Row = Row.fromSeq(line.head :: line.tail.map(_.toDouble))
 
 
   /** @return The initial data frame columns partitioned in three groups: primary needs (sleeping, eating, etc.),
@@ -213,9 +213,8 @@ when(people("gender") === "male", 0)
     summed
       .select($"working", $"sex", $"age", $"primaryNeeds", $"work", $"other") // )
       .groupBy($"working", $"sex", $"age")
-      .agg(round(avg($"primaryNeeds"), 1), round(avg($"work"), 1), round(avg($"other"), 1))
-//      .agg(round(avg($"primaryNeeds"), 1).alias("primaryNeeds"), round(avg($"work"), 1).alias("work"), round(avg($"other"), 1).alias("other"))
-
+//      .agg(round(avg($"primaryNeeds"), 1), round(avg($"work"), 1), round(avg($"other"), 1))
+      .agg(round(avg($"primaryNeeds"), 1).alias("primaryNeeds"), round(avg($"work"), 1).alias("work"), round(avg($"other"), 1).alias("other"))
   }
 
   /**
@@ -234,8 +233,8 @@ when(people("gender") === "male", 0)
     */
   def timeUsageGroupedSqlQuery(viewName: String): String =
   "SELECT " +
-    "working, sex, age, " +
-    "ROUND(AVG(primaryNeeds), 1), ROUND(AVG(work), 1), ROUND(AVG(other), 1) " +
+    "working, sex, age, primaryNeeds, work, other" +
+    "ROUND(AVG(primaryNeeds), 1) as primaryNeeds, ROUND(AVG(work), 1) as work, ROUND(AVG(other), 1) as other" +
     "FROM summed GROUP BY working, sex, age "
 
   /**
