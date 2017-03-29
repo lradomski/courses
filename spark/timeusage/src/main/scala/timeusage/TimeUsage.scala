@@ -36,7 +36,7 @@ object TimeUsage
   }
 
   def lrtest() = println("Test!")
-  def lrGetRdd(resource: String) = spark.sparkContext.textFile(fsPath("/timeusage/test.csv"))
+  def lrGetRdd() = spark.sparkContext.textFile(fsPath("/timeusage/test.csv"))
 
   /** Main function */
   def main(args: Array[String]): Unit =
